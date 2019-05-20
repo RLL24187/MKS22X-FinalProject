@@ -6,6 +6,7 @@ class Game {
   
 
   void setup() {
+    ArrayList<Bullet> b = new ArrayList<Bullet>();
   }
   void display() {
   }
