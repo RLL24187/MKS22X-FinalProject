@@ -8,16 +8,30 @@ class Player {
     speed = quick;
     this.name = name;
   }
-  void move(keyCode movement) {
-    if (movement == UP) {
-      y -= speed;
-    } else if (movement == DOWN) {
-      y += speed;
-    } else if (movement == LEFT) {
-      x -= speed;
-    } else if (movement == RIGHT) {
-      x += speed;
+  void keyPressed() {
+    if (key == CODED) {
+      if (keyCode == UP) {
+        y -= speed;
+      } else if (keyCode == DOWN) {
+        y += speed;
+      } else if (keyCode == LEFT) {
+        x -= speed;
+      } else if (keyCode == RIGHT) {
+        x += speed;
+      }
     }
   }
-  
+  void shoot() {
+    //edit constructors later
+    b.add(new Bullet(10, 255, 124, 123, 1, x, y);
+  }
+  void die() {
+    lives--;
+    if (lives < 0) {
+      endScreen();
+    }
+  }
+  void display() {
+    
+  }
 }

@@ -1,5 +1,5 @@
 class Game {
-  //check if key is coded or not for movement/shooting
+  //create method called endScreen
   Player p;
   Monster[] m;
   
