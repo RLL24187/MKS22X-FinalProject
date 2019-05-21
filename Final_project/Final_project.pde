@@ -2,7 +2,6 @@ import java.util.*;
 class Game {
   //create method called endScreen
   Player p;
-  Monster[] m;
 
   ArrayList<Monster> m;
   ArrayList<Bullet> b;
@@ -11,8 +10,6 @@ class Game {
 
   void display() {
   }
-
-}
 
   void update() {
   }

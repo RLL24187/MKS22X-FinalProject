@@ -24,7 +24,7 @@ class Player implements Killable {
       //shoot
       if (key == ' ') {
         //edit bullet constructors later
-        b.add(new Bullet(10, 255, 124, 123, 1, x, y);
+        b.add(new Bullet(10, 255, 124, 123, 1, x, y));
       }
     }
   }
