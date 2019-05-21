@@ -19,6 +19,11 @@ class Game {
 }
 void setup() {
   ArrayList<Bullet> b = new ArrayList<Bullet>();
+  b.add(new Bullet(2, 25, 10, 89, 5, 10, 10));
 }
 void draw(){
+  setup();
+  for (Bullet bul: b){
+    bul.display();
+  }
 }
