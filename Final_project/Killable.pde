@@ -1,3 +1,3 @@
-interface Killable{
-  void die();
+interface Killable {
+  void die(ArrayList<Killable> k);
 }
