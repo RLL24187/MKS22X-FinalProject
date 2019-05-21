@@ -1,3 +1,4 @@
+import java.util.*;
 class Bullet implements Killable{
   int damage;
   int red;
@@ -20,9 +21,10 @@ class Bullet implements Killable{
     return false;
   }
   
-  void die(){
-    
+  void die(ArrayList<Bullet> b){
+    b.remove(this);
   }
+  
   void display(){
     fill(red, green, blue);
     circle(x, y, radius);
