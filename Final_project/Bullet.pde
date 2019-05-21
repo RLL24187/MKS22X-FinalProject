@@ -23,7 +23,7 @@ class Bullet implements Killable {
   }
 
   void die(ArrayList<Killable> k) {
-    b.remove(this);
+    k.remove(this);
   }
 
   void display() {
