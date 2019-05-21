@@ -22,3 +22,9 @@ void setup() {
 }
 void draw(){
 }
+
+void endScreen() {
+  textSize(100);
+  fill(255, 0, 0);
+  text("YOU DIED.", height/2, width/2);
+}
