@@ -1,4 +1,3 @@
 interface Killable{
-  void die(){
-  }
+  void die();
 }
