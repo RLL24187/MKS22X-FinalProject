@@ -11,7 +11,7 @@ class Game {
     m = new ArrayList<Monster>();
     b = new ArrayList<Bullet>();
     k = new ArrayList<Killable>();
-    p = new Player(1, "Sadboi", width/2, height/2, 20);
+    p = new Player(1, "Sadboi", width/2, height/2, 20, 10);
   }
 
   void display() {
@@ -20,20 +20,20 @@ class Game {
   void update() {
   }
 }
+Game g = new Game();
 void setup() {
   size(500, 500);
-  Game g = new Game();
   g.b.add(new Bullet(2, 25, 10, 89, 5, 10, 10));
 }
 void draw() {
   //setup();
-  Game g = new Game();
+
   g.b.add(new Bullet(2, 25, 10, 89, 20, 100, 100));
   for (Bullet bul : g.b) {
     bul.display();
   }
   g.p.display();
-  g.p.keyPressed(g.b);
+  g.p.move();
 }
 
 void endScreen() {
