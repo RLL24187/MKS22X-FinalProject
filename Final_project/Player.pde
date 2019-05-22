@@ -8,7 +8,7 @@ class Player implements Killable {
     speed = quick;
     this.name = name;
   }
-  void keyPressed() {
+  void keyPressed(ArrayList<Bullet> b) {
     //move
     if (key == CODED) {
       if (keyCode == UP) {
