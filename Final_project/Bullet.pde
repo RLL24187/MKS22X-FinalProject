@@ -17,8 +17,14 @@ class Bullet implements Killable {
     this.x = x;
     this.y = y;
   }
-
+  
+  boolean inRadius (Killable k){
+  }
   boolean inContact(ArrayList<Killable> k) {
+    for (Killable obj : k){
+      if (x + radius >= obj.x){
+        return true;
+      }
     return false;
   }
 
