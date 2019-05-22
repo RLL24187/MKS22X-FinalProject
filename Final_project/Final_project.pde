@@ -21,6 +21,7 @@ class Game {
   }
 }
 void setup() {
+  size(500, 500);
   Game g = new Game();
   g.b.add(new Bullet(2, 25, 10, 89, 5, 10, 10));
 }
