@@ -28,7 +28,7 @@ class Bullet implements Killable {
 
   void display() {
     fill(red, green, blue);
-    circle(x, y, radius);
+    ellipse(x, y, radius, radius);
   }
   void splitIt() {
   }
