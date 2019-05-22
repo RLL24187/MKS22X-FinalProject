@@ -2,6 +2,7 @@ import java.util.*;
 class Game {
   //create method called endScreen
   Player p;
+
   ArrayList<Monster> m;
   ArrayList<Bullet> b;
   ArrayList<Killable> k;
@@ -15,9 +16,9 @@ class Game {
 
   void display() {
   }
-}
 
-void update() {
+  void update() {
+  }
 }
 void setup() {
   Game g = new Game();
@@ -30,4 +31,10 @@ void draw() {
   for (Bullet bul : g.b) {
     bul.display();
   }
+}
+
+void endScreen() {
+  textSize(100);
+  fill(255, 0, 0);
+  text("YOU DIED.", height/2, width/2);
 }
