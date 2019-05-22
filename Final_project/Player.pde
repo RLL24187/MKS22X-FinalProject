@@ -8,7 +8,7 @@ class Player implements Killable {
     speed = quick;
     this.name = name;
   }
-  void keyPressed() {
+  void keyPressed(ArrayList<Bullet> b) {
     //move
     if (key == CODED) {
       if (keyCode == UP) {
@@ -24,12 +24,12 @@ class Player implements Killable {
       //shoot
       if (key == ' ') {
         //edit bullet constructors later
-        b.add(new Bullet(10, 255, 124, 123, 1, x, y);
+        b.add(new Bullet(10, 255, 124, 123, 1, x, y));
       }
     }
   }
 
-  void die() {
+  void die(ArrayList<Killable> k) {
     lives--;
     if (lives < 0) {
       endScreen();
