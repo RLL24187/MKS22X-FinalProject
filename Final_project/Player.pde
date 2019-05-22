@@ -29,7 +29,7 @@ class Player implements Killable {
     }
   }
 
-  void die() {
+  void die(ArrayList<Killable> k) {
     lives--;
     if (lives < 0) {
       endScreen();
