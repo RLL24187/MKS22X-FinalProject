@@ -19,6 +19,12 @@ class Game {
 
   void update() {
   }
+
+  void endScreen() {
+    textSize(100);
+    fill(255, 0, 0);
+    text("YOU DIED.", height/2, width/2);
+  }
 }
 Game g = new Game();
 void setup() {
@@ -29,15 +35,13 @@ void draw() {
   //setup();
   background(255);
   g.b.add(new Bullet(2, 25, 10, 89, 5, 100, 100));
+  g.m.add(new Stan(250, 250, 10, 1, 0, "Stan", 10, 10, 10));
   for (Bullet bul : g.b) {
     bul.display();
   }
-  g.p.display();
+  for (Monster mon : g.m) {
+    mon.display();
+  }
   g.p.move();
-}
-
-void endScreen() {
-  textSize(100);
-  fill(255, 0, 0);
-  text("YOU DIED.", height/2, width/2);
+  g.p.display();
 }

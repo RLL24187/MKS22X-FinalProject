@@ -18,30 +18,30 @@ abstract class Monster implements Killable{
   void changeHp(int newHp) {
     hp = newHp;
   }
-  int getX() {
-    return x;
-  }
-  int getY() {
-    return y;
-  }
-  int getHp() {
-    return hp;
-  }
-  int getLevel() {
-    return level;
-  } 
-  String getSpecies() {
-    return species;
-  }
-  int getPower() {
-    return power;
-  }
-  int getSize() {
-    return size;
-  }
-  int getSpeed() {
-    return speed;
-  }
+  //int getX() {
+  //  return x;
+  //}
+  //int getY() {
+  //  return y;
+  //}
+  //int getHp() {
+  //  return hp;
+  //}
+  //int getLevel() {
+  //  return level;
+  //} 
+  //String getSpecies() {
+  //  return species;
+  //}
+  //int getPower() {
+  //  return power;
+  //}
+  //int getSize() {
+  //  return size;
+  //}
+  //int getSpeed() {
+  //  return speed;
+  //}
   abstract void display();
   abstract void shoot();
   abstract void move();

@@ -32,12 +32,13 @@ class Player implements Killable {
   void die(ArrayList<Killable> k) {
     lives--;
     if (lives < 0) {
-      endScreen();
+      g.endScreen();
     }
   }
   
   void display() {
     //temp display
+    fill(123, 244, 23);
     ellipse(x, y, size, size);
   }
 }

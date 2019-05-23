@@ -8,5 +8,7 @@ class Stan extends Monster {
   void shoot() {
   }
   void display() {
+    fill(255, 0, 0);
+    rect(x, y, 20, 20);
   }
 }
