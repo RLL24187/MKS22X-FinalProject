@@ -11,5 +11,5 @@ Note to self: setup and draw are outside of classes
 Elizabeth: move & shoot weren't working and I couldn't find out why
 
 5/22/19
-Rachel:
-Elizabeth: move works!! The cause was because the game kept resetting. Created the abstract monster class. 
+Rachel: Created the Game constructor and started work on a new helper function "inRadius" to help with "inContact"
+Elizabeth: move works!! The cause was because the game kept resetting. Created the abstract monster class.
