@@ -16,6 +16,6 @@ abstract class Monster implements Killable{
     hp = newHp;
   }
   abstract void display();
-  abstract void attack();
+  abstract void shoot();
   abstract void move();
 }
