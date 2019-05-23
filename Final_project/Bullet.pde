@@ -23,7 +23,7 @@ class Bullet implements Killable {
   }
   
   float distanceTo(Player k) {
-    return pow((k.x * k.x) + (k.y * k.y)), .5) - pow((this.x * this.x) + (this.y + this.y), .5) - k.size;
+    return pow((k.x * k.x) + (k.y * k.y), .5) - pow((this.x * this.x) + (this.y + this.y), .5) - k.size;
   }
 
   boolean inRadius (Monster k) {
