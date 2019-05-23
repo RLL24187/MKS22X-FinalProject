@@ -5,7 +5,8 @@ class Stan extends Monster {
   void move() {
     x -= speed;
   }
-  void shoot() {
+  void shoot(ArrayList<Bullet> b) {
+    b.add(new Bullet(10, 231, 124, 43, 5, x, y));
   }
   void display() {
     fill(255, 0, 0);

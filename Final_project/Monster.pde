@@ -43,6 +43,6 @@ abstract class Monster implements Killable{
   //  return speed;
   //}
   abstract void display();
-  abstract void shoot();
+  abstract void shoot(ArrayList<Bullet> b);
   abstract void move();
 }

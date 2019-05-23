@@ -40,6 +40,7 @@ void draw() {
     bul.display();
   }
   for (Monster mon : g.m) {
+    mon.move();
     mon.display();
   }
   g.p.move();
