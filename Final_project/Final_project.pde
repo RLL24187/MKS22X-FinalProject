@@ -27,7 +27,7 @@ void setup() {
 }
 void draw() {
   //setup();
-
+  background(255);
   g.b.add(new Bullet(2, 25, 10, 89, 20, 100, 100));
   for (Bullet bul : g.b) {
     bul.display();
