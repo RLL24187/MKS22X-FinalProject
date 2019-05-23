@@ -3,14 +3,14 @@ class Game {
   //create method called endScreen
   Player p;
 
-  ArrayList<Monster> m;
-  ArrayList<Bullet> b;
-  ArrayList<Killable> k;
+  ArrayList<Monster> monsterList;
+  ArrayList<Bullet> bulletList;
+  ArrayList<Killable> killedList;
 
   Game() {
-    m = new ArrayList<Monster>();
-    b = new ArrayList<Bullet>();
-    k = new ArrayList<Killable>();
+    monsterList = new ArrayList<Monster>();
+    bulletList = new ArrayList<Bullet>();
+    killedList = new ArrayList<Killable>();
     p = new Player(1, "Sadboi", width/2, height/2, 5, 10);
   }
 
@@ -29,17 +29,17 @@ class Game {
 Game g = new Game();
 void setup() {
   size(500, 500);
-  g.b.add(new Bullet(2, 25, 10, 89, 5, 10, 10));
+  g.bulletList.add(new Bullet(2, 25, 10, 89, 5, 10, 10));
+  g.monsterList.add(new Stan(250, 250, 10, 1, 0, "Stan", 10, 10, 10));
 }
 void draw() {
   //setup();
   background(255);
-  g.b.add(new Bullet(2, 25, 10, 89, 5, 100, 100));
-  g.m.add(new Stan(250, 250, 10, 1, 0, "Stan", 10, 10, 10));
-  for (Bullet bul : g.b) {
+  g.bulletList.add(new Bullet(2, 25, 10, 89, 5, 100, 100));
+  for (Bullet bul : g.bulletList) {
     bul.display();
   }
-  for (Monster mon : g.m) {
+  for (Monster mon : g.monsterList) {
     mon.move();
     mon.display();
   }

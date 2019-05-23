@@ -4,6 +4,9 @@ class Stan extends Monster {
   }
   void move() {
     x -= speed;
+    if (x <= 0) {
+      monsterList.remove(index);
+    }
   }
   void shoot(ArrayList<Bullet> b) {
     b.add(new Bullet(10, 231, 124, 43, 5, x, y));
