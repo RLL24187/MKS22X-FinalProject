@@ -1,6 +1,9 @@
 abstract class Monster implements Killable{
-  int hp, level, xp, species, power, speed, size;
-  Monster(int hp, int level, int xp, int species, int power, int speed, int size) {
+  int hp, level, xp, power, speed, size, x, y;
+  String species;
+  Monster(int x, int y, int hp, int level, int xp, String species, int power, int speed, int size) {
+    this.x = x;
+    this.y = y;
     this.hp = hp;
     this.level = level;
     this.xp = xp;
@@ -15,7 +18,31 @@ abstract class Monster implements Killable{
   void changeHp(int newHp) {
     hp = newHp;
   }
+  int getX() {
+    return x;
+  }
+  int getY() {
+    return y;
+  }
+  int getHp() {
+    return hp;
+  }
+  int getLevel() {
+    return level;
+  } 
+  String getSpecies() {
+    return species;
+  }
+  int getPower() {
+    return power;
+  }
+  int getSize() {
+    return size;
+  }
+  int getSpeed() {
+    return speed;
+  }
   abstract void display();
-  abstract void attack();
+  abstract void shoot();
   abstract void move();
 }
