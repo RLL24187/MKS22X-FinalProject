@@ -1,16 +1,16 @@
 class Player implements Killable {
-  int lives, x, y, speed;
+  int lives, x, y, speed, size;
   String name;
-  Player(int numLives, String name, int startingX, int startingY, int quick) {
+  Player(int numLives, String name, int startingX, int startingY, int quick, int size) {
     lives = numLives;
     x = startingX;
     y = startingY;
     speed = quick;
+    this.size = size;
     this.name = name;
   }
-  void keyPressed(ArrayList<Bullet> b) {
-    //move
-    if (key == CODED) {
+  void move() {
+    if (key == CODED && keyPressed == true) {
       if (keyCode == UP) {
         y -= speed;
       } else if (keyCode == DOWN) {
@@ -20,23 +20,24 @@ class Player implements Killable {
       } else if (keyCode == RIGHT) {
         x += speed;
       }
-    } else {
-      //shoot
-      if (key == ' ') {
-        //edit bullet constructors later
-        b.add(new Bullet(10, 255, 124, 123, 1, x, y));
-      }
     }
   }
 
+  void shoot(ArrayList<Bullet> b) {
+    if (key == ' ') {
+      b.add(new Bullet(50, 255, 123, 45, 10, x, y));
+    }
+  }
+  
   void die(ArrayList<Killable> k) {
     lives--;
     if (lives < 0) {
       endScreen();
     }
   }
+  
   void display() {
     //temp display
-    ellipse(x,y,10,10);
+    ellipse(x, y, size, size);
   }
 }
