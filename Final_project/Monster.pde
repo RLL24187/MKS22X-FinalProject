@@ -1,9 +1,7 @@
 abstract class Monster implements Killable{
-<<<<<<< HEAD
   int hp, level, xp, power, speed, size, x, y;
   String species;
-  int hp, level, xp, species, power, speed, size, x, y;
-  Monster(int hp, int level, int xp, int species, int power, int speed, int size, int x, int y) {
+  Monster(int hp, int level, int xp, String species, int power, int speed, int size, int x, int y) {
     this.hp = hp;
     this.level = level;
     this.xp = xp;
