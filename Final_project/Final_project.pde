@@ -30,7 +30,7 @@ Game g = new Game();
 void setup() {
   size(500, 500);
   g.bulletList.add(new Bullet(2, 25, 10, 89, 5, 10, 10));
-  g.monsterList.add(new Stan(250, 250, 10, 1, 0, "Stan", 10, 10, 10));
+  g.monsterList.add(new Stan(250, 250, 10, 1, 0, "Stan", 10, 1, 10));
 }
 void draw() {
   //setup();

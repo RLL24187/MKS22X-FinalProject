@@ -5,7 +5,7 @@ class Stan extends Monster {
   void move() {
     x -= speed;
     if (x <= 0) {
-      super.die();
+      super.die(g.killedList);
     }
   }
   void shoot(ArrayList<Bullet> b) {
