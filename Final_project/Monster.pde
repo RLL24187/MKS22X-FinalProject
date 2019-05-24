@@ -1,4 +1,4 @@
-abstract class Monster implements Killable{
+abstract class Monster extends Collider {
   int hp, level, xp, species, power, speed, size, x, y;
   Monster(int hp, int level, int xp, int species, int power, int speed, int size, int x, int y) {
     this.hp = hp;
@@ -11,7 +11,7 @@ abstract class Monster implements Killable{
     this.x = x;
     this.y = y;
   }
-  void die(ArrayList<Killable> k){
+  void die(ArrayList<Killable> k) {
     k.add(this);
   }
   void changeHp(int newHp) {

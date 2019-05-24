@@ -22,7 +22,7 @@ class Game {
 }
 Game g = new Game();
 void setup() {
-  size(500, 500);
+  size(1200, 1200);
   //g.b.add(new Bullet(2, 25, 10, 89, 5, 10, 10));
 }
 void draw() {
