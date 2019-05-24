@@ -21,8 +21,10 @@ RaCheL:
 Elizabeth:
 -Created Stan and worked on Stan methods
 -Edited the game variables for more suitable names
+-Made player move slower so that when the user presses the keys it doesn't fly out of the board immediately
 
 ***Friday 5/24/2019***
+Rachel:
 Elizabeth:
--Fixed Stan methods
--Created Tanky
+-Fixed Stan methods so stan would die outside of the board
+-Created Tanky and its methods
