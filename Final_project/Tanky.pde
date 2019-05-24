@@ -1,4 +1,4 @@
-class Tanky {
+class Tanky extends Monster{
   Tanky(int hp, int level, int xp, String species, int power, int speed, int size, int x, int y) {
     super(hp, level, xp, species, power, speed, size, x, y);
   }
