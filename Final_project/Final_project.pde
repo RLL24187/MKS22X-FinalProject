@@ -15,11 +15,12 @@ class Game {
   }
 
   void display() {
+    monsterList.add();
   }
 
   void update() {
   }
-
+  
   void endScreen() {
     textSize(100);
     fill(255, 0, 0);
