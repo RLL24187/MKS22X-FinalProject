@@ -1,11 +1,11 @@
 class Stan extends Monster {
   Stan(int x, int y, int hp, int level, int xp, String species, int power, int speed, int size) {
-    super(x, y, hp, level, xp, species, power, speed, size);
+    super(hp, level, xp, species, power, speed, size, x, y);
   }
   void move() {
     x -= speed;
     if (x <= 0) {
-      monsterList.remove(index);
+      super.die();
     }
   }
   void shoot(ArrayList<Bullet> b) {
