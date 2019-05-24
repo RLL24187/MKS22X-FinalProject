@@ -18,8 +18,30 @@ class Bullet implements Killable {
     this.y = y;
   }
 
-  boolean inContact(ArrayList<Killable> k) {
+  float distanceTo(Monster k) {
+    return pow((k.x * k.x) + (k.y * k.y), .5) - pow((this.x * this.x) + (this.y + this.y), .5) - k.size;
+  }
+  
+  float distanceTo(Player k) {
+    return pow((k.x * k.x) + (k.y * k.y), .5) - pow((this.x * this.x) + (this.y + this.y), .5) - k.size;
+  }
+
+  boolean inRadius (Monster k) {
+    return (distanceTo(k) <= 0);
+  }
+  boolean inRadius (Player k) {
+    return (distanceTo(k) <= 0);
+  }
+  boolean inContact(ArrayList<Monster> k) {
+    for (Monster obj : k) {
+      if (inRadius(obj)){
+        return true;
+      }
+    }
     return false;
+  }
+  boolean inContact(Player p){
+    return inRadius(p);
   }
 
   void die(ArrayList<Killable> k) {
