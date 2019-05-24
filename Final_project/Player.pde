@@ -31,6 +31,8 @@ class Player implements Killable {
   
   void die(ArrayList<Killable> k) {
     lives--;
+    x = 0;
+    y = height / 2;
     if (lives < 0) {
       g.endScreen();
     }
