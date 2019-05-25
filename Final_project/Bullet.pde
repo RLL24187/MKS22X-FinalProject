@@ -24,7 +24,7 @@ class Bullet extends Collider {
   }
   
   void move(ArrayList<Killable> k, ArrayList<Collider> c){
-    x+= 1;
+    x+= 2;
     if (inContact(c)){
       die(k, c);
     }
