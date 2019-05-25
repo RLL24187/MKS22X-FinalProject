@@ -18,5 +18,13 @@ Elizabeth: move works!! The cause was because the game kept resetting. Created t
 RaCheL:
 -Worked on Bullet's inRadius, distanceTo, and inContact
 -Need to work on figuring out how to make the code less repetitive: maybe make a new abstract class
-EliZabeTh:
--nothing jkjkjk just waiting on her to UPDATE readMe.md!!!!
+Elizabeth:
+-Created Stan and worked on Stan methods
+-Edited the game variables for more suitable names
+-Made player move slower so that when the user presses the keys it doesn't fly out of the board immediately
+
+***Friday 5/24/2019***
+Rachel:
+Elizabeth:
+-Fixed Stan methods so stan would die outside of the board
+-Created Tanky and its methods
