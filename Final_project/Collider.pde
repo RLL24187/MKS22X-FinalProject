@@ -1,4 +1,4 @@
-class Collider implements Killable{
+class Collider implements Killable {
   float x, y, size;
   float distanceTo(Collider c) {
     return pow((c.x * c.x) + (c.y * c.y), .5) - pow((this.x * this.x) + (this.y + this.y), .5) - (c.size + this.size);
@@ -19,7 +19,9 @@ class Collider implements Killable{
   }
 
   void die(ArrayList<Killable> k, ArrayList<Collider>c) {
-    k.add(this);
-    c.remove(this);
+    if (inContact(c) || (x > width) || x < 0 || y < 0 || y > height) {
+      k.add(this);
+      c.remove(this);
+    }
   }
 }
