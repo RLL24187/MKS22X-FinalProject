@@ -51,7 +51,7 @@ void draw() {
   }
   for (Monster mon : g.monsterList) {
     //g.collideList.add(mon);
-    mon.move();
+    mon.move(g.killedList, g.collideList);
     mon.display();
   }
   g.p.move();
