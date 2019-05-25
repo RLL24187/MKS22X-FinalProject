@@ -1,7 +1,7 @@
 abstract class Monster extends Collider {
-  int hp, level, xp, species, power, speed, size, x, y;
+  int hp, level, xp, power, speed, size, x, y;
   String species;
-  Monster(int hp, int level, int xp, int species, int power, int speed, int size, int x, int y) {
+  Monster(int hp, int level, int xp, String species, int power, int speed, int size, int x, int y) {
     this.hp = hp;
     this.level = level;
     this.xp = xp;
@@ -12,8 +12,9 @@ abstract class Monster extends Collider {
     this.x = x;
     this.y = y;
   }
-  void die(ArrayList<Killable> k) {
+  void die(ArrayList<Killable> k, ArrayList<Collider> c) {
     k.add(this);
+    c.remove(this);
   }
   void changeHp(int newHp) {
     hp = newHp;
