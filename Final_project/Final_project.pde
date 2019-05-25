@@ -6,11 +6,13 @@ class Game {
   ArrayList<Monster> monsterList;
   ArrayList<Bullet> bulletList;
   ArrayList<Killable> killedList;
+  ArrayList<Collider> collideList;
 
   Game() {
     monsterList = new ArrayList<Monster>();
     bulletList = new ArrayList<Bullet>();
     killedList = new ArrayList<Killable>();
+    collideList = new ArrayList<Collider>();
     p = new Player(1, "Sadboi", width/2, height/2, 5, 10);
   }
 
@@ -40,8 +42,14 @@ void draw() {
     bul.display();
   }
   for (Monster mon : g.monsterList) {
+    g.collideList.add(mon);
     mon.move();
     mon.display();
+  }
+  for (Bullet b : g.bulletList){
+    g.collideList.add(b);
+    b.move(g.killedList, g.collideList);
+    b.display();
   }
   g.p.move();
   g.p.display();
