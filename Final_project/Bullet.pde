@@ -25,9 +25,7 @@ class Bullet extends Collider {
   
   void move(ArrayList<Killable> k, ArrayList<Collider> c){
     x+= 2;
-    if (inContact(c)){
-      die(k, c);
-    }
+    super.die(k, c);
   }
   void splitIt() {
   }
