@@ -22,6 +22,13 @@ class Bullet extends Collider {
     fill(red, green, blue);
     ellipse(x, y, size, size);
   }
+  
+  void move(ArrayList<Killable> k, ArrayList<Collider> c){
+    x+= 1;
+    if (inContact(c)){
+      die(k, c);
+    }
+  }
   void splitIt() {
   }
 }
