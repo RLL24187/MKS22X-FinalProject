@@ -31,25 +31,26 @@ class Game {
 Game g = new Game();
 void setup() {
   size(1200, 1200);
-  g.bulletList.add(new Bullet(2, 25, 10, 89, 5, 10, 10));
+  //below is just tests!
+  g.bulletList.add(new Bullet(2, 25, 10, 89, 25, 10, 10));
   g.monsterList.add(new Stan(250, 250, 10, 1, 0, "Stan", 10, 1, 10));
+  for (Bullet bul : g.bulletList) {
+    g.collideList.add(bul);
+  }
+  for (Monster mon : g.monsterList) {
+    g.collideList.add(mon);
+  }
 }
 void draw() {
   //setup();
   background(255);
-  g.bulletList.add(new Bullet(2, 25, 10, 89, 5, 100, 100));
   for (Bullet bul : g.bulletList) {
     bul.display();
+    bul.move(g.killedList, g.collideList);
   }
   for (Monster mon : g.monsterList) {
-    g.collideList.add(mon);
     mon.move();
     mon.display();
-  }
-  for (Bullet b : g.bulletList){
-    g.collideList.add(b);
-    b.move(g.killedList, g.collideList);
-    b.display();
   }
   g.p.move();
   g.p.display();
