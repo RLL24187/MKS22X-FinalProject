@@ -45,13 +45,29 @@ void draw() {
   //setup();
   background(255);
   for (Bullet bul : g.bulletList) {
+    //g.collideList.add(bul);
     bul.display();
     bul.move(g.killedList, g.collideList);
   }
   for (Monster mon : g.monsterList) {
+    //g.collideList.add(mon);
     mon.move();
     mon.display();
   }
   g.p.move();
   g.p.display();
+  println(g.collideList.size());
+  //println(toString(g.collideList));
+}
+
+//print method for arrayList but not v helpful attm
+String toString(ArrayList ary) {
+  String output = "[";
+  for (int i = 0; i < ary.size(); i++) {
+    output += i;
+    if (i != ary.size() - 1) {
+      output += ", ";
+    }
+  }
+  return output + "]";
 }
