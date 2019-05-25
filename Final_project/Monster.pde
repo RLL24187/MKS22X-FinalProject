@@ -45,5 +45,5 @@ abstract class Monster extends Collider {
   //}
   abstract void display();
   abstract void shoot(ArrayList<Bullet> b);
-  abstract void move();
+  abstract void move(ArrayList<Killable> k, ArrayList<Collider> c);
 }

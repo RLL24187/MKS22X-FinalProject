@@ -6,11 +6,9 @@ class Tanky extends Monster{
     fill(123, 35, 58);
     rect(x, y, 10, 10);
   }
-  void move() {
+  void move(ArrayList<Killable> k, ArrayList<Collider> c) {
     x-= speed;
-    if (x <= 0) {
-      die(g.killedList, g.collideList);
-    }
+    super.die(k, c);
   }
   void shoot(ArrayList<Bullet> b) {
     b.add(new Bullet(10, 231, 124, 43, 5, x, y));
