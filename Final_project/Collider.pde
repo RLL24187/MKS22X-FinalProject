@@ -18,7 +18,8 @@ class Collider implements Killable{
     return inRadius(c);
   }
 
-  void die(ArrayList<Killable> k) {
-    k.remove(this);
+  void die(ArrayList<Killable> k, ArrayList<Collider>c) {
+    k.add(this);
+    c.remove(this);
   }
 }
