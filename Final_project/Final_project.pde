@@ -17,7 +17,12 @@ class Game {
   }
 
   void display() {
-    monsterList.add();
+    int chooseMonster = Math.random() * 2;
+    if (chooseMonster = 0) {
+        monsterList.add(new Stan(250, 250, 10, 1, 0, "Stan", 10, 1, 10);
+    } else if (chooseMonster = 1) {
+        monsterList.add(new Tanky(250, 250, 10, 1, 0, "Tanky", 10, 1, 10));
+    }
   }
 
   void update() {
