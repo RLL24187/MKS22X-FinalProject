@@ -6,9 +6,10 @@ class Bullet extends Collider {
   int green;
   int blue;
   int size;
-  int xcor, ycor;
+  float xcor, ycor;
 
-  Bullet(int dmg, int r, int g, int b, int rad, int x, int y) {
+  Bullet(int dmg, int r, int g, int b, int rad, float x, float y) {
+    super(x, y, rad);
     damage = dmg;
     red = r;
     green = g;
