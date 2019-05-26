@@ -9,7 +9,7 @@ class Tanky extends Monster{
   void move() {
     x-= speed;
     if (x <= 0) {
-      die(g.killedList);
+      die(g.killedList, g.collideList);
     }
   }
   void shoot(ArrayList<Bullet> b) {

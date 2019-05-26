@@ -1,4 +1,4 @@
-abstract class Monster implements Killable{
+abstract class Monster extends Collider {
   int hp, level, xp, power, speed, size, x, y;
   String species;
   Monster(int hp, int level, int xp, String species, int power, int speed, int size, int x, int y) {
@@ -12,8 +12,9 @@ abstract class Monster implements Killable{
     this.x = x;
     this.y = y;
   }
-  void die(ArrayList<Killable> k){
+  void die(ArrayList<Killable> k, ArrayList<Collider> c) {
     k.add(this);
+    c.remove(this);
   }
   void changeHp(int newHp) {
     hp = newHp;
@@ -29,7 +30,7 @@ abstract class Monster implements Killable{
   //}
   //int getLevel() {
   //  return level;
-  //} 
+  //}
   //String getSpecies() {
   //  return species;
   //}

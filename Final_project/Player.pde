@@ -1,4 +1,4 @@
-class Player implements Killable {
+class Player extends Collider {
   int lives, x, y, speed, size;
   String name;
   Player(int numLives, String name, int startingX, int startingY, int quick, int size) {
@@ -28,7 +28,7 @@ class Player implements Killable {
       b.add(new Bullet(50, 255, 123, 45, 10, x, y));
     }
   }
-  
+
   void die(ArrayList<Killable> k) {
     lives--;
     x = 0;
@@ -37,7 +37,7 @@ class Player implements Killable {
       g.endScreen();
     }
   }
-  
+
   void display() {
     //temp display
     fill(123, 244, 23);
