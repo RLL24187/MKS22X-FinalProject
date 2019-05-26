@@ -6,7 +6,7 @@ class Bullet extends Collider {
   int green;
   int blue;
   int size;
-  int x, y;
+  int xcor, ycor;
 
   Bullet(int dmg, int r, int g, int b, int rad, int x, int y) {
     damage = dmg;
@@ -14,17 +14,17 @@ class Bullet extends Collider {
     green = g;
     blue = b;
     size = rad;
-    this.x = x;
-    this.y = y;
+    xcor = x;
+    ycor = y;
   }
 
   void display() {
     fill(red, green, blue);
-    ellipse(x, y, size, size);
+    ellipse(xcor, ycor, size, size);
   }
   
   void move(ArrayList<Killable> k, ArrayList<Collider> c){
-    x+= 2;
+    xcor+= 2;
     super.die(k, c);
   }
   void splitIt() {
