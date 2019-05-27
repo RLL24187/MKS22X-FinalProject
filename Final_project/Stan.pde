@@ -19,6 +19,6 @@ class Stan extends Monster {
   }
   void display() {
     fill(255, 0, 0);
-    rect(xcor, ycor, 20, 20);
+    rect(xcor, ycor, size, size);
   }
 }
