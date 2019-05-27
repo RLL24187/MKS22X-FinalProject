@@ -21,7 +21,7 @@ abstract class Monster extends Collider {
   boolean die(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m) {
     if (super.die(k, c)) {
       m.remove(this);
-      return true;
+      return true; //true when removed
     }
     return false;
   }
@@ -57,6 +57,6 @@ abstract class Monster extends Collider {
   boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m) {
     xcor-=xinc;
     ycor-=yinc;
-    return super.move(k, c, -1 * xinc, -1 * yinc);
+    return super.move(k, c, -1 * xinc, -1 * yinc); //true when removed
   }
 }

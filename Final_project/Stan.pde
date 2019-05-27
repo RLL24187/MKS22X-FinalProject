@@ -8,7 +8,11 @@ class Stan extends Monster {
     ycor-=yinc;
   }
   boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m) {
-    return super.move(k, c, m);
+    if (super.move(k, c, m)){
+      m.remove(this);
+      return true;
+    }
+    return false;
   }
   void shoot(ArrayList<Bullet> b) {
     b.add(new Bullet(10, 231, 124, 43, 5, xcor, ycor, xinc, yinc));
