@@ -41,7 +41,7 @@ void setup() {
   g.bulletList.add(new Bullet(2, 25, 10, 89, 5, 10, 10, 2, 0));
   //int hp, int level, int xp, String species, int power, int size, float x, float y, float xinc, float yinc
   g.monsterList.add(new Stan(10, 1, 5, "Stan", 1, 10, 250, 250, 3, 0));
-  
+
   println("\nAdding bullet");
   for (Bullet bul : g.bulletList) {
     //println("bulletlistSize: "+ g.bulletList.size());
@@ -69,22 +69,28 @@ void setup() {
 void draw() {
   //setup();
   background(255);
-  for (Bullet bul : g.bulletList) {
+  //for (Bullet bul : g.bulletList) {
+  for (int i = 0; i < g.bulletList.size(); i++) {
     //g.collideList.add(bul);
+    Bullet bul = g.bulletList.get(i);
     bul.display();
     bul.move(g.killedList, g.collideList, g.bulletList);
     //println(g.collideList.size());
   }
-  for (Monster mon : g.monsterList) {
+  //for (Monster mon : g.monsterList) {
+  for (int i = 0; i < g.monsterList.size(); i++) {
     //g.collideList.add(mon);
-    mon.move(g.killedList, g.collideList, g.monsterList);
+    Monster mon = g.monsterList.get(i);
     mon.display();
+    mon.move(g.killedList, g.collideList, g.monsterList);
     //println(g.collideList.size());
   }
   g.p.move();
   g.p.display();
   //println(g.collideList.size());
-  println(toString(g.collideList));
+  //println(toString(g.collideList));
+  //println(toString(g.bulletList));
+  //println(toString(g.monsterList));
 }
 
 //print method for arrayList but not v helpful attm
