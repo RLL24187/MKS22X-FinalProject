@@ -75,6 +75,9 @@ void setup() {
 void draw() {
   //setup();
   background(255);
+  g.p.move();
+  g.p.display();
+  g.p.shoot(g.bulletList);
   //for (Bullet bul : g.bulletList) {
   for (int i = 0; i < g.bulletList.size(); i++) {
     //g.collideList.add(bul);
@@ -91,8 +94,6 @@ void draw() {
     mon.move(g.killedList, g.collideList, g.monsterList);
     //println(g.collideList.size());
   }
-  g.p.move();
-  g.p.display();
   //println(g.collideList.size());
   //println(toString(g.collideList));
   //println(toString(g.bulletList));

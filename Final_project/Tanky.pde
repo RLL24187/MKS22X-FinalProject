@@ -6,11 +6,6 @@ class Tanky extends Monster{
     fill(123, 35, 58);
     rect(xcor, ycor, 10, 10);
   }
-  void move(ArrayList<Killable> k, ArrayList<Collider> c) {
-    super.die(k, c);
-    xcor-=xinc;
-    ycor-=yinc;
-  }
   boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m){
     xcor-=xinc;
     ycor-=yinc;

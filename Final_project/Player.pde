@@ -1,7 +1,9 @@
+import java.util.*;
 class Player extends Collider {
   int lives, speed, size;
   float xcor, ycor;
   String name;
+  ArrayList<String> movement;
   Player(int numLives, String name, int startingX, int startingY, int speed, int size) {
     super(startingX, startingY, size);
     lives = numLives;
@@ -11,7 +13,7 @@ class Player extends Collider {
     this.size = size;
     this.name = name;
   }
-  void move() {
+    void move() {
     if (key == CODED && keyPressed == true) {
       if (keyCode == UP) {
         ycor -= speed;
@@ -25,19 +27,50 @@ class Player extends Collider {
     }
   }
 
+  //void move() {
+  //  if (key == CODED && keyPressed == true) {
+  //    if (keyCode == UP) {
+  //      movement.add("UP");
+  //    } 
+  //    if (keyCode == DOWN) {
+  //      movement.add("DOWN");
+  //    }
+  //    if (keyCode == LEFT) {
+  //      movement.add("LEFT");
+  //    } 
+  //    if (keyCode == RIGHT) {
+  //      movement.add("RIGHT");
+  //    }
+  //  }
+  //  if (movement.contains("UP")) {
+  //    ycor -= speed;
+  //  }
+  //  if (movement.contains("DOWN")) {
+  //    ycor += speed;
+  //  }
+  //  if (movement.contains("RIGHT")) {
+  //    xcor += speed;
+  //  }
+  //  if (movement.contains("LEFT")) {
+  //    xcor -= speed;
+  //  }
+  //}
   void shoot(ArrayList<Bullet> b) {
-    if (key == ' ') {
+    if (key == ' ' && keyPressed == true) {
       b.add(new Bullet(50, 255, 123, 45, 10, xcor, ycor, 2, 0));
+      keyPressed = false;
     }
   }
 
-  boolean die(ArrayList<Killable> k) {
-    lives--;
-    xcor = 0;
-    ycor = height / 2;
-    if (lives < 0) {
-      g.endScreen();
-      return true;
+  boolean die(ArrayList<Collider> monster) {
+    if (inContact(monster)) {
+      lives--;
+      xcor = 0;
+      ycor = height / 2;
+      if (lives < 0) {
+        g.endScreen();
+        return true;
+      }
     }
     return false;
   }
