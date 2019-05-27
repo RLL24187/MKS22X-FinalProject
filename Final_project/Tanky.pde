@@ -1,19 +1,23 @@
 class Tanky extends Monster{
-  Tanky(int hp, int level, int xp, String species, int power, int speed, int size, int x, int y) {
-    super(hp, level, xp, species, power, speed, size, x, y);
+  Tanky(int hp, int level, int xp, String species, int power, int size, float x, float y, float xinc, float yinc) {
+    super(hp, level, xp, species, power, size, x, y, xinc, yinc);
   }
   void display() {
     fill(123, 35, 58);
-    rect(x, y, 10, 10);
+    rect(xcor, ycor, 10, 10);
   }
-  void move() {
-    x-= speed;
-    if (x <= 0) {
-      die(g.killedList);
-    }
+  void move(ArrayList<Killable> k, ArrayList<Collider> c) {
+    super.die(k, c);
+    xcor-=xinc;
+    ycor-=yinc;
+  }
+  boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m){
+    xcor-=xinc;
+    ycor-=yinc;
+    return super.die(k, c, m);
   }
   void shoot(ArrayList<Bullet> b) {
-    b.add(new Bullet(10, 231, 124, 43, 5, x, y));
+    b.add(new Bullet(10, 231, 124, 43, 5, xcor, ycor, xinc, yinc));
   }
 }
   

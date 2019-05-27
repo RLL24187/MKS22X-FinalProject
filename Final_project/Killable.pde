@@ -1,3 +1,3 @@
 interface Killable {
-  void die(ArrayList<Killable> k);
+  boolean die(ArrayList<Killable> k, ArrayList<Collider> c);
 }
