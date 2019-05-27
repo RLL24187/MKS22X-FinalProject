@@ -15,29 +15,34 @@ class Player extends Collider {
     if (key == CODED && keyPressed == true) {
       if (keyCode == UP) {
         ycor -= speed;
-      } else if (keyCode == DOWN) {
+      } 
+      if (keyCode == DOWN) {
         ycor += speed;
-      } else if (keyCode == LEFT) {
+      }
+      if (keyCode == LEFT) {
         xcor -= speed;
-      } else if (keyCode == RIGHT) {
+      } 
+      if (keyCode == RIGHT) {
         xcor += speed;
       }
     }
   }
-
   void shoot(ArrayList<Bullet> b) {
-    if (key == ' ') {
+    if (key == ' ' && keyPressed == true) {
       b.add(new Bullet(50, 255, 123, 45, 10, xcor, ycor, 2, 0));
+      key = 'D';
     }
   }
 
-  boolean die(ArrayList<Killable> k) {
-    lives--;
-    xcor = 0;
-    ycor = height / 2;
-    if (lives < 0) {
-      g.endScreen();
-      return true;
+  boolean die(ArrayList<Collider> monster) {
+    if (inContact(monster)) {
+      lives--;
+      xcor = 0;
+      ycor = height / 2;
+      if (lives < 0) {
+        g.endScreen();
+        return true;
+      }
     }
     return false;
   }
