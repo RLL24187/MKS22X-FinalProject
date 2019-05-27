@@ -1,8 +1,8 @@
 class Player extends Collider {
-  int lives, speed, size;
-  float xcor, ycor;
+  int lives, size;
+  float speed, xcor, ycor;
   String name;
-  Player(int numLives, String name, int startingX, int startingY, int speed, int size) {
+  Player(int numLives, String name, int startingX, int startingY, float speed, int size) {
     super(startingX, startingY, size);
     lives = numLives;
     xcor = startingX;
@@ -25,9 +25,11 @@ class Player extends Collider {
     }
   }
 
-  void shoot(ArrayList<Bullet> b) {
+  void shoot(ArrayList<Bullet> b, ArrayList<Collider> c) {
     if (key == ' ') {
-      b.add(new Bullet(50, 255, 123, 45, 10, xcor, ycor, 2, 0));
+      Bullet temp = new Bullet(50, 255, 123, 45, 10, xcor, ycor, 2, 0);
+      b.add(temp);
+      c.add(temp);
     }
   }
 
