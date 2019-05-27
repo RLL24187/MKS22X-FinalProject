@@ -13,7 +13,7 @@ class Game {
     bulletList = new ArrayList<Bullet>();
     killedList = new ArrayList<Killable>();
     collideList = new ArrayList<Collider>();
-    p = new Player(1, "Sadboi", width/2, height/2, 5, 10);
+    p = new Player(1, "Sadboi", width/2, height/2, 2.5, 10);
   }
 
   void display() {
@@ -30,7 +30,7 @@ class Game {
 }
 Game g = new Game();
 void setup() {
-  size(1200, 1200);
+  size(1200, 700);
   //below is just tests!
   //Bullet tempB = new Bullet(2, 25, 10, 89, 5, 10, 10);
   //Collider temp = new Bullet(2, 25, 10, 89, 5, 10, 10);
@@ -40,7 +40,7 @@ void setup() {
   //println("temp xcor: "+ temp.xcor);
   g.bulletList.add(new Bullet(2, 25, 10, 89, 5, 10, 10, 2, 0));
   //int hp, int level, int xp, String species, int power, int size, float x, float y, float xinc, float yinc
-  g.monsterList.add(new Stan(10, 1, 5, "Stan", 1, 10, 250, 250, 3, 0));
+  g.monsterList.add(new Stan(10, 1, 5, "Stan", 1, 50, 1000, 100, 3, 0));
 
   //println("\nAdding bullet");
   for (Bullet bul : g.bulletList) {
@@ -60,9 +60,9 @@ void setup() {
     //println(g.collideList.get(1).xcor);
     //println(mon.xcor);
     //println(mon.ycor);
-    println(g.collideList.size());
+    //println(g.collideList.size());
   }
-  g.collideList.add(g.p);
+  //g.collideList.add(g.p);
   //println(width);
   //println(height);
   //println(toString(g.collideList));
@@ -87,7 +87,7 @@ void draw() {
     //println(g.collideList.size());
   }
   g.p.move();
-  g.p.shoot(g.bulletList);
+  g.p.shoot(g.bulletList, g.collideList);
   g.p.display();
   //println(g.collideList.size());
   //println(toString(g.collideList));
