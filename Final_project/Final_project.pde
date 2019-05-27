@@ -13,7 +13,7 @@ class Game {
     bulletList = new ArrayList<Bullet>();
     killedList = new ArrayList<Killable>();
     collideList = new ArrayList<Collider>();
-    p = new Player(1, "Sadboi", width/2, height/2, 2.5, 10);
+    p = new Player(1, "Sadboi", width/2., height/2., 2, 10);
   }
 
   void display() {
@@ -47,7 +47,7 @@ void setup() {
   //println("temp xcor: "+ temp.xcor);
   g.bulletList.add(new Bullet(2, 25, 10, 89, 5, 10, 10, 2, 0));
   //int hp, int level, int xp, String species, int power, int size, float x, float y, float xinc, float yinc
-  g.monsterList.add(new Stan(10, 1, 5, "Stan", 1, 50, 1000, 100, 3, 0));
+  g.monsterList.add(new Stan(10, 1, 5, "Stan", 1, 5, 1000, 100, 3, 0));
 
   //println("\nAdding bullet");
   for (Bullet bul : g.bulletList) {

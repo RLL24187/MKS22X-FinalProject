@@ -4,7 +4,7 @@ class Player extends Collider {
   float speed, xcor, ycor;
   String name;
   ArrayList<String> movement;
-  Player(int numLives, String name, int startingX, int startingY, int speed, int size) {
+  Player(int numLives, String name, float startingX, float startingY, int speed, int size) {
     super(startingX, startingY, size);
     lives = numLives;
     xcor = startingX;

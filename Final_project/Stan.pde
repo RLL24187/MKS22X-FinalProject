@@ -16,4 +16,8 @@ class Stan extends Monster {
     fill(255, 0, 0);
     rect(xcor, ycor, size, size);
   }
+  void formation(ArrayList<Monster> mon) {
+    for(int i = 0; i < 5; i++) {
+    }
+  }
 }
