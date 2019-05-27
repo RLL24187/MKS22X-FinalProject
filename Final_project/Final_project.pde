@@ -13,15 +13,22 @@ class Game {
     bulletList = new ArrayList<Bullet>();
     killedList = new ArrayList<Killable>();
     collideList = new ArrayList<Collider>();
-    p = new Player(1, "Sadboi", width/2, height/2, 2.5, 10);
+    p = new Player(1, "Sadboi", width/2., height/2., 2, 10);
   }
 
   void display() {
+    //int hp, int level, int xp, String species, int power, int size, float x, float y, float xinc, float yinc
+    int chooseMonster = (int)Math.random() * 2;
+    if (chooseMonster == 0) {
+        monsterList.add(new Stan(250, 250, 0, "Stan", 10, 5, 1., 10., 2., 0.));
+    } else if (chooseMonster == 1) {
+        monsterList.add(new Tanky(250, 250, 0, "Tanky", 10, 5,  1., 10., 2., 0.));
+    }
   }
 
   void update() {
   }
-
+  
   void endScreen() {
     textSize(100);
     fill(255, 0, 0);
@@ -40,7 +47,7 @@ void setup() {
   //println("temp xcor: "+ temp.xcor);
   g.bulletList.add(new Bullet(2, 25, 10, 89, 5, 10, 10, 2, 0));
   //int hp, int level, int xp, String species, int power, int size, float x, float y, float xinc, float yinc
-  g.monsterList.add(new Stan(10, 1, 5, "Stan", 1, 50, 1000, 100, 3, 0));
+  g.monsterList.add(new Stan(10, 1, 5, "Stan", 1, 5, 1000, 100, 3, 0));
 
   //println("\nAdding bullet");
   for (Bullet bul : g.bulletList) {
@@ -70,6 +77,9 @@ void setup() {
 void draw() {
   //setup();
   background(255);
+  g.p.move();
+  g.p.display();
+  g.p.shoot(g.bulletList, g.collideList);
   //for (Bullet bul : g.bulletList) {
   for (int i = 0; i < g.bulletList.size(); i++) {
     //g.collideList.add(bul);
@@ -86,9 +96,6 @@ void draw() {
     mon.move(g.killedList, g.collideList, g.monsterList);
     //println(g.collideList.size());
   }
-  g.p.move();
-  g.p.shoot(g.bulletList, g.collideList);
-  g.p.display();
   //println(g.collideList.size());
   //println(toString(g.collideList));
   //println(toString(g.bulletList));

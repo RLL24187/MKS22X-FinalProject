@@ -20,12 +20,10 @@ class Bullet extends Collider {
     this.xinc = xinc;
     this.yinc = yinc;
   }
-
   void display() {
     fill(red, green, blue);
     ellipse(xcor, ycor, size, size);
   }
-
   boolean die(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Bullet> b) {
     if (super.die(k, c)) {
       b.remove(this);

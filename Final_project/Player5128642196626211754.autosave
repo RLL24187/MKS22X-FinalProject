@@ -1,10 +1,10 @@
 import java.util.*;
 class Player extends Collider {
-  int lives, size;
-  float speed, xcor, ycor;
+  int lives, speed, size;
+  float xcor, ycor;
   String name;
   ArrayList<String> movement;
-  Player(int numLives, String name, float startingX, float startingY, int speed, int size) {
+  Player(int numLives, String name, int startingX, int startingY, int speed, int size) {
     super(startingX, startingY, size);
     lives = numLives;
     xcor = startingX;
@@ -13,15 +13,18 @@ class Player extends Collider {
     this.size = size;
     this.name = name;
   }
-  void move() {
+    void move() {
     if (key == CODED && keyPressed == true) {
       if (keyCode == UP) {
         ycor -= speed;
-      } else if (keyCode == DOWN) {
+      } 
+      if (keyCode == DOWN) {
         ycor += speed;
-      } else if (keyCode == LEFT) {
+      } 
+      if (keyCode == LEFT) {
         xcor -= speed;
-      } else if (keyCode == RIGHT) {
+      } 
+      if (keyCode == RIGHT) {
         xcor += speed;
       }
     }
@@ -55,12 +58,9 @@ class Player extends Collider {
   //    xcor -= speed;
   //  }
   //}
-
-  void shoot(ArrayList<Bullet> b, ArrayList<Collider> c) {
+  void shoot(ArrayList<Bullet> b) {
     if (key == ' ' && keyPressed == true) {
-      Bullet temp = new Bullet(50, 255, 123, 45, 10, xcor, ycor, 2, 0);
-      b.add(temp);
-      c.add(temp);
+      b.add(new Bullet(50, 255, 123, 45, 10, xcor, ycor, 2, 0));
       keyPressed = false;
     }
   }
