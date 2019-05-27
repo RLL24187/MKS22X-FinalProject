@@ -42,7 +42,7 @@ void setup() {
   //int hp, int level, int xp, String species, int power, int size, float x, float y, float xinc, float yinc
   g.monsterList.add(new Stan(10, 1, 5, "Stan", 1, 10, 250, 250, 3, 0));
 
-  println("\nAdding bullet");
+  //println("\nAdding bullet");
   for (Bullet bul : g.bulletList) {
     //println("bulletlistSize: "+ g.bulletList.size());
     //println("g.bulletList.get(0).xcor: "+g.bulletList.get(0).xcor);
@@ -54,7 +54,7 @@ void setup() {
     //println("g.collideList.get(0).xcor: "+g.collideList.get(0).xcor);
     //println(bul.ycor);
   }
-  println("\nAdding monster");
+  //println("\nAdding monster");
   for (Monster mon : g.monsterList) {
     g.collideList.add(mon);
     //println(g.collideList.get(1).xcor);
@@ -62,9 +62,10 @@ void setup() {
     //println(mon.ycor);
     println(g.collideList.size());
   }
-  println(width);
-  println(height);
-  println(toString(g.collideList));
+  g.collideList.add(g.p);
+  //println(width);
+  //println(height);
+  //println(toString(g.collideList));
 }
 void draw() {
   //setup();
@@ -86,6 +87,7 @@ void draw() {
     //println(g.collideList.size());
   }
   g.p.move();
+  g.p.shoot(g.bulletList);
   g.p.display();
   //println(g.collideList.size());
   //println(toString(g.collideList));
