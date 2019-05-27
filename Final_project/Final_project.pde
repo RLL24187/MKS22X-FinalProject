@@ -32,25 +32,26 @@ Game g = new Game();
 void setup() {
   size(1200, 1200);
   //below is just tests!
-  Bullet tempB = new Bullet(2, 25, 10, 89, 5, 10, 10);
+  //Bullet tempB = new Bullet(2, 25, 10, 89, 5, 10, 10);
   //Collider temp = new Bullet(2, 25, 10, 89, 5, 10, 10);
-  g.bulletList.add(tempB);
+  //g.bulletList.add(tempB);
   //g.collideList.add(temp);
-  println("tempB xcor: "+tempB.xcor);
+  //println("tempB xcor: "+tempB.xcor);
   //println("temp xcor: "+ temp.xcor);
-  //g.bulletList.add(new Bullet(2, 25, 10, 89, 5, 10, 10));
-  g.monsterList.add(new Stan(250, 250, 10, 1, 0, "Stan", 10, 1, 10));
+  g.bulletList.add(new Bullet(2, 25, 10, 89, 5, 10, 10, 2, 0));
+  //int hp, int level, int xp, String species, int power, int size, float x, float y, float xinc, float yinc
+  g.monsterList.add(new Stan(10, 1, 5, "Stan", 1, 10, 250, 250, 3, 0));
   
   println("\nAdding bullet");
   for (Bullet bul : g.bulletList) {
-    println("bulletlistSize: "+ g.bulletList.size());
-    println("g.bulletList.get(0).xcor: "+g.bulletList.get(0).xcor);
-    g.collideList.add(tempB);
-    println("size: "+g.collideList.size());
-    //g.collideList.add(bul);
-    println("bul.xcor: "+bul.xcor);
-    println(g.collideList.get(0));
-    println("g.collideList.get(0).xcor: "+g.collideList.get(0).xcor);
+    //println("bulletlistSize: "+ g.bulletList.size());
+    //println("g.bulletList.get(0).xcor: "+g.bulletList.get(0).xcor);
+    //g.collideList.add(tempB);
+    g.collideList.add(bul);
+    //println("size: "+g.collideList.size());
+    //println("bul.xcor: "+bul.xcor);
+    //println(g.collideList.get(0));
+    //println("g.collideList.get(0).xcor: "+g.collideList.get(0).xcor);
     //println(bul.ycor);
   }
   println("\nAdding monster");
@@ -59,8 +60,10 @@ void setup() {
     //println(g.collideList.get(1).xcor);
     //println(mon.xcor);
     //println(mon.ycor);
-    //println(g.collideList.size());
+    println(g.collideList.size());
   }
+  println(width);
+  println(height);
   println(toString(g.collideList));
 }
 void draw() {
@@ -69,19 +72,19 @@ void draw() {
   for (Bullet bul : g.bulletList) {
     //g.collideList.add(bul);
     bul.display();
-    bul.move(g.killedList, g.collideList);
+    bul.move(g.killedList, g.collideList, g.bulletList);
     //println(g.collideList.size());
   }
   for (Monster mon : g.monsterList) {
     //g.collideList.add(mon);
-    mon.move(g.killedList, g.collideList);
+    mon.move(g.killedList, g.collideList, g.monsterList);
     mon.display();
     //println(g.collideList.size());
   }
   g.p.move();
   g.p.display();
   //println(g.collideList.size());
-  //println(toString(g.collideList));
+  println(toString(g.collideList));
 }
 
 //print method for arrayList but not v helpful attm
