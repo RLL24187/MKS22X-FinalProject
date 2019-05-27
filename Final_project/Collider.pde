@@ -18,7 +18,7 @@ class Collider implements Killable {
     //println(this.ycor);
     //println(c.ycor);
     //println(distance(c.xcor, this.xcor, c.ycor, this.ycor));
-    return distance(c.xcor, this.xcor, c.ycor, this.ycor);
+    return distance(c.xcor, this.xcor, c.ycor, this.ycor) - (c.size/2) - (this.size/2);
   }
   boolean inRadius (Collider c) {
     //println(this);
@@ -48,16 +48,16 @@ class Collider implements Killable {
   }
 
   boolean die(ArrayList<Killable> k, ArrayList<Collider>c) {
-    println(xcor);
+    //println(xcor);
     if (inContact(c)) println("inContact");
-    if (xcor>width) println("x>width");
-    if (xcor<0) println("x<0");
-    if (ycor<0) println("y<0");
-    if (ycor>height) println("y>height)");
+    //if (xcor>width) println("x>width");
+    //if (xcor<0) println("x<0");
+    //if (ycor<0) println("y<0");
+    //if (ycor>height) println("y>height)");
     if (inContact(c) || (xcor > width) || xcor < 0 || ycor < 0 || ycor > height) {
       k.add(this);
       c.remove(this);
-      println("removed");
+      //println("removed");
       return true;
     }
     return false;
