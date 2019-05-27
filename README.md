@@ -45,3 +45,4 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 *Rachel*:<br />
 * Didn't do much today: had a wedding banquet to go to and errands to run :(<br />
 *Elizabeth*:<br />
+* Didn't do anything either, on vacay without laptop
