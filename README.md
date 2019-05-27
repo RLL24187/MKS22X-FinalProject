@@ -15,7 +15,7 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 
 ***Wednesday 5/22/19*** (time to cram bois) <br />
 *Rachel*: <br />
-* Created the Game constructor and started work on a new helper function "inRadius" to help with "inContact"
+* Created the Game constructor and started work on a new helper function "inRadius" to help with "inContact" <br />
 *Elizabeth*: <br />
 * move works!! The cause was because the game kept resetting. Created the abstract monster class. <br /> <br />
 
@@ -24,7 +24,7 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * Worked on Bullet's inRadius, distanceTo, and inContact <br />
 * Need to work on figuring out how to make the code less repetitive: <br /> maybe make a new abstract class
 *Elizabeth*: <br />
-* Created Stan and worked on Stan methods <br />
+* Created Stan and worked on Stan methods (move, display, constructor, etc) <br />
 * Edited the game variables for more suitable names <br />
 * Made player move slower so that when the user presses the keys it doesn't fly out of the board immediately <br /> <br />
 
@@ -39,10 +39,18 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * Made the README look better<br />
 *Elizabeth*: <br />
 * Fixed Stan methods so stan would die outside of the board <br />
-* Created Tanky and its methods <br /> <br />
+* Created Tanky and its methods (move, display, constructor)<br /> <br />
 
 ***Saturday 5/25/2019***<br />
 *Rachel*:<br />
 * Didn't do much today: had a wedding banquet to go to and errands to run :(<br />
 *Elizabeth*:<br />
 * Didn't do anything either, on vacay without laptop
+
+***Sunday 5/26/2019***<br />
+*Rachel*:<br />
+*Elizabeth*:<br />
+*Created player shooting so it wouldn't shoot multiple bullets at once when you press space
+*Edited the Stan and Tanky classes so there wouldn't be double methods of the same thing
+*Worked on spawning the monsters and in the midst of creating a formation for the monster
+*Tried to make the player move diagonally but wouldn't work: tried ArrayList and LinkedList but ended up getting NullPointerExceptions even when if I put (if != null) so I gave up and commented that out
