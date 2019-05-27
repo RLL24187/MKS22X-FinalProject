@@ -6,9 +6,9 @@ class Bullet extends Collider {
   int green;
   int blue;
   int size;
-  float xcor, ycor;
+  float xcor, ycor, xinc, yinc;
 
-  Bullet(int dmg, int r, int g, int b, int rad, float x, float y) {
+  Bullet(int dmg, int r, int g, int b, int rad, float x, float y, float xinc, float yinc) {
     super(x, y, rad);
     damage = dmg;
     red = r;
@@ -17,16 +17,29 @@ class Bullet extends Collider {
     size = rad;
     xcor = x;
     ycor = y;
+    this.xinc = xinc;
+    this.yinc = yinc;
   }
 
   void display() {
     fill(red, green, blue);
     ellipse(xcor, ycor, size, size);
   }
-  
-  void move(ArrayList<Killable> k, ArrayList<Collider> c){
-    xcor+= 2;
-    super.die(k, c);
+
+  boolean die(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Bullet> b) {
+    if (super.die(k, c)) {
+      b.remove(this);
+      return true;
+    }
+    return false;
+  }
+  boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Bullet> b) {
+    xcor+=xinc;
+    ycor+=yinc;
+    if (super.move(k, c, xinc, yinc)) {
+      return die(k, c, b);
+    }
+    return false;
   }
   void splitIt() {
   }
