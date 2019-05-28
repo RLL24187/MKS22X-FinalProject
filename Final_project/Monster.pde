@@ -3,7 +3,7 @@ abstract class Monster extends Collider {
   float xcor, ycor, xinc, yinc;
   String species;
   Monster(int hp, int level, int xp, String species, int power, int size, float x, float y, float xinc, float yinc) {
-    super(x, y, size);
+    super(x, y, size, hp, power);
     this.hp = hp;
     this.level = level;
     this.xp = xp;
@@ -18,19 +18,21 @@ abstract class Monster extends Collider {
   //boolean die(ArrayList<Killable> k, ArrayList<Collider> c) {
   //return super.die(k, c);
   //}
-  boolean die(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m) {
-    if (super.die(k, c)) {
-      m.remove(this);
-      return true; //true when removed
-    }
-    return false;
-  }
+  /*
+  boolean die(ArrayList<Killable> k, ArrayList<Collider> c) {
+   if (super.die(k, c)) {
+   m.remove(this);
+   return true; //true when removed
+   }
+   return false;
+   }*/
+  /*
   void changeHp(int newHp) {
-    hp = newHp;
-  }
+   hp = newHp;
+   }*/
   abstract void display();
   abstract void shoot(ArrayList<Bullet> b);
-  boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m) {
+  boolean move(ArrayList<Killable> k, ArrayList<Collider> c) {
     xcor-=xinc;
     ycor-=yinc;
     return super.move(k, c, -1 * xinc, -1 * yinc); //true when removed
