@@ -1,10 +1,11 @@
 class Collider implements Killable {
   float xcor, ycor, xinc, yinc;
-  int size;
-  Collider(float x, float y, int size){
+  int size, hp;
+  Collider(float x, float y, int size, int hp){
     xcor = x;
     ycor = y;
     this.size = size;
+    this.hp = hp;
   }
   float distance(float x1, float x2, float y1, float y2){
     return pow((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2), .5);
@@ -46,8 +47,13 @@ class Collider implements Killable {
     ycor+= yinc;
     return die(k, c);
   }
+  
+  int changeHP(int change){
+    hp += change;
+    return hp;
+  }
 
-  boolean die(ArrayList<Killable> k, ArrayList<Collider>c) {
+  boolean die(ArrayList<Killable> k, ArrayList<Collider>c, ArrayList<Monster> m, ArrayList<Bullet> b) {
     //println(xcor);
     if (inContact(c)) println("inContact");
     //if (xcor>width) println("x>width");
@@ -55,6 +61,7 @@ class Collider implements Killable {
     //if (ycor<0) println("y<0");
     //if (ycor>height) println("y>height)");
     if (inContact(c) || (xcor > width) || xcor < 0 || ycor < 0 || ycor > height) {
+      if (changeHP
       k.add(this);
       c.remove(this);
       //println("removed");
