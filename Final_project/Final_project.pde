@@ -13,7 +13,8 @@ class Game {
     bulletList = new ArrayList<Bullet>();
     killedList = new ArrayList<Killable>();
     collideList = new ArrayList<Collider>();
-    p = new Player(1, "Sadboi", width/2., height/2., 2, 10);
+    //int power, int numLives, String name, float startingX, float startingY, int speed, int size
+    p = new Player(10, 1, "Sadboi", width/2., height/2., 2, 10);
   }
 
   void display() {
@@ -45,7 +46,7 @@ void setup() {
   //g.collideList.add(temp);
   //println("tempB xcor: "+tempB.xcor);
   //println("temp xcor: "+ temp.xcor);
-  g.bulletList.add(new Bullet(2, 25, 10, 89, 5, 10, 10, 2, 0));
+  g.bulletList.add(new Bullet(10, 1, 25, 10, 89, 5, 10, 10, 2, 0));
   //int hp, int level, int xp, String species, int power, int size, float x, float y, float xinc, float yinc
   g.monsterList.add(new Stan(10, 1, 5, "Stan", 1, 5, 1000, 100, 3, 0));
 
@@ -85,7 +86,7 @@ void draw() {
     //g.collideList.add(bul);
     Bullet bul = g.bulletList.get(i);
     bul.display();
-    bul.move(g.killedList, g.collideList, g.bulletList);
+    bul.move(g.killedList, g.collideList);
     //println(g.collideList.size());
   }
   //for (Monster mon : g.monsterList) {
@@ -93,7 +94,7 @@ void draw() {
     //g.collideList.add(mon);
     Monster mon = g.monsterList.get(i);
     mon.display();
-    mon.move(g.killedList, g.collideList, g.monsterList);
+    mon.move(g.killedList, g.collideList);
     //println(g.collideList.size());
   }
   //println(g.collideList.size());
