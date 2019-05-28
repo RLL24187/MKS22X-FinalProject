@@ -1,4 +1,4 @@
-class Collider implements Killable {
+ class Collider implements Killable {
   float xcor, ycor, xinc, yinc;
   int size, hp, power;
   Collider(float x, float y, int size, int hp, int power) {
@@ -7,6 +7,9 @@ class Collider implements Killable {
     this.size = size;
     this.hp = hp;
     this.power = power;
+  }
+  
+  void display(){
   }
   float distance(float x1, float x2, float y1, float y2) {
     return pow((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2), .5);
@@ -44,18 +47,19 @@ class Collider implements Killable {
   boolean inContact(Collider c) {
    return inRadius(c);
    }*/
-  boolean move(ArrayList<Killable> k, ArrayList<Collider> c, float xinc, float yinc) {
+  boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b, float xinc, float yinc) {
     xcor+= xinc;
     ycor+= yinc;
-    return die(k, c);
+    return die(k, c, m, b);
   }
 
   int changeHP(int change) {
-    hp += change;
+    hp -= change;
+    println("HP: "+hp);
     return hp;
   }
 
-  boolean die(ArrayList<Killable> k, ArrayList<Collider>c) {
+  boolean die(ArrayList<Killable> k, ArrayList<Collider>c, ArrayList<Monster> m, ArrayList<Bullet> b) {
     //println(xcor);
     if (inContact(c) != null) println("inContact");
     //if (xcor>width) println("x>width");
@@ -67,14 +71,21 @@ class Collider implements Killable {
       if (changeHP(temp.power) <= 0) { //will always change the HP
         k.add(this); //remove the monster from collider and add to killed if HP too low
         c.remove(this);
-        //println("removed");
+        m.remove(this);
+        b.remove(this);
+        println(this+" removed");
         c.remove(temp);
+        m.remove(temp);
+        b.remove(temp);
+        println(temp + " removed");
         return true;
       }//otherwise it stays alive, with HP changed
     }
     if (xcor > width || xcor < 0 || ycor < 0 || ycor > height) { //out of bounds
       //k.add(this);
       c.remove(this);
+      m.remove(this);
+      b.remove(this);
       return true;
     }
     return false;

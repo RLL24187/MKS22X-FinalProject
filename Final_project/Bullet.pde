@@ -34,11 +34,11 @@ class Bullet extends Collider {
    }
    return false;
    }*/
-  boolean move(ArrayList<Killable> k, ArrayList<Collider> c) {
+  boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b) {
     xcor+=xinc;
     ycor+=yinc;
-    if (super.move(k, c, xinc, yinc)) {
-      return die(k, c);
+    if (super.move(k, c, m, b, xinc, yinc)) {
+      return die(k, c, m, b);
     }
     return false;
   }

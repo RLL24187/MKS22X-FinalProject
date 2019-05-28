@@ -2,8 +2,8 @@ class Stan extends Monster {
   Stan(int hp, int level, int xp, String species, int power, int size, float x, float y, float xinc, float yinc) {
     super(hp, level, xp, species, power, size, x, y, xinc, yinc);
   }
-  boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m) {
-    if (super.move(k, c)){
+  boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b) {
+    if (super.move(k, c, m, b)){
       m.remove(this);
       return true;
     }

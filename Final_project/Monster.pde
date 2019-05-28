@@ -32,9 +32,9 @@ abstract class Monster extends Collider {
    }*/
   abstract void display();
   abstract void shoot(ArrayList<Bullet> b);
-  boolean move(ArrayList<Killable> k, ArrayList<Collider> c) {
+  boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b) {
     xcor-=xinc;
     ycor-=yinc;
-    return super.move(k, c, -1 * xinc, -1 * yinc); //true when removed
+    return super.move(k, c, m, b, -1 * xinc, -1 * yinc); //true when removed
   }
 }
