@@ -9,10 +9,10 @@ class Tanky extends Monster{
   boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m){
     xcor-=xinc;
     ycor-=yinc;
-    return super.die(k, c, m);
+    return super.die(k, c);
   }
   void shoot(ArrayList<Bullet> b) {
-    b.add(new Bullet(10, 231, 124, 43, 5, xcor, ycor, xinc, yinc));
+    b.add(new Bullet(power, 1, 231, 124, 43, 5, xcor, ycor, xinc, yinc));
   }
 }
   
