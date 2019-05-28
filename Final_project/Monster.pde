@@ -2,7 +2,7 @@ abstract class Monster extends Collider {
   int hp, level, xp, power, speed, size;
   float xcor, ycor, xinc, yinc;
   String species;
-  Monster(int hp, int level, int xp, String species, int power, int size, float x, float y, float xinc, float yinc) {
+  Monster(int hp, int level, int xp, int power, int size, float x, float y, float xinc, float yinc) {
     super(x, y, size);
     this.hp = hp;
     this.level = level;

@@ -1,6 +1,6 @@
 class Tanky extends Monster{
-  Tanky(int hp, int level, int xp, String species, int power, int size, float x, float y, float xinc, float yinc) {
-    super(hp, level, xp, species, power, size, x, y, xinc, yinc);
+  Tanky(int hp, int level, int xp, int power, int size, float x, float y, float xinc, float yinc) {
+    super(hp, level, xp, power, size, x, y, xinc, yinc);
   }
   void display() {
     fill(123, 35, 58);
