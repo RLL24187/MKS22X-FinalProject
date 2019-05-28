@@ -1,11 +1,12 @@
 import java.util.*;
 class Player extends Collider {
-  int lives, size;
+  int lives, size, power;
   float speed, xcor, ycor;
   String name;
   ArrayList<String> movement;
-  Player(int numLives, String name, float startingX, float startingY, int speed, int size) {
-    super(startingX, startingY, size);
+  Player(int power, int numLives, String name, float startingX, float startingY, int speed, int size) {
+    super(startingX, startingY, size, numLives, power);
+    this.power = power;
     lives = numLives;
     xcor = startingX;
     ycor = startingY;
@@ -58,7 +59,7 @@ class Player extends Collider {
 
   void shoot(ArrayList<Bullet> b, ArrayList<Collider> c) {
     if (key == ' ' && keyPressed == true) {
-      Bullet temp = new Bullet(50, 255, 123, 45, 10, xcor, ycor, 2, 0);
+      Bullet temp = new Bullet(power, 1, 255, 123, 45, 10, xcor, ycor, 2, 0);
       b.add(temp);
       c.add(temp);
       keyPressed = false;
@@ -66,7 +67,7 @@ class Player extends Collider {
   }
 
   boolean die(ArrayList<Collider> monster) {
-    if (inContact(monster)) {
+    if (inContact(monster)!= null) {
       lives--;
       xcor = 0;
       ycor = height / 2;
