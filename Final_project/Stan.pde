@@ -9,15 +9,15 @@ class Stan extends Monster {
   //    mon.add(new Stan(hp, level, xp, power, size, xcor-10*i, ycor-10*i, xinc, yinc));
   //  }
   //}
-  boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m) {
-    if (super.move(k, c, m)) {
+  boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b) {
+    if (super.move(k, c, m, b)){
       m.remove(this);
       return true;
     }
     return false;
   }
   void shoot(ArrayList<Bullet> b) {
-    b.add(new Bullet(10, 231, 124, 43, 5, xcor, ycor, xinc, yinc));
+    b.add(new Bullet(power, 1, 231, 124, 43, 5, xcor, ycor, xinc, yinc));
   }
   void display() {
     fill(255, 0, 0);

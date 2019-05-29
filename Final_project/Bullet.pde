@@ -1,16 +1,18 @@
 import java.util.*;
 
 class Bullet extends Collider {
-  int damage;
+  int power;
   int red;
   int green;
   int blue;
   int size;
+  int hp;
   float xcor, ycor, xinc, yinc;
 
-  Bullet(int dmg, int r, int g, int b, int rad, float x, float y, float xinc, float yinc) {
-    super(x, y, rad);
-    damage = dmg;
+  Bullet(int dmg, int hp, int r, int g, int b, int rad, float x, float y, float xinc, float yinc) {
+    super(x, y, rad, hp, dmg);
+    power = dmg;
+    this.hp = hp;
     red = r;
     green = g;
     blue = b;
@@ -24,18 +26,19 @@ class Bullet extends Collider {
     fill(red, green, blue);
     ellipse(xcor, ycor, size, size);
   }
+  /*
   boolean die(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Bullet> b) {
-    if (super.die(k, c)) {
-      b.remove(this);
-      return true;
-    }
-    return false;
-  }
-  boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Bullet> b) {
+   if (super.die(k, c)) {
+   b.remove(this);
+   return true;
+   }
+   return false;
+   }*/
+  boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b) {
     xcor+=xinc;
     ycor+=yinc;
-    if (super.move(k, c, xinc, yinc)) {
-      return die(k, c, b);
+    if (super.move(k, c, m, b, xinc, yinc)) {
+      return die(k, c, m, b);
     }
     return false;
   }
