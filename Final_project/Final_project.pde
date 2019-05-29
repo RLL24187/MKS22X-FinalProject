@@ -49,7 +49,7 @@ void setup() {
   //println("temp xcor: "+ temp.xcor);
   g.bulletList.add(new Bullet(10, 1, 25, 10, 89, 5, 10, 10, 2, 0));
   //int hp, int level, int xp, String species, int power, int size, float x, float y, float xinc, float yinc
-  g.monsterList.add(new Stan(10, 1, 5, "Stan", 1, 10, 1000, 100, 3, 0));
+  g.monsterList.add(new Stan(20, 1, 5, "Stan", 1, 10, 1000, 100, 3, 0));
 
   //println("\nAdding bullet");
   for (Bullet bul : g.bulletList) {
