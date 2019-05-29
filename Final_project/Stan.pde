@@ -27,7 +27,7 @@ class Stan extends Monster {
     mon.add(this);
     for (int i = 1; i < 3; i++) { 
       mon.add(new Stan(hp, level, xp, power, size, xcor+10*i, ycor+10*i, xinc, yinc));
-      mon.add(new Stan(hp, level, xp, power, size, xcor-10*i, ycor-10*i, xinc, yinc));
+      mon.add(new Stan(hp, level, xp, power, size, xcor+10*i, ycor-10*i, xinc, yinc));
     }
   }
   //Stan formationRightWing(int i) {

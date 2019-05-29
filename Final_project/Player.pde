@@ -3,7 +3,7 @@ class Player extends Collider {
   int lives, size, power;
   float speed, xcor, ycor;
   String name;
-  ArrayList<String> movement;
+  ArrayList<Integer> movement;
   Player(int power, int numLives, float startingX, float startingY, int speed, int size) {
     super(startingX, startingY, size, numLives, power);
     this.power = power;
@@ -12,8 +12,10 @@ class Player extends Collider {
     ycor = startingY;
     this.speed = speed;
     this.size = size;
-    this.name = name;
   }
+  //void buttons(keyCode) {
+  //  if (keyCode == UP) {
+  //    movement.add(
   void move() {
     if (key == CODED && keyPressed == true) {
       if (keyCode == UP) {
