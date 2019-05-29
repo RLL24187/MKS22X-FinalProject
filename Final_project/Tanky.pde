@@ -6,18 +6,13 @@ class Tanky extends Monster{
     fill(123, 35, 58);
     rect(xcor, ycor, 10, 10);
   }
-  void move(ArrayList<Killable> k, ArrayList<Collider> c) {
-    super.die(k, c);
+  boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b){
     xcor-=xinc;
     ycor-=yinc;
-  }
-  boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m){
-    xcor-=xinc;
-    ycor-=yinc;
-    return super.die(k, c, m);
+    return super.die(k, c, m, b);
   }
   void shoot(ArrayList<Bullet> b) {
-    b.add(new Bullet(10, 231, 124, 43, 5, xcor, ycor, xinc, yinc));
+    b.add(new Bullet(power, 1, 231, 124, 43, 5, xcor, ycor, xinc, yinc));
   }
 }
   
