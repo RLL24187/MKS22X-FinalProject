@@ -17,17 +17,19 @@ class Game {
   }
 
   void display() {
-    int chooseMonster = Math.random() * 2;
-    if (chooseMonster = 0) {
-        monsterList.add(new Stan(250, 250, 10, 1, 0, "Stan", 10, 1, 10);
-    } else if (chooseMonster = 1) {
-        monsterList.add(new Tanky(250, 250, 10, 1, 0, "Tanky", 10, 1, 10));
+    int chooseMonster = (int)(Math.random() * 2);
+    if (chooseMonster == 0) {
+      //int hp, int level, int xp, String species, int power, int size, float x, float y, float xinc, float yinc
+      monsterList.add(new Stan(20, 1, 10, "Stan", 10, 10, 900, 250, 5, 0));
+    } else if (chooseMonster == 1) {
+      //int hp, int level, int xp, String species, int power, int size, float x, float y, float xinc, float yinc
+      monsterList.add(new Tanky(20, 1, 10, "Stan", 10, 10, 1000, 750, 3, 0));
     }
   }
 
   void update() {
   }
-  
+
   void endScreen() {
     textSize(100);
     fill(255, 0, 0);
