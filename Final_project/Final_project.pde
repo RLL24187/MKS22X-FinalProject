@@ -57,6 +57,7 @@ void setup() {
     //println("g.bulletList.get(0).xcor: "+g.bulletList.get(0).xcor);
     //g.collideList.add(tempB);
     g.collideList.add(bul);
+    println("bul hp: "+bul.hp);
     //println("size: "+g.collideList.size());
     //println("bul.xcor: "+bul.xcor);
     //println(g.collideList.get(0));
@@ -87,7 +88,10 @@ void draw() {
     //g.collideList.add(bul);
     Bullet bul = g.bulletList.get(i);
     bul.display();
-    bul.move(g.killedList, g.collideList, g.monsterList, g.bulletList);
+    //println(bul.hp);
+    if (bul.move(g.killedList, g.collideList, g.monsterList, g.bulletList)){
+      i--;
+    }
     //println(g.collideList.size());
   }
   //for (Monster mon : g.monsterList) {
@@ -95,7 +99,9 @@ void draw() {
     //g.collideList.add(mon);
     Monster mon = g.monsterList.get(i);
     mon.display();
-    mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList);
+    if (mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList)){
+      i--;
+    }
     //println(g.collideList.size());
   }
   //println(g.collideList.size());

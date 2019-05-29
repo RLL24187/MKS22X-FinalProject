@@ -50,7 +50,7 @@
   boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b, float xinc, float yinc) {
     xcor+= xinc;
     ycor+= yinc;
-    return die(k, c, m, b);
+    return die(k, c, m, b); //returns true when this dies
   }
 
   int changeHP(int change) {
@@ -70,9 +70,13 @@
     if (temp != null) { 
       println(temp + "'s power: "+temp.power);
       println(this + "'s HP: "+this.hp);
+      println(temp + "'s HP: "+temp.hp);
+      println(this + "'s power: "+this.power);
       int thisNewHP = changeHP(temp.power);
+      int tempNewHP = temp.changeHP(this.power);
+      println(this + "thisNewHP: "+thisNewHP);
+      println(temp + "tempNewHP: "+tempNewHP);
       //if (changeHP(temp.power) <= 0) { //will always change the HP: returns the new HP of this
-      println("thisNewHP: "+thisNewHP);
       if (thisNewHP <= 0){
         k.add(this); //remove the monster from collider and add to killed if HP too low
         c.remove(this);
@@ -80,8 +84,6 @@
         b.remove(this);
         println(this+" removed");
       }
-      int tempNewHP = temp.changeHP(this.power);
-      println("tempNewHP: "+tempNewHP);
       //if (temp.changeHP(this.power) <= 0){
       if (tempNewHP <= 0){
         c.remove(temp);
