@@ -5,7 +5,7 @@ class Stan extends Monster {
 
   boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b) {
     if (super.move(k, c, m, b)){
-      m.remove(this);
+      //m.remove(this);
       return true;
     }
     return false;
