@@ -14,7 +14,6 @@ class Game {
     killedList = new ArrayList<Killable>();
     collideList = new ArrayList<Collider>();
     p = new Player(10, 1, width/2., height/2., 5, 10);
-
   }
 
   void display() {
@@ -105,6 +104,8 @@ void draw() {
       i--;
     }
     mon.display();
+    //println("IM DISPLAYING");
+    mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList);
     //println(g.collideList.size());
   }
   //println(g.collideList.size());

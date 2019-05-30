@@ -33,6 +33,7 @@ abstract class Monster extends Collider {
   boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b) {
     xcor-=xinc;
     ycor-=yinc;
+    //println("monster move");
     return super.move(k, c, m, b, -1 * xinc, -1 * yinc); //true when removed
   }
 }
