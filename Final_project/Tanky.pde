@@ -1,10 +1,10 @@
 class Tanky extends Monster{
-  Tanky(int hp, int level, int xp, int power, int size, float x, float y, float xinc, float yinc) {
-    super(hp, level, xp, power, size, x, y, xinc, yinc);
+  Tanky(int hp, int level, int xp, int power, int size, float xcor, float ycor, float xinc, float yinc) {
+    super(hp, level, xp, power, size, xcor, ycor, xinc, yinc);
   }
   void display() {
     fill(123, 35, 58);
-    rect(xcor, ycor, 10, 10);
+    rect(xcor, ycor, size, size);
   }
   boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b){
     xcor-=xinc;
@@ -13,6 +13,16 @@ class Tanky extends Monster{
   }
   void shoot(ArrayList<Bullet> b) {
     b.add(new Bullet(power, 1, 231, 124, 43, 5, xcor, ycor, xinc, yinc));
+  }
+  void formation(ArrayList<Monster> mon) {
+    mon.add(this);
+    for(int i = 1; i < 5; i++) {
+      if (i % 2 == 1) {
+        mon.add(new Tanky(hp, level, xp, power, size, xcor+size*i, 0., xinc, yinc));
+      } else {
+        mon.add(new Tanky(hp, level, xp, power, size, xcor+size*i, height-size, xinc, yinc));
+      }
+    }
   }
 }
   
