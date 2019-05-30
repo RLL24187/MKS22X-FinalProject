@@ -32,17 +32,6 @@ class Player extends Collider {
     }
   }
   void move() {
-    //if (key == CODED && keyPressed == true) {
-    //  if (keyCode == UP) {
-    //    ycor -= speed;
-    //  } else if (keyCode == DOWN) {
-    //    ycor += speed;
-    //  } else if (keyCode == LEFT) {
-    //    xcor -= speed;
-    //  } else if (keyCode == RIGHT) {
-    //    xcor += speed;
-    //  }
-    //}
     boolean up = movement.contains(0);
     boolean down = movement.contains(1);
     boolean left = movement.contains(2);
@@ -60,35 +49,6 @@ class Player extends Collider {
       xcor += speed;
     }
   }
-
-  //void move() {
-  //  if (key == CODED && keyPressed == true) {
-  //    if (keyCode == UP) {
-  //      movement.add("UP");
-  //    } 
-  //    if (keyCode == DOWN) {
-  //      movement.add("DOWN");
-  //    }
-  //    if (keyCode == LEFT) {
-  //      movement.add("LEFT");
-  //    } 
-  //    if (keyCode == RIGHT) {
-  //      movement.add("RIGHT");
-  //    }
-  //  }
-  //  if (movement.contains("UP")) {
-  //    ycor -= speed;
-  //  }
-  //  if (movement.contains("DOWN")) {
-  //    ycor += speed;
-  //  }
-  //  if (movement.contains("RIGHT")) {
-  //    xcor += speed;
-  //  }
-  //  if (movement.contains("LEFT")) {
-  //    xcor -= speed;
-  //  }
-  //}
 
   void shoot(ArrayList<Bullet> b, ArrayList<Collider> c) {
     if (key == ' ' && keyPressed == true) {
