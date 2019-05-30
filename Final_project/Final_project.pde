@@ -51,7 +51,11 @@ void setup() {
   //println("temp xcor: "+ temp.xcor);
   g.bulletList.add(new Bullet(10, 1, 25, 10, 89, 5, 10, 10, -2, 0));
   //int hp, int level, int xp, String species, int power, int size, float x, float y, float xinc, float yinc
+<<<<<<< HEAD
   //g.monsterList.add(new Stan(10, 1, 5, 1, 5, 1000, 100, 3, 0));
+=======
+  g.monsterList.add(new Stan(20, 1, 5, "Stan", 1, 10, 1000, 100, 3, 0));
+>>>>>>> display
 
   //println("\nAdding bullet");
   for (Bullet bul : g.bulletList) {
@@ -59,6 +63,7 @@ void setup() {
     //println("g.bulletList.get(0).xcor: "+g.bulletList.get(0).xcor);
     //g.collideList.add(tempB);
     g.collideList.add(bul);
+    println("bul hp: "+bul.hp);
     //println("size: "+g.collideList.size());
     //println("bul.xcor: "+bul.xcor);
     //println(g.collideList.get(0));
@@ -88,7 +93,10 @@ void draw() {
     //g.collideList.add(bul);
     Bullet bul = g.bulletList.get(i);
     bul.display();
-    bul.move(g.killedList, g.collideList, g.monsterList, g.bulletList);
+    //println(bul.hp);
+    if (bul.move(g.killedList, g.collideList, g.monsterList, g.bulletList)){
+      i--;
+    }
     //println(g.collideList.size());
   }
   //for (Monster mon : g.monsterList) {
@@ -97,8 +105,14 @@ void draw() {
     //g.collideList.add(mon);
     Monster mon = g.monsterList.get(i);
     mon.display();
+<<<<<<< HEAD
     //println("IM DISPLAYING");
     mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList);
+=======
+    if (mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList)){
+      i--;
+    }
+>>>>>>> display
     //println(g.collideList.size());
   }
   //println(g.collideList.size());
