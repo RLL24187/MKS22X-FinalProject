@@ -50,35 +50,56 @@
   boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b, float xinc, float yinc) {
     xcor+= xinc;
     ycor+= yinc;
-    return die(k, c, m, b);
+    return die(k, c, m, b); //returns true when this dies
   }
 
   int changeHP(int change) {
     hp -= change;
-    println("HP: "+hp);
+    //println(this + "'s HP: "+hp);
     return hp;
   }
 
   boolean die(ArrayList<Killable> k, ArrayList<Collider>c, ArrayList<Monster> m, ArrayList<Bullet> b) {
-    //println(xcor);
+    boolean returnval = false;
     if (inContact(c) != null) println("inContact");
     //if (xcor>width) println("x>width");
     //if (xcor<0) println("x<0");
     //if (ycor<0) println("y<0");
     //if (ycor>height) println("y>height)");
-    Collider temp = inContact(c); //temp is always going to be a bullet, unless null
+    Collider temp = inContact(c); 
     if (temp != null) { 
-      if (changeHP(temp.power) <= 0) { //will always change the HP
+      println(this + ": "+ xcor);
+      println(temp + ": "+ temp.xcor);
+      /*println(temp + "'s power: "+temp.power);
+      println(this + "'s HP: "+this.hp);
+      println(temp + "'s HP: "+temp.hp);
+      println(this + "'s power: "+this.power);*/
+      int thisNewHP = changeHP(temp.power);
+      int tempNewHP = temp.changeHP(this.power);/*
+      println(this + "thisNewHP: "+thisNewHP);
+      println(temp + "tempNewHP: "+tempNewHP);*/
+      //if (changeHP(temp.power) <= 0) { //will always change the HP: returns the new HP of this
+      if (thisNewHP <= 0){
         k.add(this); //remove the monster from collider and add to killed if HP too low
         c.remove(this);
         m.remove(this);
         b.remove(this);
+        //this.display();
+        //temp.display();
+        temp.move(k, c, m, b, temp.xinc, temp.yinc);
         println(this+" removed");
+        returnval = true;
+      }
+      //if (temp.changeHP(this.power) <= 0){
+      if (tempNewHP <= 0){
         c.remove(temp);
         m.remove(temp);
         b.remove(temp);
         println(temp + " removed");
-        return true;
+        //this.display();
+        //temp.display();
+        this.move(k, c, m, b, this.xinc, this.yinc);
+        //return true;
       }//otherwise it stays alive, with HP changed
     }
     if (xcor > width || xcor < 0 || ycor < 0 || ycor > height) { //out of bounds
@@ -88,6 +109,6 @@
       b.remove(this);
       return true;
     }
-    return false;
+    return returnval;
   }
 }

@@ -13,18 +13,19 @@ class Game {
     bulletList = new ArrayList<Bullet>();
     killedList = new ArrayList<Killable>();
     collideList = new ArrayList<Collider>();
-    p = new Player(10, 1, width/2., height/2., 2, 10);
+    //int power, int numLives, String name, float startingX, float startingY, int speed, int size
+    p = new Player(10, 1, "Sadboi", width/2., 100., 2, 10);
   }
 
   void display() {
-    //int hp, int level, int xp, int power, int size, float x, float y, float xinc, float yinc
-    //int chooseMonster = (int)Math.random() * 2;
-    //if (chooseMonster == 0) {
-    Stan x = new Stan(250, 250, 0, 10, 5, width/2, height/2, 2, 0.);
-    x.formation(monsterList);
-    //} else if (chooseMonster == 1) {
-    //  monsterList.add(new Tanky(250, 250, 0, 10, 5, 1., 10., 2., 0.));
-    //}
+    int chooseMonster = (int)(Math.random() * 2);
+    if (chooseMonster == 0) {
+      //int hp, int level, int xp, String species, int power, int size, float x, float y, float xinc, float yinc
+      monsterList.add(new Stan(20, 1, 10, "Stan", 10, 10, 900, 250, 5, 0));
+    } else if (chooseMonster == 1) {
+      //int hp, int level, int xp, String species, int power, int size, float x, float y, float xinc, float yinc
+      monsterList.add(new Tanky(20, 1, 10, "Stan", 10, 10, 1000, 750, 3, 0));
+    }
   }
 
   void update() {
@@ -49,7 +50,7 @@ void setup() {
   //println("temp xcor: "+ temp.xcor);
   g.bulletList.add(new Bullet(10, 1, 25, 10, 89, 5, 10, 10, -2, 0));
   //int hp, int level, int xp, String species, int power, int size, float x, float y, float xinc, float yinc
-  //g.monsterList.add(new Stan(10, 1, 5, 1, 5, 1000, 100, 3, 0));
+  g.monsterList.add(new Stan(20, 1, 5, "Stan", 1, 10, 1000, 100, 3, 0));
 
   //println("\nAdding bullet");
   for (Bullet bul : g.bulletList) {
@@ -57,6 +58,7 @@ void setup() {
     //println("g.bulletList.get(0).xcor: "+g.bulletList.get(0).xcor);
     //g.collideList.add(tempB);
     g.collideList.add(bul);
+    println("bul hp: "+bul.hp);
     //println("size: "+g.collideList.size());
     //println("bul.xcor: "+bul.xcor);
     //println(g.collideList.get(0));
@@ -85,8 +87,12 @@ void draw() {
   for (int i = 0; i < g.bulletList.size(); i++) {
     //g.collideList.add(bul);
     Bullet bul = g.bulletList.get(i);
+    //bul.display();
+    //println(bul.hp);
+    if (bul.move(g.killedList, g.collideList, g.monsterList, g.bulletList)){
+      i--;
+    }
     bul.display();
-    bul.move(g.killedList, g.collideList, g.monsterList, g.bulletList);
     //println(g.collideList.size());
   }
   //for (Monster mon : g.monsterList) {
@@ -94,6 +100,10 @@ void draw() {
   for (int i = 0; i < g.monsterList.size(); i++) {
     //g.collideList.add(mon);
     Monster mon = g.monsterList.get(i);
+    //mon.display();
+    if (mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList)){
+      i--;
+    }
     mon.display();
     //println("IM DISPLAYING");
     mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList);
