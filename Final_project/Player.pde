@@ -3,7 +3,11 @@ class Player extends Collider {
   int lives, size, power;
   float speed, xcor, ycor;
   String name;
-  ArrayList<Integer> movement;
+  //UP=0
+  //DOWN=1
+  //LEFT=2
+  //RIGHT=3
+  ArrayList<Integer> movement = new ArrayList<Integer>();
   Player(int power, int numLives, float startingX, float startingY, int speed, int size) {
     super(startingX, startingY, size, numLives, power);
     this.power = power;
@@ -13,20 +17,47 @@ class Player extends Collider {
     this.speed = speed;
     this.size = size;
   }
-  //void buttons(keyCode) {
-  //  if (keyCode == UP) {
-  //    movement.add(
+  void buttons() {
+    if (keyCode == UP) {
+      movement.add(0);
+    } 
+    if (keyCode == DOWN) {
+      movement.add(1);
+    } 
+    if (keyCode == LEFT) {
+      movement.add(2);
+    }
+    if (keyCode == RIGHT) {
+      movement.add(3);
+    }
+  }
   void move() {
-    if (key == CODED && keyPressed == true) {
-      if (keyCode == UP) {
-        ycor -= speed;
-      } else if (keyCode == DOWN) {
-        ycor += speed;
-      } else if (keyCode == LEFT) {
-        xcor -= speed;
-      } else if (keyCode == RIGHT) {
-        xcor += speed;
-      }
+    //if (key == CODED && keyPressed == true) {
+    //  if (keyCode == UP) {
+    //    ycor -= speed;
+    //  } else if (keyCode == DOWN) {
+    //    ycor += speed;
+    //  } else if (keyCode == LEFT) {
+    //    xcor -= speed;
+    //  } else if (keyCode == RIGHT) {
+    //    xcor += speed;
+    //  }
+    //}
+    boolean up = movement.contains(0);
+    boolean down = movement.contains(1);
+    boolean left = movement.contains(2);
+    boolean right = movement.contains(3);
+    if (up) {
+      ycor -= speed;
+    } 
+    if (down) {
+      ycor += speed;
+    }
+    if (left) {
+      xcor -= speed;
+    }
+    if (right) {
+      xcor += speed;
     }
   }
 
