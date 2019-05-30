@@ -21,7 +21,7 @@ class Tanky extends Monster{
   void shoot(ArrayList<Bullet> b) {
     b.add(new Bullet(power, 1, 231, 124, 43, 5, xcor, ycor, xinc, yinc));
   }
-  void formation(ArrayList<Collider> c, ArrayList<Monster> mon) {
+  void formation(ArrayList<Monster> mon) {
     mon.add(this);
     for(int i = 1; i < 5; i++) {
       Tanky t;

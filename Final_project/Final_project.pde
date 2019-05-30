@@ -18,15 +18,17 @@ class Game {
 
   void display() {
     //int hp, int level, int xp, int power, int size, float x, float y, float xinc, float yinc
-    int chooseMonster = (int)Math.random() * 3;
+    int chooseMonster = (int)(Math.random() * 3);
     //println(chooseMonster);
-    //if (chooseMonster == 0) {
-    //  Stan x = new Stan(10, 250, 0, 10, 5, width/2, height/2, 2, 0.);
-    //  x.formation(monsterList);
-    //} else if (chooseMonster == 1) {
+    if (chooseMonster == 0) {
+      Stan x = new Stan(10, 250, 0, 10, 5, width/2, height/2, 2, 0.);
+      x.formation(monsterList);
+      p.ycor = height/2;
+    } else if (chooseMonster == 1) {
       Tanky y = new Tanky(10, 250, 0, 10, 15, width/2, height-15, 2, 0);
-      y.formation(collideList, monsterList);
-    //}
+      y.formation(monsterList);
+      p.ycor = height - 15;
+    }
   }
 
   void update() {
