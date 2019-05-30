@@ -14,6 +14,7 @@ class Game {
     killedList = new ArrayList<Killable>();
     collideList = new ArrayList<Collider>();
     p = new Player(10, 1, width/2., height/2., 5, 10);
+
   }
 
   void display() {
@@ -87,22 +88,24 @@ void draw() {
   for (int i = 0; i < g.bulletList.size(); i++) {
     //g.collideList.add(bul);
     Bullet bul = g.bulletList.get(i);
-    bul.display();
+    //bul.display();
     //println(bul.hp);
     if (bul.move(g.killedList, g.collideList, g.monsterList, g.bulletList)) {
       i--;
     }
+    bul.display();
     //println(g.collideList.size());
   }
   //for (Monster mon : g.monsterList) 
   for (int i = 0; i < g.monsterList.size(); i++) {
     //g.collideList.add(mon);
     Monster mon = g.monsterList.get(i);
-    mon.display();
-      if (mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList)) {
+    //mon.display();
+    if (mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList)){
       i--;
     }
-      //println(g.collideList.size());
+    mon.display();
+    //println(g.collideList.size());
   }
   //println(g.collideList.size());
   //println(toString(g.collideList));

@@ -82,6 +82,9 @@
         c.remove(this);
         m.remove(this);
         b.remove(this);
+        //this.display();
+        //temp.display();
+        temp.move(k, c, m, b, temp.xinc, temp.yinc);
         println(this+" removed");
       }
       //if (temp.changeHP(this.power) <= 0){
@@ -90,6 +93,9 @@
         m.remove(temp);
         b.remove(temp);
         println(temp + " removed");
+        //this.display();
+        //temp.display();
+        this.move(k, c, m, b, this.xinc, this.yinc);
         return true;
       }//otherwise it stays alive, with HP changed
     }
