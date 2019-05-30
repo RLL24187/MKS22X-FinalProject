@@ -14,17 +14,17 @@ class Game {
     killedList = new ArrayList<Killable>();
     collideList = new ArrayList<Collider>();
     //int power, int numLives, String name, float startingX, float startingY, int speed, int size
-    p = new Player(10, 1, "Sadboi", width/2., 100., 2, 10);
+    p = new Player(10, 1, width/2., 100., 2, 10);
   }
 
   void display() {
     int chooseMonster = (int)(Math.random() * 2);
     if (chooseMonster == 0) {
       //int hp, int level, int xp, String species, int power, int size, float x, float y, float xinc, float yinc
-      monsterList.add(new Stan(20, 1, 10, "Stan", 10, 10, 900, 250, 5, 0));
+      monsterList.add(new Stan(20, 1, 10, 10, 10, 900, 250, 5, 0));
     } else if (chooseMonster == 1) {
       //int hp, int level, int xp, String species, int power, int size, float x, float y, float xinc, float yinc
-      monsterList.add(new Tanky(20, 1, 10, "Stan", 10, 10, 1000, 750, 3, 0));
+      monsterList.add(new Tanky(20, 1, 10, 10, 10, 1000, 750, 3, 0));
     }
   }
 
@@ -50,7 +50,7 @@ void setup() {
   //println("temp xcor: "+ temp.xcor);
   g.bulletList.add(new Bullet(10, 1, 25, 10, 89, 5, 10, 10, -2, 0));
   //int hp, int level, int xp, String species, int power, int size, float x, float y, float xinc, float yinc
-  g.monsterList.add(new Stan(20, 1, 5, "Stan", 1, 10, 1000, 100, 3, 0));
+  g.monsterList.add(new Stan(20, 1, 5, 1, 10, 1000, 100, 3, 0));
 
   //println("\nAdding bullet");
   for (Bullet bul : g.bulletList) {
