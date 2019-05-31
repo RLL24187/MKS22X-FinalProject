@@ -21,6 +21,7 @@ class Tiny extends Monster{
     //f(x-1) = height/2 * sin(x-1) + someYint
     //difference = height/2 * (sin(x-1) - sin(x))
     yinc = height/amp * (sin(xcor - xinc) - sin(xcor)) * ((width - xcor) / 200);
+    //store an angle instead (in radians)
     if (neg){
       yinc *= -1;
     }

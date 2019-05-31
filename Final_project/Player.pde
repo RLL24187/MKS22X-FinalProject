@@ -48,6 +48,9 @@ class Player extends Collider {
     if (right) {
       xcor += speed;
     }
+    //move will be based on velocity
+    //buttons set velocity
+    //no buttons pressed set velocity 0
   }
 
   void shoot(ArrayList<Bullet> b, ArrayList<Collider> c) {
