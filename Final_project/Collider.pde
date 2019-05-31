@@ -106,7 +106,7 @@
         //return true;
       }//otherwise it stays alive, with HP changed
     }
-    if (xcor < 0 || ycor < 0 || ycor > height) { //out of bounds
+    if (xcor < -1 * size || ycor < 0 || ycor > height) { //out of bounds
       //k.add(this);
       //println(c.size());
       c.remove(this);
