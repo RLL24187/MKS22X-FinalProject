@@ -59,7 +59,7 @@ class Player extends Collider {
 
   void shoot(ArrayList<Bullet> b, ArrayList<Collider> c) {
     if (key == ' ' && keyPressed == true) {
-      Bullet temp = new Bullet(power, 1, 255, 123, 45, 10, xcor, ycor, 2, 0);
+      Bullet temp = new Bullet(power, 1, 255, 123, 45, 10, xcor, ycor, 3, 0);
       b.add(temp);
       c.add(temp);
       keyPressed = false;

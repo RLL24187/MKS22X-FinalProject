@@ -45,7 +45,7 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * Had an issue with repeating Bullets in move, put adding the Bullet and Monster in setup rather than draw <br />
 * Implemented polymorphism and inheritance: began using super methods <br />
 * Made the README look better<br />
-  
+
 *Elizabeth*: <br />
 * Fixed Stan methods so stan would die outside of the board <br />
 * Created Tanky and its methods (move, display, constructor)<br /> <br />
@@ -71,4 +71,33 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * Edited the Stan and Tanky classes so there wouldn't be double methods of the same thing
 * Worked on spawning the monsters and in the midst of creating a formation for the monster
 * Tried to make the player move diagonally but wouldn't work: tried ArrayList and LinkedList but ended up getting NullPointerExceptions even when if I put (if != null) so I gave up and commented that out
-<a/>
+
+***Monday 5/27/2019***<br />
+*Rachel*: <br />
+* fill in later
+
+*Elizabeth*: <br />
+* fill in later
+
+***Tuesday 5/28/2019*** <br />
+*Rachel*: <br />
+* fill in later
+
+*Elizabeth*: <br />
+* fill in later
+
+***Wednesday 5/19/2019*** <br />
+*Rachel*: <br / >
+* fill in later
+
+*Elizabeth*: <br />
+* fill in later
+
+***Thursday 5/30/2019*** <br />
+*Rachel*: <br />
+* fill in later
+
+*Elizabeth*: <br/ >
+* fill in later
+
+***Friday 5/31/2019*** <br />
