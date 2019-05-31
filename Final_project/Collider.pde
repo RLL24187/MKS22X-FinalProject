@@ -70,14 +70,18 @@
     if (temp != null) { 
       //println(this + ": "+ xcor);
       //println(temp + ": "+ temp.xcor);
+      /*
       println(temp + "'s power: "+temp.power);
       println(this + "'s HP: "+this.hp);
       println(temp + "'s HP: "+temp.hp);
       println(this + "'s power: "+this.power);
+      */
       int thisNewHP = changeHP(temp.power);
       int tempNewHP = temp.changeHP(this.power);
+      /*
       println(this + "thisNewHP: "+thisNewHP);
       println(temp + "tempNewHP: "+tempNewHP);
+      */
       //if (changeHP(temp.power) <= 0) { //will always change the HP: returns the new HP of this
       if (thisNewHP <= 0){
         k.add(this); //remove the monster from collider and add to killed if HP too low
@@ -102,12 +106,14 @@
         //return true;
       }//otherwise it stays alive, with HP changed
     }
-    if (xcor > width || xcor < 0 || ycor < 0 || ycor > height) { //out of bounds
+    if (xcor < 0 || ycor < 0 || ycor > height) { //out of bounds
       //k.add(this);
+      //println(c.size());
       c.remove(this);
       //m.remove(this);
       //b.remove(this);
-      println("out of bounds: (x,y) = ("+xcor+","+ycor+")");
+      //println(this + " out of bounds: (x,y) = ("+xcor+","+ycor+")");
+      //println(c.size());
       return true;
     }
     return returnval;
