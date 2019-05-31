@@ -8,6 +8,7 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 *Rachel*: <br />
 * Made classes, nothing works so far tho :( <br />
 <a/>
+<a>
 *Elizabeth*: <br />
 * wrote player class methods: shoot, move, display(interim), and constructor. <br /> <br />
 
