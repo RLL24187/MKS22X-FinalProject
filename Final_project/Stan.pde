@@ -20,8 +20,8 @@ class Stan extends Monster {
   void formation(ArrayList<Monster> mon) {
     mon.add(this);
     for (int i = 1; i < 3; i++) { 
-      mon.add(new Stan(hp, level, xp, power, size, xcor+10*i, ycor+10*i, xinc, yinc));
-      mon.add(new Stan(hp, level, xp, power, size, xcor+10*i, ycor-10*i, xinc, yinc));
+      mon.add(new Stan(hp, level, xp, power, size, xcor+size*i, ycor+size*i, xinc, yinc));
+      mon.add(new Stan(hp, level, xp, power, size, xcor+size*i, ycor-size*i, xinc, yinc));
     }
   }
 }

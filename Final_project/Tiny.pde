@@ -40,11 +40,11 @@ class Tiny extends Monster{
     for(int i = 0; i < 3; i++) {
       Tiny t;
       if (i % 3 == 0) {
-        t = new Tiny(hp, level, xp, power, size, xcor+size*i + 200, ycor + 200, xinc, yinc, amp + 5, true);
+        t = new Tiny(hp, level, xp, power, size, xcor+size*i + 10 * size, ycor + 10 * size, xinc, yinc, amp + 5, true);
       } else if (i % 3 == 1){
-        t = new Tiny(hp, level, xp, power, size, xcor+size*i + 300, ycor - 200, xinc, yinc, amp + 5, false);
+        t = new Tiny(hp, level, xp, power, size, xcor+size*i + 15 * size, ycor - 10 * size, xinc, yinc, amp + 5, false);
       } else {
-        t = new Tiny(hp, level, xp, power, size, xcor+size*i + 400, ycor, xinc, yinc, amp, neg);
+        t = new Tiny(hp, level, xp, power, size, xcor+size*i + 20 * size, ycor, xinc, yinc, amp, neg);
       }
       mon.add(t);
       /*

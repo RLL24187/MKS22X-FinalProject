@@ -26,7 +26,7 @@ class Tanky extends Monster{
     for(int i = 1; i < 5; i++) {
       Tanky t;
       if (i % 2 == 1) {
-        t = new Tanky(hp, level, xp, power, size, xcor+size*i, 0., xinc, yinc);
+        t = new Tanky(hp, level, xp, power, size, xcor + size*i, 0., xinc, yinc);
         //mon.add(new Tanky(hp, level, xp, power, size, xcor+size*i, 0., xinc, yinc));
       } else {
         t = new Tanky(hp, level, xp, power, size, xcor + size*i, height - size, xinc, yinc);
