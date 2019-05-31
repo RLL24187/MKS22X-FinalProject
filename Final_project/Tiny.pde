@@ -1,6 +1,8 @@
 class Tiny extends Monster{
+  boolean neg;
   Tiny(int hp, int level, int xp, int power, int size, float xcor, float ycor, float xinc, float yinc) {
     super(hp, level, xp, power, size, xcor, ycor, xinc, yinc);
+    neg = (int)(Math.random() * 2 % 2) == 0;
   }
   void display() {
     fill(30, 160, 0);
@@ -16,9 +18,12 @@ class Tiny extends Monster{
     //f(x) = height/2 * sin(x) + someYint
     //f(x-1) = height/2 * sin(x-1) + someYint
     //difference = height/2 * (sin(x-1) - sin(x))
-    yinc = height/75 * (sin(xcor - xinc) - sin(xcor));
-    println("yinc: "+yinc);
-    println("ycor: "+ycor);
+    yinc = height/15 * (sin(xcor - xinc) - sin(xcor)) * ((width - xcor) / 200);
+    if (neg){
+      yinc *= -1;
+    }
+    //println("yinc: "+yinc);
+    //println("ycor: "+ycor);
     if (super.move(k, c, m, b)){
       m.remove(this);
       return true;
