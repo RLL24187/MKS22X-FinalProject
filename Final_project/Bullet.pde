@@ -39,7 +39,7 @@ class Bullet extends Collider {
     ycor+=yinc;
     if (super.move(k, c, m, b, xinc, yinc)) {
       //return die(k, c, m, b);
-      //b.remove(this);
+      b.remove(this);
       return true;
     }
     return false;

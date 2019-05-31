@@ -82,8 +82,8 @@
       if (thisNewHP <= 0){
         k.add(this); //remove the monster from collider and add to killed if HP too low
         c.remove(this);
-        m.remove(this);
-        b.remove(this);
+        //m.remove(this);
+        //b.remove(this);
         //this.display();
         //temp.display();
         temp.move(k, c, m, b, temp.xinc, temp.yinc);

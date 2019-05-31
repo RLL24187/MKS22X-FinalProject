@@ -13,7 +13,7 @@ class Tanky extends Monster{
     return super.die(k, c, m, b);
     */
     if (super.move(k, c, m, b)){
-      //m.remove(this);
+      m.remove(this);
       return true;
     }
     return false;
