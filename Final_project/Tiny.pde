@@ -1,8 +1,10 @@
 class Tiny extends Monster{
   boolean neg;
-  Tiny(int hp, int level, int xp, int power, int size, float xcor, float ycor, float xinc, float yinc) {
+  float amp;
+  Tiny(int hp, int level, int xp, int power, int size, float xcor, float ycor, float xinc, float yinc, float amp, boolean neg) {
     super(hp, level, xp, power, size, xcor, ycor, xinc, yinc);
-    neg = (int)(Math.random() * 2 % 2) == 0;
+    this.neg = neg;
+    this.amp = amp;
   }
   void display() {
     fill(30, 160, 0);
@@ -18,7 +20,7 @@ class Tiny extends Monster{
     //f(x) = height/2 * sin(x) + someYint
     //f(x-1) = height/2 * sin(x-1) + someYint
     //difference = height/2 * (sin(x-1) - sin(x))
-    yinc = height/15 * (sin(xcor - xinc) - sin(xcor)) * ((width - xcor) / 200);
+    yinc = height/amp * (sin(xcor - xinc) - sin(xcor)) * ((width - xcor) / 200);
     if (neg){
       yinc *= -1;
     }
@@ -35,14 +37,14 @@ class Tiny extends Monster{
   }
   void formation(ArrayList<Monster> mon) {
     mon.add(this);
-    for(int i = 1; i < 5; i++) {
+    for(int i = 0; i < 3; i++) {
       Tiny t;
-      if (i % 2 == 1) {
-        t = new Tiny(hp, level, xp, power, size, xcor+size*i, 0., xinc, yinc);
-        //mon.add(new Tanky(hp, level, xp, power, size, xcor+size*i, 0., xinc, yinc));
+      if (i % 3 == 0) {
+        t = new Tiny(hp, level, xp, power, size, xcor+size*i + 200, ycor + 200, xinc, yinc, amp + 5, true);
+      } else if (i % 3 == 1){
+        t = new Tiny(hp, level, xp, power, size, xcor+size*i + 300, ycor - 200, xinc, yinc, amp + 5, false);
       } else {
-        t = new Tiny(hp, level, xp, power, size, xcor + size*i, height - size, xinc, yinc);
-        //mon.add(new Tanky(hp, level, xp, power, size, xcor+size*i, height-size, xinc, yinc));
+        t = new Tiny(hp, level, xp, power, size, xcor+size*i + 400, ycor, xinc, yinc, amp, neg);
       }
       mon.add(t);
       /*
