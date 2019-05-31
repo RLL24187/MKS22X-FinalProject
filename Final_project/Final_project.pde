@@ -27,7 +27,7 @@ class Game {
       x.formation(monsterList);
       p.ycor = height/2;
     } else if (chooseMonster == 1) {
-      Tanky y = new Tanky(20, 250, 0, 10, 50, width, height-50, 1, 0);
+      Tanky y = new Tanky(20, 250, 0, 10, 75, width, height-75, .5, 0);
       y.formation(monsterList);
       p.ycor = height - 50;
     } else if (chooseMonster == 2) {
