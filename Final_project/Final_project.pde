@@ -18,7 +18,7 @@ class Game {
 
   void display() {
     //int hp, int level, int xp, int power, int size, float x, float y, float xinc, float yinc
-    int chooseMonster = (int)(Math.random() * 3);
+    int chooseMonster = (int)(Math.random() * 2);
     //println(chooseMonster);
     if (chooseMonster == 0) {
       Stan x = new Stan(10, 250, 0, 10, 5, width/2, height/2, 2, 0.);
