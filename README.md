@@ -13,9 +13,9 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 *Elizabeth*: <br />
 * move & shoot weren't working and I couldn't find out why <br /> <br />
 
-***Wednesday 5/22/19*** (time to cram bois) <br />
+***Wednesday 5/22/19*** (time to cram bois) <br /
 *Rachel*: <br />
-* Created the Game constructor and started work on a new helper function "inRadius" to help with "inContact" <br />
+* Created the Game constructor and started work on a new helper function "inRadius" to help with "inContact" <br /><br />
 *Elizabeth*: <br />
 * move works!! The cause was because the game kept resetting. Created the abstract monster class. <br /> <br />
 
@@ -49,8 +49,14 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 
 ***Sunday 5/26/2019***<br />
 *Rachel*:<br />
+* Updated parameters for methods in Collider
+* Added Collider constructor
+* Worked on distance, distanceTo, inRadius, and inContact in Collider
+* Had a ConcurrentModificationException: lesson to be learned: don't use enhanced for loops when editing the ArrayList
+* die is now a boolean method, still needs work
+* implemented inheritance with calls to super in Monster child classes <br />
 *Elizabeth*:<br />
-*Created player shooting so it wouldn't shoot multiple bullets at once when you press space
-*Edited the Stan and Tanky classes so there wouldn't be double methods of the same thing
-*Worked on spawning the monsters and in the midst of creating a formation for the monster
-*Tried to make the player move diagonally but wouldn't work: tried ArrayList and LinkedList but ended up getting NullPointerExceptions even when if I put (if != null) so I gave up and commented that out
+* Created player shooting so it wouldn't shoot multiple bullets at once when you press space
+* Edited the Stan and Tanky classes so there wouldn't be double methods of the same thing
+* Worked on spawning the monsters and in the midst of creating a formation for the monster
+* Tried to make the player move diagonally but wouldn't work: tried ArrayList and LinkedList but ended up getting NullPointerExceptions even when if I put (if != null) so I gave up and commented that out
