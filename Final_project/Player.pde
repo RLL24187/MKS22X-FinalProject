@@ -38,15 +38,22 @@ class Player extends Collider {
     boolean right = movement.contains(3);
     if (up) {
       ycor -= speed;
+      fill(0, 255, 0);
+      rect(10, 0, 10, 10);
     } 
     if (down) {
       ycor += speed;
+      fill(0, 255, 0);
+      rect(10, 10, 10, 10);
     }
     if (left) {
       xcor -= speed;
+      fill(0, 255, 0);
+      rect(0, 10, 10, 10);
     }
     if (right) {
       xcor += speed;
+      rect(20, 10, 10, 10);
     }
   }
 
