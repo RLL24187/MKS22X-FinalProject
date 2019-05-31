@@ -8,7 +8,7 @@ class Player extends Collider {
   //LEFT=2
   //RIGHT=3
   ArrayList<Integer> movement = new ArrayList<Integer>();
-  Player(int power, int numLives, float startingX, float startingY, int speed, int size) {
+  Player(int power, int numLives, float startingX, float startingY, float speed, int size) {
     super(startingX, startingY, size, numLives, power);
     this.power = power;
     lives = numLives;
