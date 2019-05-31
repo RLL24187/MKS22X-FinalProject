@@ -13,13 +13,14 @@ class Game {
     bulletList = new ArrayList<Bullet>();
     killedList = new ArrayList<Killable>();
     collideList = new ArrayList<Collider>();
-    p = new Player(10, 1, width/2., 0, 5, 10);
+    p = new Player(10, 1, width/2., 350, 5, 10);
   }
 
   void display() {
     //int hp, int level, int xp, int power, int size, float x, float y, float xinc, float yinc
     int chooseMonster = (int)(Math.random() * 2);
     //println(chooseMonster);
+    /*
     if (chooseMonster == 0) {
       Stan x = new Stan(10, 250, 0, 10, 5, width/2, height/2, 2, 0.);
       x.formation(monsterList);
@@ -29,6 +30,7 @@ class Game {
       y.formation(monsterList);
       p.ycor = height - 15;
     }
+    */
   }
 
   void update() {
@@ -54,6 +56,9 @@ void setup() {
   //g.bulletList.add(new Bullet(10, 1, 25, 10, 89, 5, 10, 10, -2, 0));
   //int hp, int level, int xp, String species, int power, int size, float x, float y, float xinc, float yinc
   //g.monsterList.add(new Stan(20, 1, 5, 1, 10, 1000, 100, 3, 0));
+  g.monsterList.add(new Tiny(20, 1, 5, 1, 20, width * 3/4, height / 2, 3, 0));
+  println(height);
+  println(width);
   //println("\nAdding bullet");
   for (Bullet bul : g.bulletList) {
     //println("bulletlistSize: "+ g.bulletList.size());
@@ -73,7 +78,7 @@ void setup() {
     //println(g.collideList.get(1).xcor);
     //println(mon.xcor);
     //println(mon.ycor);
-    //println(g.collideList.size());
+    println(g.collideList.size());
   }
   //g.collideList.add(g.p);
   //println(width);
@@ -110,8 +115,8 @@ void draw() {
     mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList);
     //println(g.collideList.size());
   }
-  println(g.collideList.size());
-  println(toString(g.collideList));
+  //println(g.collideList.size());
+  //println(toString(g.collideList));
   //println(toString(g.bulletList));
   //println(toString(g.monsterList));
 }

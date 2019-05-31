@@ -105,8 +105,9 @@
     if (xcor > width || xcor < 0 || ycor < 0 || ycor > height) { //out of bounds
       //k.add(this);
       c.remove(this);
-      m.remove(this);
-      b.remove(this);
+      //m.remove(this);
+      //b.remove(this);
+      println("out of bounds: (x,y) = ("+xcor+","+ycor+")");
       return true;
     }
     return returnval;
