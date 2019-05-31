@@ -42,7 +42,7 @@ class Bullet extends Collider {
       b.remove(this);
       return true;
     }
-    if (xcor > width){
+    if (xcor > width + size){
       b.remove(this);
       println("Bullet xcor bound");
       return true;
