@@ -1,2 +1,2 @@
-class Dash extends Monster {
-  
+//class Dash extends Monster {
+//}  

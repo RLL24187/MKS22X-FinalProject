@@ -7,7 +7,7 @@ class Game {
   ArrayList<Bullet> bulletList;
   ArrayList<Killable> killedList;
   ArrayList<Collider> collideList;
-
+  int second = second();
   Game() {
     monsterList = new ArrayList<Monster>();
     bulletList = new ArrayList<Bullet>();
@@ -21,18 +21,18 @@ class Game {
     int chooseMonster = (int)(Math.random() * 3);
     //int chooseMonster = 2;
     //println(chooseMonster);
-    
+    int y = (int) (Math.random() * height);
     if (chooseMonster == 0) {
-      Stan x = new Stan(10, 250, 0, 10, 15, width, height/2, 2, 0.);
+      Stan x = new Stan(10, 250, 0, 10, 15, width, y-15/2, 2, 0.);
       x.formation(monsterList);
       p.ycor = height/2;
     } else if (chooseMonster == 1) {
-      Tanky y = new Tanky(20, 250, 0, 10, 75, width, height-75, .5, 0);
-      y.formation(monsterList);
+      Tanky t = new Tanky(20, 250, 0, 10, 75, width, height-75, .5, 0);
+      t.formation(monsterList);
       p.ycor = height - 50;
     } else if (chooseMonster == 2) {
       boolean b = (int)(Math.random() * 2) % 2 == 0;
-      Tiny z = new Tiny(10, 1, 5, 1, 10, width, height / 2, 3.2, 0, 25, b);
+      Tiny z = new Tiny(10, 1, 5, 1, 10, width, y-10, 3.2, 0, 10, b);
       z.formation(monsterList);
       p.ycor = height / 2;
     }
