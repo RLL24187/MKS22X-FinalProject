@@ -13,7 +13,7 @@ class Game {
     bulletList = new ArrayList<Bullet>();
     killedList = new ArrayList<Killable>();
     collideList = new ArrayList<Collider>();
-    p = new Player(10, 1, width/2., 350, 15, 10);
+    p = new Player(10, 1, width/2., 350, 15, 25);
   }
 
   void display() {
@@ -23,16 +23,16 @@ class Game {
     //println(chooseMonster);
     
     if (chooseMonster == 0) {
-      Stan x = new Stan(10, 250, 0, 10, 5, width/2, height/2, 2, 0.);
+      Stan x = new Stan(10, 250, 0, 10, 15, width, height/2, 2, 0.);
       x.formation(monsterList);
       p.ycor = height/2;
     } else if (chooseMonster == 1) {
-      Tanky y = new Tanky(10, 250, 0, 10, 15, width/2, height-15, 2, 0);
+      Tanky y = new Tanky(20, 250, 0, 10, 50, width, height-50, 1, 0);
       y.formation(monsterList);
-      p.ycor = height - 15;
+      p.ycor = height - 50;
     } else if (chooseMonster == 2) {
       boolean b = (int)(Math.random() * 2) % 2 == 0;
-      Tiny z = new Tiny(20, 1, 5, 1, 20, width * 3/4, height / 2, 3.2, 0, 25, b);
+      Tiny z = new Tiny(10, 1, 5, 1, 10, width, height / 2, 3.2, 0, 25, b);
       z.formation(monsterList);
       p.ycor = height / 2;
     }
