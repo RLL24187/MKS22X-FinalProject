@@ -42,6 +42,11 @@ class Bullet extends Collider {
       b.remove(this);
       return true;
     }
+    if (xcor > width){
+      b.remove(this);
+      println("Bullet xcor bound");
+      return true;
+    }
     return false;
   }
   void splitIt() {
