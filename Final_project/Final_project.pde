@@ -14,27 +14,40 @@ class Game {
     bulletList = new ArrayList<Bullet>();
     killedList = new ArrayList<Killable>();
     collideList = new ArrayList<Collider>();
-    p = new Player(10, 1, width/2., 350, 15, 25);
+    p = new Player(10, 1, width/2., height/2., 15, 25);
     counter = -1;
   }
 
+  
   void display() {
     //int hp, int level, int xp, int power, int size, float x, float y, float xinc, float yinc
     int chooseMonster = (int)(Math.random() * 3);
     //int chooseMonster = 2;
     //println(chooseMonster);
-    
+    int chooseYcor = (int)(Math.random()* (height - 100));
     if (chooseMonster == 0) {
-      Stan x = new Stan(10, 250, 0, 10, 15, width, height/2, 2, 0.);
+      //Stan x = new Stan(10, 250, 0, 10, 15, width, height/2, 2, 0.);
+      Stan x = new Stan(10, 250, 0, 10, 15, width, chooseYcor, 2, 0.);
       x.formation(monsterList);
+      counter = 260;
       //p.ycor = height/2;
     } else if (chooseMonster == 1) {
-      Tanky y = new Tanky(20, 250, 0, 10, 75, width, height-75, 1, 0);
+      //Tanky y = new Tanky(20, 250, 0, 10, 75, width, height-75, 1, 0);
+      counter = 1;
+      if (chooseYcor > height - 75){
+        chooseYcor -= 75;
+      }
+      else if (chooseYcor < 75){
+        chooseYcor += 75;
+      }
+      Tanky y = new Tanky(20, 250, 0, 10, 75, width, chooseYcor, 1, 0);
       y.formation(monsterList);
       //p.ycor = height - 50;
     } else if (chooseMonster == 2) {
       boolean b = (int)(Math.random() * 2) % 2 == 0;
-      Tiny z = new Tiny(10, 1, 5, 1, 10, width, height / 2, 3.2, 0, 25, b);
+      //Tiny z = new Tiny(10, 1, 5, 1, 10, width, height / 2, 2, 0, 200, PI/12, b);
+      counter = 180;
+      Tiny z = new Tiny(10, 1, 5, 1, 10, width, chooseYcor, 2, 0, 200, PI/12, b);
       z.formation(monsterList);
       //p.ycor = height / 2;
     }
@@ -42,8 +55,7 @@ class Game {
 
   void update() {
     counter++;
-    if (counter % 200 == 0){
-      counter = 1;
+    if (counter % 300 == 0){
       display();
     }
   }
