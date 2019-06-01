@@ -103,16 +103,28 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 ***Thursday 5/30/2019*** <br />
 *Rachel*: <br />
 * die works with Tanky now
-* Formation fixed
+* formation fixed
 * Optimized move and die
 * Added Tiny
-* Out of bounds dying boolen statements changed so that it'll only die when the whole object disappears from screen
+* Out of bounds dying boolean statements changed so that it'll only die when the whole object disappears from screen
 
 *Elizabeth*: <br />
 * fill in later
 
 ***Friday 5/31/2019*** <br />
-*Rachel* : <br />
+*Rachel*: <br />
+* Fixed up README to look nicer
+* Edited out of bounds dying boolean for Bullet: dies when whole thing disappears
+* Updated formation to handle different sizes
+* Played with speeds and sizes of Monsters
+* Found and fixed issue with inRadius: bug with killing square shaped Monsters
+* Starting to put everything together: update is a method that spawns different monsters randomly, but in the same locations and at specific time intervals
+
+*Elizabeth*: <br />
+* fill in later
+
+***Saturday 6/1/2019*** <br />
+*Rachel*: <br />
 * fill in later
 
 *Elizabeth*: <br />
