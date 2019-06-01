@@ -94,7 +94,8 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 
 ***Wednesday 5/29/2019*** <br />
 *Rachel*: <br / >
-* fill in later
+* die works with Bullet and Stan
+* Noticed a bug. Monster always waits for Bullet to move first, so if there is more than one Bullet, Monster will seemingly disappear, but it is actually still there, just stagnant
 
 *Elizabeth*: <br />
 * fill in later
