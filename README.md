@@ -93,7 +93,7 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * fill in later
 
 ***Wednesday 5/29/2019*** <br />
-*Rachel*: <br / >
+*Rachel*: <br />
 * die works with Bullet and Stan
 * Noticed a bug. Monster always waits for Bullet to move first, so if there is more than one Bullet, Monster will seemingly disappear, but it is actually still there, just stagnant
 
@@ -102,9 +102,13 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 
 ***Thursday 5/30/2019*** <br />
 *Rachel*: <br />
-* fill in later
+* die works with Tanky now
+* Formation fixed
+* Optimized move and die
+* Added Tiny
+* Out of bounds dying boolen statements changed so that it'll only die when the whole object disappears from screen
 
-*Elizabeth*: <br/ >
+*Elizabeth*: <br />
 * fill in later
 
 ***Friday 5/31/2019*** <br />
