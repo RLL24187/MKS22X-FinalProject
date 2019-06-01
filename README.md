@@ -64,7 +64,7 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * Worked on distance, distanceTo, inRadius, and inContact in Collider
 * Had a ConcurrentModificationException: lesson to be learned: don't use enhanced for loops when editing the ArrayList
 * die is now a boolean method, still needs work
-* implemented inheritance with calls to super in Monster child classes <br />
+* Implemented inheritance with calls to super in Monster child classes <br />
 
 *Elizabeth*:<br />
 * Created player shooting so it wouldn't shoot multiple bullets at once when you press space
@@ -83,12 +83,16 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 
 ***Tuesday 5/28/2019*** <br />
 *Rachel*: <br />
-* fill in later
+* die now kills both objects and changes HP and checks it before killing
+* Updated parameters for move
+* changeHP added: returns new HP given the number to change it by
+* Fixed constructors for classes
+* inContact returns a Collider or null
 
 *Elizabeth*: <br />
 * fill in later
 
-***Wednesday 5/19/2019*** <br />
+***Wednesday 5/29/2019*** <br />
 *Rachel*: <br / >
 * fill in later
 
