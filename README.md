@@ -74,7 +74,9 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 
 ***Monday 5/27/2019***<br />
 *Rachel*: <br />
-* fill in later
+* Fixed distance
+* Worked on die: issue is that only one dies when both should die
+* Player can now shoot
 
 *Elizabeth*: <br />
 * fill in later
@@ -101,3 +103,8 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * fill in later
 
 ***Friday 5/31/2019*** <br />
+*Rachel* : <br />
+* fill in later
+
+*Elizabeth*: <br />
+* fill in later
