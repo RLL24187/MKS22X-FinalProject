@@ -6,6 +6,9 @@ class Tanky extends Monster{
     fill(123, 35, 58);
     rect(xcor, ycor, size, size);
   }
+  float distanceTo(Collider c) {
+    return distance(c.xcor, this.xcor + this.size/2, c.ycor, this.ycor + this.size/2) - (c.size/2) - (this.size/2);
+  }
   boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b){
     /*
     xcor-=xinc;

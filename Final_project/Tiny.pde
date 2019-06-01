@@ -6,6 +6,9 @@ class Tiny extends Monster{
     this.neg = neg;
     this.amp = amp;
   }
+  float distanceTo(Collider c) {
+    return distance(c.xcor, this.xcor + this.size/2, c.ycor, this.ycor + this.size/2) - (c.size/2) - (this.size/2);
+  }
   void display() {
     fill(30, 160, 0);
     rect(xcor, ycor, size, size);
