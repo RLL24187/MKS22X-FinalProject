@@ -2,6 +2,7 @@ import java.util.*;
 class Game {
   //create method called endScreen
   Player p;
+  int counter;
 
   ArrayList<Monster> monsterList;
   ArrayList<Bullet> bulletList;
@@ -14,6 +15,7 @@ class Game {
     killedList = new ArrayList<Killable>();
     collideList = new ArrayList<Collider>();
     p = new Player(10, 1, width/2., 350, 15, 25);
+    counter = -1;
   }
 
   void display() {
@@ -25,20 +27,25 @@ class Game {
     if (chooseMonster == 0) {
       Stan x = new Stan(10, 250, 0, 10, 15, width, height/2, 2, 0.);
       x.formation(monsterList);
-      p.ycor = height/2;
+      //p.ycor = height/2;
     } else if (chooseMonster == 1) {
-      Tanky y = new Tanky(20, 250, 0, 10, 75, width, height-75, .5, 0);
+      Tanky y = new Tanky(20, 250, 0, 10, 75, width, height-75, 1, 0);
       y.formation(monsterList);
-      p.ycor = height - 50;
+      //p.ycor = height - 50;
     } else if (chooseMonster == 2) {
       boolean b = (int)(Math.random() * 2) % 2 == 0;
       Tiny z = new Tiny(10, 1, 5, 1, 10, width, height / 2, 3.2, 0, 25, b);
       z.formation(monsterList);
-      p.ycor = height / 2;
+      //p.ycor = height / 2;
     }
   }
 
   void update() {
+    counter++;
+    if (counter % 200 == 0){
+      counter = 1;
+      display();
+    }
   }
 
   void endScreen() {
@@ -50,7 +57,8 @@ class Game {
 Game g = new Game();
 void setup() {
   size(1200, 700);
-  g.display();
+  //g.display();
+  g.p.ycor = height/2;
   for (Bullet bul : g.bulletList) {
     g.collideList.add(bul);
   }
@@ -82,6 +90,7 @@ void draw() {
   background(255);
   g.p.display();
   g.p.shoot(g.bulletList, g.collideList);
+  g.update();
   bulletMove();
   monsterMove();
   //println(g.collideList.size());
