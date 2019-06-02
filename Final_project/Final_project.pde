@@ -127,7 +127,7 @@ void draw() {
 }
 void keyPressed() {
   g.p.buttons();
-  g.p.move();
+  g.p.testing();
 }
 
 void keyReleased() {
