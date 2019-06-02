@@ -18,16 +18,16 @@ class Game {
     collideList = new ArrayList<Collider>();
     p = new Player(10, 1, width/2., height/2., 15, 25);
     int firstWave = (int)(Math.random() * 3);
-    if (firstWave == 0){
+    if (firstWave == 0) {
       stanCounter = -1;
-    } else if (firstWave == 1){
+    } else if (firstWave == 1) {
       tankyCounter = -1;
-    } else if (firstWave == 2){
+    } else if (firstWave == 2) {
       tinyCounter = -1;
     }
   }
 
-  
+
   void display(int chooseMonster) {
     //int hp, int level, int xp, int power, int size, float x, float y, float xinc, float yinc
     //int chooseMonster = (int)(Math.random() * 3);
@@ -51,10 +51,9 @@ class Game {
     } else if (chooseMonster == 2) {
       //Tanky y = new Tanky(20, 250, 0, 10, 75, width, height-75, 1, 0);
       //counter = 1;
-      if (chooseYcor > height - 75){
+      if (chooseYcor > height - 75) {
         chooseYcor -= 75;
-      }
-      else if (chooseYcor < 75){
+      } else if (chooseYcor < 75) {
         chooseYcor += 75;
       }
       Tanky y = new Tanky(20, 250, 0, 10, 75, width, chooseYcor, 1, 0);
@@ -74,7 +73,7 @@ class Game {
     stanCounter++;
     tankyCounter++;
     tinyCounter++;
-    if (stanCounter % 75 == 0){
+    if (stanCounter % 75 == 0) {
       display(0);
       stanCounter = 1;
     } 
@@ -106,7 +105,7 @@ void setup() {
     g.collideList.add(mon);
   }
 }
-void bulletMove(){
+void bulletMove() {
   for (int i = 0; i < g.bulletList.size(); i++) {
     Bullet bul = g.bulletList.get(i);
     if (bul.move(g.killedList, g.collideList, g.monsterList, g.bulletList)) {
@@ -115,7 +114,7 @@ void bulletMove(){
     bul.display();
   }
 }
-void monsterMove(){
+void monsterMove() {
   for (int i = 0; i < g.monsterList.size(); i++) {
     Monster mon = g.monsterList.get(i);
     if (mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList)) {
@@ -125,7 +124,7 @@ void monsterMove(){
     mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList);
   }
 }
-  
+
 void draw() {
   background(255);
   g.p.display();
@@ -152,6 +151,8 @@ void keyPressed() {
 
 void keyReleased() {
   g.p.movement.clear();
+  g.p.yinc = 0;
+  g.p.xinc = 0;
 }
 //print method for arrayList but not v helpful attm
 String toString(ArrayList ary) {
