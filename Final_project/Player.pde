@@ -3,6 +3,8 @@ class Player extends Collider {
   int lives, size, power;
   float speed, xcor, ycor;
   String name;
+  float yinc = 0;
+  float xinc = 0;
   //UP=0
   //DOWN=1
   //LEFT=2
@@ -31,39 +33,46 @@ class Player extends Collider {
       movement.add(3);
     }
   }
-  
-  void testing() {
+
+  void move() {
     boolean up = movement.contains(0);
     boolean down = movement.contains(1);
     boolean left = movement.contains(2);
     boolean right = movement.contains(3);
-    float yinc = 0;
-    float xinc = 0;
-    if (up) {
-      yinc = -speed;
-      //println("UP");
+    if (movement.size()<= 0) {
+      println("NO MOVEMENT");
+      xinc = 0;
+      yinc = 0;
     }
-    if (down) {
-      yinc = speed;
+    if (movement.size() > 0) {
+      if (up) {
+        yinc = -speed;
+        //println("UP");
+      }
+      if (down) {
+        yinc = speed;
+      }
+      if (left) {
+        xinc = -speed;
+      }
+      if (right) {
+        xinc = speed;
+      }
+    } else {
+      xinc = 0;
+      yinc = 0;
     }
-    if (left) {
-      xinc = -speed;
-    }
-    if (right) {
-      xinc = speed;
-    }
-    move(xinc, yinc);
     //move will be based on velocity
     //buttons set velocity
     //no buttons pressed set velocity 0
   }
-  
-  void move(float distanceX, float distanceY) {  
-    ycor += distanceY;
+
+  void simpleMove() {  
+    ycor += yinc;
     //println(ycor);
-    xcor += distanceX;
+    xcor += xinc;
   }
-  
+
   void shoot(ArrayList<Bullet> b, ArrayList<Collider> c) {
     if (key == ' ' && keyPressed == true) {
       Bullet temp = new Bullet(power, 1, 255, 123, 45, 10, xcor, ycor, 3, 0);
@@ -73,8 +82,8 @@ class Player extends Collider {
     }
   }
 
-  boolean die(ArrayList<Collider> monster) {
-    if (inContact(monster)!= null) {
+  boolean die(ArrayList<Collider> enemy) {
+    if (inContact(enemy)!= null) {
       lives--;
       xcor = 0;
       ycor = height / 2;

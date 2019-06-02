@@ -49,9 +49,6 @@ class Game {
       Tanky t = new Tanky(20, 250, 0, 10, 75, width, height-75, .5, 0);
       t.formation(monsterList);
     } else if (chooseMonster == 2) {
-      boolean b = (int)(Math.random() * 2) % 2 == 0;
-      Tiny z = new Tiny(10, 1, 5, 1, 10, width, chooseYcor-10., 3.2, 0, 10, 10, b);
-      z.formation(monsterList);
       //Tanky y = new Tanky(20, 250, 0, 10, 75, width, height-75, 1, 0);
       //counter = 1;
       if (chooseYcor > height - 75){
@@ -136,6 +133,7 @@ void draw() {
   g.update();
   bulletMove();
   monsterMove();
+  g.p.simpleMove();
   //println(g.collideList.size());
   //println(toString(g.collideList));
   //println(toString(g.bulletList));
@@ -144,7 +142,7 @@ void draw() {
 
 void keyPressed() {
   g.p.buttons();
-  g.p.testing();
+  g.p.move();
   //controls(buttonsPressed
   //send vars into player
   //method simpleMove
