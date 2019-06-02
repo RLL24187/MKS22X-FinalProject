@@ -10,7 +10,7 @@ class Game {
   ArrayList<Bullet> bulletList;
   ArrayList<Killable> killedList;
   ArrayList<Collider> collideList;
-  int second = second();
+  
   Game() {
     monsterList = new ArrayList<Monster>();
     bulletList = new ArrayList<Bullet>();
