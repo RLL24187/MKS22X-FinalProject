@@ -34,6 +34,12 @@ class Player extends Collider {
     }
   }
 
+  void reset() {
+    movement.clear();
+    xinc = 0;
+    yinc = 0;
+  }
+
   void move() {
     boolean up = movement.contains(0);
     boolean down = movement.contains(1);
@@ -56,39 +62,37 @@ class Player extends Collider {
   //move will be based on velocity
   //buttons set velocity
   //no buttons pressed set velocity 0
-}
 
-void simpleMove() {  
-  ycor += yinc;
-  //println(ycor);
-  xcor += xinc;
-}
-
-void shoot(ArrayList<Bullet> b, ArrayList<Collider> c) {
-  if (key == ' ' && keyPressed == true) {
-    Bullet temp = new Bullet(power, 1, 255, 123, 45, 10, xcor, ycor, 3, 0);
-    b.add(temp);
-    c.add(temp);
-    keyPressed = false;
+  void simpleMove() {  
+    ycor += yinc;
+    xcor += xinc;
   }
-}
 
-boolean die(ArrayList<Collider> enemy) {
-  if (inContact(enemy)!= null) {
-    lives--;
-    xcor = 0;
-    ycor = height / 2;
-    if (lives < 0) {
-      g.endScreen();
-      return true;
+  void shoot(ArrayList<Bullet> b, ArrayList<Collider> c) {
+    if (key == ' ' && keyPressed == true) {
+      Bullet temp = new Bullet(power, 1, 255, 123, 45, 10, xcor, ycor, 3, 0);
+      b.add(temp);
+      c.add(temp);
+      keyPressed = false;
     }
   }
-  return false;
-}
 
-void display() {
-  //temp display
-  fill(123, 244, 23);
-  ellipse(xcor, ycor, size, size);
-}
+  boolean die(ArrayList<Collider> enemy) {
+    if (inContact(enemy)!= null) {
+      lives--;
+      xcor = 0;
+      ycor = height / 2;
+      if (lives < 0) {
+        g.endScreen();
+        return true;
+      }
+    }
+    return false;
+  }
+
+  void display() {
+    //temp display
+    fill(123, 244, 23);
+    ellipse(xcor, ycor, size, size);
+  }
 }

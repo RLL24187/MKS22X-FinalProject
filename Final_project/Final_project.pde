@@ -16,7 +16,7 @@ class Game {
     bulletList = new ArrayList<Bullet>();
     killedList = new ArrayList<Killable>();
     collideList = new ArrayList<Collider>();
-    p = new Player(10, 1, width/2., height/2., 15, 25);
+    p = new Player(10, 1, width/2., height/2., 5, 25);
     int firstWave = (int)(Math.random() * 3);
     if (firstWave == 0) {
       stanCounter = -1;
@@ -150,9 +150,7 @@ void keyPressed() {
 }
 
 void keyReleased() {
-  g.p.movement.clear();
-  g.p.yinc = 0;
-  g.p.xinc = 0;
+  g.p.reset();
 }
 //print method for arrayList but not v helpful attm
 String toString(ArrayList ary) {
