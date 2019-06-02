@@ -31,29 +31,34 @@ class Player extends Collider {
       movement.add(3);
     }
   }
+  
   void testing() {
     boolean up = movement.contains(0);
     boolean down = movement.contains(1);
     boolean left = movement.contains(2);
     boolean right = movement.contains(3);
     if (up) {
-      move(-yinc, 0);
-      println("UP");
-    } 
+      yinc = -speed;
+      //println("UP");
+    }
     if (down) {
-      move(yinc, 0);
+      yinc = speed;
     }
     if (left) {
-      move(0, -xinc);
+      xinc = -speed;
     }
     if (right) {
-      move(0, xinc);
+      xinc = speed;
     }
+    move(xinc, yinc);
   }
-  void move(float distanceY, float distanceX) {
+  
+  void move(float distanceX, float distanceY) {  
     ycor += distanceY;
+    //println(ycor);
     xcor += distanceX;
   }
+  
   void shoot(ArrayList<Bullet> b, ArrayList<Collider> c) {
     if (key == ' ' && keyPressed == true) {
       Bullet temp = new Bullet(power, 1, 255, 123, 45, 10, xcor, ycor, 3, 0);
