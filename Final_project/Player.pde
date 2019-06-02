@@ -63,6 +63,7 @@ class Player extends Collider {
   //buttons set velocity
   //no buttons pressed set velocity 0
 
+
   void simpleMove() {  
     ycor += yinc;
     xcor += xinc;
