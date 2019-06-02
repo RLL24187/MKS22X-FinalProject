@@ -114,12 +114,14 @@ void bulletMove() {
     bul.display();
   }
 }
+
 void monsterMove() {
   for (int i = 0; i < g.monsterList.size(); i++) {
     Monster mon = g.monsterList.get(i);
     if (mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList)) {
       i--;
     }
+    mon.shoot(g.bulletList);
     mon.display();
     mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList);
   }

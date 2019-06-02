@@ -13,7 +13,9 @@ class Stan extends Monster {
     return false;
   }
   void shoot(ArrayList<Bullet> b) {
-    b.add(new Bullet(power, 1, 231, 124, 43, 5, xcor, ycor, xinc, yinc));
+    if (g.stanCounter % 60 == 0) {
+      b.add(new Bullet(power, 1, 231, 124, 43, 5, xcor, ycor+size/2, -3*xinc, yinc));
+    }
   }
   void display() {
     fill(255, 0, 0);
