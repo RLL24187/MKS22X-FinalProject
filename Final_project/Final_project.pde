@@ -45,6 +45,9 @@ class Game {
       //p.ycor = height/2;
     } else if (chooseMonster == 1) {
       Tanky y = new Tanky(20, 250, 0, 10, 75, width, chooseYcor, 1, 0);
+      if (chooseYcor > height-(3*y.size)) {
+        y.ycor -= height - 3*y.size;
+      }
       y.formation(monsterList);
     } else if (chooseMonster == 2) {
       boolean b = (int)(Math.random() * 2) % 2 == 0;
