@@ -53,6 +53,11 @@ class Game {
       //Tiny z = new Tiny(10, 1, 5, 1, 10, width, height / 2, 2, 0, 200, PI/12, b);
       //counter = 280;
       Tiny z = new Tiny(10, 1, 5, 1, 10, width, chooseYcor, 2, 0, 200, PI/12, b);
+      if (chooseYcor-z.amp < 0) {
+        z.ycor += z.amp;
+      } else if (chooseYcor+z.amp>height) {
+        z.ycor -= z.amp;
+      }
       z.formation(monsterList);
       //p.ycor = height / 2;
     }
