@@ -79,7 +79,9 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * Player can now shoot
 
 *Elizabeth*: <br />
-* fill in later
+* Trying to add diagonal movement for player, failed
+* Coding formation for monster (Stan and Tanky) and was failing, nothing was spawning
+
 
 ***Tuesday 5/28/2019*** <br />
 *Rachel*: <br />
@@ -90,7 +92,8 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * inContact returns a Collider or null
 
 *Elizabeth*: <br />
-* fill in later
+* worked on formation: tested out different ways like forming the top then bottom first but still didn't display and adding the list to the function as a variable and adding monster directly but it created an error
+* deleted the species section of the constructor in monster, stan, and tanky, rachel and i agreed that it would be unecessary 
 
 ***Wednesday 5/29/2019*** <br />
 *Rachel*: <br />
@@ -98,7 +101,8 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * Noticed a bug. Monster always waits for Bullet to move first, so if there is more than one Bullet, Monster will seemingly disappear, but it is actually still there, just stagnant
 
 *Elizabeth*: <br />
-* fill in later
+* I thought it wasn't working even though the code had no errors and i found out why tomorrow
+* So the error from yesterday was a cause of directly add monster, instead I added stan/tanky (the monster's constructor) in order to add
 
 ***Thursday 5/30/2019*** <br />
 *Rachel*: <br />
@@ -109,7 +113,9 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * Out of bounds dying boolean statements changed so that it'll only die when the whole object disappears from screen
 
 *Elizabeth*: <br />
-* fill in later
+* the bug was that IT WAS SPAWNING IN THE WRONG SPOT bc i mixed up the input when constructing the monsters
+* editing the player to move diagonally, finally working, i created an arraylist to track movement
+
 
 ***Friday 5/31/2019*** <br />
 *Rachel*: <br />
@@ -121,11 +127,14 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * Starting to put everything together: update is a method that spawns different monsters randomly, but in the same locations and at specific time intervals
 
 *Elizabeth*: <br />
-* fill in later
+* worked on spawning and timing (added seconds to the game variable and random spawning)
+* trying to smooth out player but couldn't
+* SAT subject tomorrow so i didn't work on it at home
 
 ***Saturday 6/1/2019*** <br />
 *Rachel*: <br />
 * fill in later
 
 *Elizabeth*: <br />
-* fill in later
+* PLAYER IS NOW SMOOTH but also kinda choppy when going in opposite directions
+* also add monsters shooting 
