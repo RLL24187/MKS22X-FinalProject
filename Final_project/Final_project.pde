@@ -46,19 +46,8 @@ class Game {
       //counter = 360;
       //p.ycor = height/2;
     } else if (chooseMonster == 1) {
-      Tanky t = new Tanky(20, 250, 0, 10, 75, width, height-75, .5, 0);
-      t.formation(monsterList);
-    } else if (chooseMonster == 2) {
-      //Tanky y = new Tanky(20, 250, 0, 10, 75, width, height-75, 1, 0);
-      //counter = 1;
-      if (chooseYcor > height - 75) {
-        chooseYcor -= 75;
-      } else if (chooseYcor < 75) {
-        chooseYcor += 75;
-      }
       Tanky y = new Tanky(20, 250, 0, 10, 75, width, chooseYcor, 1, 0);
       y.formation(monsterList);
-      //p.ycor = height - 50;
     } else if (chooseMonster == 2) {
       boolean b = (int)(Math.random() * 2) % 2 == 0;
       //Tiny z = new Tiny(10, 1, 5, 1, 10, width, height / 2, 2, 0, 200, PI/12, b);
