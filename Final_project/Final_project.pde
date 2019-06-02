@@ -40,7 +40,7 @@ class Game {
       if (chooseYcor <= 2*x.size) {
         x.ycor += 2*x.size;
       } else if (chooseYcor > height-(3*x.size)) {
-        x.ycor -= 3*x.size;
+        x.ycor -= height - 3*x.size;
       }
       x.formation(monsterList);
       //counter = 360;
@@ -67,15 +67,15 @@ class Game {
     stanCounter++;
     tankyCounter++;
     tinyCounter++;
-    if (stanCounter % 75 == 0) {
+    if (stanCounter % 150 == 0) {
       display(0);
       stanCounter = 1;
     } 
-    if (tankyCounter % 200 == 0) {
+    if (tankyCounter % 400 == 0) {
       display(1);
       tankyCounter = 1;
     }
-    if (tinyCounter % 100 == 0) {
+    if (tinyCounter % 200 == 0) {
       display(2);
       tinyCounter = 1;
     }
