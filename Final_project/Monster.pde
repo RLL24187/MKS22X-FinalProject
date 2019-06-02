@@ -13,21 +13,6 @@ abstract class Monster extends Collider {
     this.xcor = x;
     this.ycor = y;
   }
-  //boolean die(ArrayList<Killable> k, ArrayList<Collider> c) {
-  //return super.die(k, c);
-  //}
-  /*
-  boolean die(ArrayList<Killable> k, ArrayList<Collider> c) {
-   if (super.die(k, c)) {
-   m.remove(this);
-   return true; //true when removed
-   }
-   return false;
-   }*/
-  /*
-  void changeHp(int newHp) {
-   hp = newHp;
-   }*/
   abstract void display();
   abstract void shoot(ArrayList<Bullet> b);
   boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b) {

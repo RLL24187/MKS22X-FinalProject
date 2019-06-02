@@ -15,21 +15,9 @@ class Collider implements Killable {
     return pow((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2), .5);
   }
   float distanceTo(Collider c) {
-    //println("\n\ndistanceTo");
-    //println(this);
-    //println(c);
-    //println(this.xcor);
-    //println(c.xcor);
-    //println(this.ycor);
-    //println(c.ycor);
-    //println(distance(c.xcor, this.xcor, c.ycor, this.ycor));
     return distance(c.xcor, this.xcor, c.ycor, this.ycor) - (c.size/2) - (this.size/2);
   }
   boolean inRadius (Collider c) {
-    //println(this);
-    //println(c);
-    //println("inRadius: " + c.equals(this));
-    //println("distanceTo(c): "+distanceTo(c));
     if (c.equals(this)) return false;
     return (distanceTo(c) <= 0);
   }
@@ -43,10 +31,6 @@ class Collider implements Killable {
     }
     return null;
   }
-  /*
-  boolean inContact(Collider c) {
-   return inRadius(c);
-   }*/
   boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b, float xinc, float yinc) {
     xcor+= xinc;
     ycor+= yinc;
@@ -62,27 +46,10 @@ class Collider implements Killable {
   boolean die(ArrayList<Killable> k, ArrayList<Collider>c, ArrayList<Monster> m, ArrayList<Bullet> b) {
     boolean returnval = false;
     if (inContact(c) != null) println("inContact");
-    //if (xcor>width) println("x>width");
-    //if (xcor<0) println("x<0");
-    //if (ycor<0) println("y<0");
-    //if (ycor>height) println("y>height)");
     Collider temp = inContact(c); 
     if (temp != null) { 
-      //println(this + ": "+ xcor);
-      //println(temp + ": "+ temp.xcor);
-      /*
-      println(temp + "'s power: "+temp.power);
-       println(this + "'s HP: "+this.hp);
-       println(temp + "'s HP: "+temp.hp);
-       println(this + "'s power: "+this.power);
-       */
       int thisNewHP = changeHP(temp.power);
       int tempNewHP = temp.changeHP(this.power);
-      /*
-      println(this + "thisNewHP: "+thisNewHP);
-       println(temp + "tempNewHP: "+tempNewHP);
-       */
-      //if (changeHP(temp.power) <= 0) { //will always change the HP: returns the new HP of this
       if (thisNewHP <= 0) {
         k.add(this); //remove the monster from collider and add to killed if HP too low
         c.remove(this);
@@ -94,7 +61,6 @@ class Collider implements Killable {
         println(this+" removed");
         returnval = true;
       }
-      //if (temp.changeHP(this.power) <= 0){
       if (tempNewHP <= 0) {
         c.remove(temp);
         m.remove(temp);
@@ -106,15 +72,8 @@ class Collider implements Killable {
         //return true;
       }//otherwise it stays alive, with HP changed
     }
-    //if (xcor < -1 * size || ycor < 0 || ycor > height) { //out of bounds
     if (xcor < -1 * size) { //out of bounds
-      //k.add(this);
-      //println(c.size());
       c.remove(this);
-      //m.remove(this);
-      //b.remove(this);
-      //println(this + " out of bounds: (x,y) = ("+xcor+","+ycor+")");
-      //println(c.size());
       return true;
     }
     return returnval;

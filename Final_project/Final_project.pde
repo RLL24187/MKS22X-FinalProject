@@ -10,7 +10,7 @@ class Game {
   ArrayList<Bullet> bulletList;
   ArrayList<Killable> killedList;
   ArrayList<Collider> collideList;
-  
+
   Game() {
     monsterList = new ArrayList<Monster>();
     bulletList = new ArrayList<Bullet>();
@@ -26,8 +26,6 @@ class Game {
       tinyCounter = -1;
     }
   }
-
-
   void display(int chooseMonster) {
     //int hp, int level, int xp, int power, int size, float x, float y, float xinc, float yinc
     //int chooseMonster = (int)(Math.random() * 3);
@@ -62,7 +60,6 @@ class Game {
       //p.ycor = height / 2;
     }
   }
-
   void update() {
     stanCounter++;
     tankyCounter++;
@@ -80,7 +77,6 @@ class Game {
       tinyCounter = 1;
     }
   }
-
   void endScreen() {
     textSize(100);
     fill(255, 0, 0);
@@ -108,7 +104,6 @@ void bulletMove() {
     bul.display();
   }
 }
-
 void monsterMove() {
   for (int i = 0; i < g.monsterList.size(); i++) {
     Monster mon = g.monsterList.get(i);
@@ -120,7 +115,6 @@ void monsterMove() {
     mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList);
   }
 }
-
 void draw() {
   background(255);
   g.p.display();
@@ -129,12 +123,7 @@ void draw() {
   bulletMove();
   monsterMove();
   g.p.simpleMove();
-  //println(g.collideList.size());
-  //println(toString(g.collideList));
-  //println(toString(g.bulletList));
-  //println(toString(g.monsterList));
 }
-
 void keyPressed() {
   g.p.buttons();
   g.p.move();
@@ -144,11 +133,10 @@ void keyPressed() {
   //x+=dx, y+=dy
   //growTimer--
 }
-
 void keyReleased() {
   g.p.reset();
 }
-//print method for arrayList but not v helpful attm
+//print method for ArrayList
 String toString(ArrayList ary) {
   String output = "[";
   for (int i = 0; i < ary.size(); i++) {

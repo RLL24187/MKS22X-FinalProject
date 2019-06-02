@@ -16,25 +16,10 @@ class Tiny extends Monster {
   }
   boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b) {
     angle += PI/angle;
-    /*
-    xcor-=xinc;
-     ycor-=yinc;
-     return super.die(k, c, m, b);
-     */
-    /*
-    //x = sin^-1(2 * f(x)/ height);
-     //f(x) = height/2 * sin(x) + someYint
-     //f(x-1) = height/2 * sin(x-1) + someYint
-     //difference = height/2 * (sin(x-1) - sin(x))
-     yinc = height/amp * (sin(xcor - xinc) - sin(xcor)) * ((width - xcor) / 200);
-     */
-    //store an angle instead (in radians)
     yinc = height/amp * sin(angle);
     if (neg) {
       yinc *= -1;
     }
-    //println("yinc: "+yinc);
-    //println("ycor: "+ycor);
     if (super.move(k, c, m, b)) {
       m.remove(this);
       return true;
@@ -58,10 +43,6 @@ class Tiny extends Monster {
         t = new Tiny(hp, level, xp, power, size, xcor+size*i + 20 * size, ycor, xinc, yinc, amp, angle / 6, neg);
       }
       mon.add(t);
-      /*
-      println("added to mon");
-       c.add(t);
-       println("added to c");*/
     }
   }
 }

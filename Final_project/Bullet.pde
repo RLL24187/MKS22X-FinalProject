@@ -26,14 +26,6 @@ class Bullet extends Collider {
     fill(red, green, blue);
     ellipse(xcor, ycor, size, size);
   }
-  /*
-  boolean die(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Bullet> b) {
-   if (super.die(k, c)) {
-   b.remove(this);
-   return true;
-   }
-   return false;
-   }*/
   boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b) {
     xcor+=xinc;
     ycor+=yinc;
@@ -42,7 +34,7 @@ class Bullet extends Collider {
       b.remove(this);
       return true;
     }
-    if (xcor > width + size){
+    if (xcor > width + size) {
       b.remove(this);
       println("Bullet xcor bound");
       return true;
