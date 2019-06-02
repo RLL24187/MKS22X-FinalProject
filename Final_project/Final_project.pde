@@ -2,7 +2,9 @@ import java.util.*;
 class Game {
   //create method called endScreen
   Player p;
-  int counter;
+  int stanCounter;
+  int tankyCounter;
+  int tinyCounter;
 
   ArrayList<Monster> monsterList;
   ArrayList<Bullet> bulletList;
@@ -15,13 +17,20 @@ class Game {
     killedList = new ArrayList<Killable>();
     collideList = new ArrayList<Collider>();
     p = new Player(10, 1, width/2., height/2., 15, 25);
-    counter = -1;
+    int firstWave = (int)(Math.random() * 3);
+    if (firstWave == 0){
+      stanCounter = -1;
+    } else if (firstWave == 1){
+      tankyCounter = -1;
+    } else if (firstWave == 2){
+      tinyCounter = -1;
+    }
   }
 
   
-  void display() {
+  void display(int chooseMonster) {
     //int hp, int level, int xp, int power, int size, float x, float y, float xinc, float yinc
-    int chooseMonster = (int)(Math.random() * 3);
+    //int chooseMonster = (int)(Math.random() * 3);
     //int chooseMonster = 2;
     //println(chooseMonster);
     int chooseYcor = (int)(Math.random()* (height - 100));
@@ -29,7 +38,7 @@ class Game {
       //Stan x = new Stan(10, 250, 0, 10, 15, width, height/2, 2, 0.);
       Stan x = new Stan(10, 250, 0, 10, 15, width, chooseYcor, 2, 0.);
       x.formation(monsterList);
-      counter = 260;
+      //counter = 360;
       //p.ycor = height/2;
     } else if (chooseMonster == 1) {
       Tanky t = new Tanky(20, 250, 0, 10, 75, width, height-75, .5, 0);
@@ -39,7 +48,7 @@ class Game {
       boolean b = (int)(Math.random() * 2) % 2 == 0;
       Tiny z = new Tiny(10, 1, 5, 1, 10, width, y-10, 3.2, 0, 10, b);
       //Tanky y = new Tanky(20, 250, 0, 10, 75, width, height-75, 1, 0);
-      counter = 1;
+      //counter = 1;
       if (chooseYcor > height - 75){
         chooseYcor -= 75;
       }
@@ -52,7 +61,7 @@ class Game {
     } else if (chooseMonster == 2) {
       boolean b = (int)(Math.random() * 2) % 2 == 0;
       //Tiny z = new Tiny(10, 1, 5, 1, 10, width, height / 2, 2, 0, 200, PI/12, b);
-      counter = 180;
+      //counter = 280;
       Tiny z = new Tiny(10, 1, 5, 1, 10, width, chooseYcor, 2, 0, 200, PI/12, b);
       z.formation(monsterList);
       //p.ycor = height / 2;
@@ -60,9 +69,20 @@ class Game {
   }
 
   void update() {
-    counter++;
-    if (counter % 300 == 0){
-      display();
+    stanCounter++;
+    tankyCounter++;
+    tinyCounter++;
+    if (stanCounter % 75 == 0){
+      display(0);
+      stanCounter = 1;
+    } 
+    if (tankyCounter % 200 == 0) {
+      display(1);
+      tankyCounter = 1;
+    }
+    if (tinyCounter % 100 == 0) {
+      display(2);
+      tinyCounter = 1;
     }
   }
 
