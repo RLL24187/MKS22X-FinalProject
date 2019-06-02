@@ -10,11 +10,6 @@ class Tanky extends Monster {
     return distance(c.xcor, this.xcor + this.size/2, c.ycor, this.ycor + this.size/2) - (c.size/2) - (this.size/2);
   }
   boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b) {
-    /*
-    xcor-=xinc;
-     ycor-=yinc;
-     return super.die(k, c, m, b);
-     */
     if (super.move(k, c, m, b)) {
       m.remove(this);
       return true;
@@ -33,29 +28,16 @@ class Tanky extends Monster {
       float chooseYcor;
       if (i % 2 == 1) {
         chooseYcor = height - ycor + size * i;
-        if (chooseYcor < 0) {
-          chooseYcor += height;
-        } else if (chooseYcor > height - size) {
-          chooseYcor -= height - size;
-        }
-        //t = new Tanky(hp, level, xp, power, size, xcor + 2 * size*i, chooseYcor , xinc, yinc);
-        //mon.add(new Tanky(hp, level, xp, power, size, xcor+size*i, 0., xinc, yinc));
       } else {
         chooseYcor = ycor + size * i;
-        if (chooseYcor < 0) {
-          chooseYcor += height;
-        } else if (chooseYcor > height - size) {
-          chooseYcor -= height - size;
-        }
-        //t = new Tanky(hp, level, xp, power, size, xcor + 2 * size*i, ycor, xinc, yinc);
-        //mon.add(new Tanky(hp, level, xp, power, size, xcor+size*i, height-size, xinc, yinc));
+      }
+      if (chooseYcor < 0) {
+        chooseYcor += height;
+      } else if (chooseYcor > height - size) {
+        chooseYcor -= height - size;
       }
       t = new Tanky(hp, level, xp, power, size, xcor + 2 * size*i, chooseYcor, xinc, yinc);
       mon.add(t);
-      /*
-      println("added to mon");
-       c.add(t);
-       println("added to c");*/
     }
   }
 }
