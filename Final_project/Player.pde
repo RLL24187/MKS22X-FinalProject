@@ -37,6 +37,8 @@ class Player extends Collider {
     boolean down = movement.contains(1);
     boolean left = movement.contains(2);
     boolean right = movement.contains(3);
+    float yinc = 0;
+    float xinc = 0;
     if (up) {
       yinc = -speed;
       //println("UP");

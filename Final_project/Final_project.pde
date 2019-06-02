@@ -112,7 +112,7 @@ void draw() {
     //g.collideList.add(mon);
     Monster mon = g.monsterList.get(i);
     //mon.display();
-    if (mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList)){
+    if (mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList)) {
       i--;
     }
     mon.display();
