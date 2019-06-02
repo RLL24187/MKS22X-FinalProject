@@ -64,7 +64,7 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * Worked on distance, distanceTo, inRadius, and inContact in Collider
 * Had a ConcurrentModificationException: lesson to be learned: don't use enhanced for loops when editing the ArrayList
 * die is now a boolean method, still needs work
-* implemented inheritance with calls to super in Monster child classes <br />
+* Implemented inheritance with calls to super in Monster child classes <br />
 
 *Elizabeth*:<br />
 * Created player shooting so it wouldn't shoot multiple bullets at once when you press space
@@ -74,30 +74,58 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 
 ***Monday 5/27/2019***<br />
 *Rachel*: <br />
-* fill in later
+* Fixed distance
+* Worked on die: issue is that only one dies when both should die
+* Player can now shoot
 
 *Elizabeth*: <br />
 * fill in later
 
 ***Tuesday 5/28/2019*** <br />
 *Rachel*: <br />
-* fill in later
+* die now kills both objects and changes HP and checks it before killing
+* Updated parameters for move
+* changeHP added: returns new HP given the number to change it by
+* Fixed constructors for classes
+* inContact returns a Collider or null
 
 *Elizabeth*: <br />
 * fill in later
 
-***Wednesday 5/19/2019*** <br />
-*Rachel*: <br / >
-* fill in later
+***Wednesday 5/29/2019*** <br />
+*Rachel*: <br />
+* die works with Bullet and Stan
+* Noticed a bug. Monster always waits for Bullet to move first, so if there is more than one Bullet, Monster will seemingly disappear, but it is actually still there, just stagnant
 
 *Elizabeth*: <br />
 * fill in later
 
 ***Thursday 5/30/2019*** <br />
 *Rachel*: <br />
-* fill in later
+* die works with Tanky now
+* formation fixed
+* Optimized move and die
+* Added Tiny
+* Out of bounds dying boolean statements changed so that it'll only die when the whole object disappears from screen
 
-*Elizabeth*: <br/ >
+*Elizabeth*: <br />
 * fill in later
 
 ***Friday 5/31/2019*** <br />
+*Rachel*: <br />
+* Fixed up README to look nicer
+* Edited out of bounds dying boolean for Bullet: dies when whole thing disappears
+* Updated formation to handle different sizes
+* Played with speeds and sizes of Monsters
+* Found and fixed issue with inRadius: bug with killing square shaped Monsters
+* Starting to put everything together: update is a method that spawns different monsters randomly, but in the same locations and at specific time intervals
+
+*Elizabeth*: <br />
+* fill in later
+
+***Saturday 6/1/2019*** <br />
+*Rachel*: <br />
+* fill in later
+
+*Elizabeth*: <br />
+* fill in later

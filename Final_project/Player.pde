@@ -53,6 +53,9 @@ class Player extends Collider {
       xinc = speed;
     }
     move(xinc, yinc);
+    //move will be based on velocity
+    //buttons set velocity
+    //no buttons pressed set velocity 0
   }
   
   void move(float distanceX, float distanceY) {  
