@@ -21,23 +21,73 @@ class Player extends Collider {
   }
   void buttons() {
     if (keyCode == UP) {
-      movement.add(0);
+      if (!movement.contains((Integer)0)) {
+        movement.add(0);
+      }
     } 
     if (keyCode == DOWN) {
-      movement.add(1);
+      if (!movement.contains((Integer)1)) {
+        movement.add(1);
+      }
     } 
     if (keyCode == LEFT) {
-      movement.add(2);
+      if (!movement.contains((Integer)2)) {
+        movement.add(2);
+      }
     }
     if (keyCode == RIGHT) {
-      movement.add(3);
+      if (!movement.contains((Integer)3)) {
+        movement.add(3);
+      }
     }
+    println("xinc, yinc: ("+xinc+", "+yinc+")");
   }
-
+  String toString(ArrayList ary) {
+    String output = "[";
+    for (int i = 0; i < ary.size(); i++) {
+      output += ary.get(i);
+      if (i != ary.size() - 1) {
+        output += ", ";
+      }
+    }
+    //println(toString(movement));
+    return output + "]";
+  }
   void reset() {
-    movement.clear();
-    xinc = 0;
-    yinc = 0;
+    //println("xinc, yinc: ("+xinc+", "+yinc+")");
+    ArrayList<Integer> i = new ArrayList<Integer>(4);
+    if (keyCode == UP) {
+      i.add((Integer)0);
+      if (yinc == -speed) {
+        yinc += speed;
+      }
+      //movement.removeAll(i);
+    }
+    else if (keyCode == DOWN) {
+      i.add((Integer)1);
+      if (yinc == speed) {
+        yinc -= speed;
+      }
+      //movement.remove(i);
+    }
+    else if (keyCode == LEFT) {
+      i.add((Integer)2);
+      if (xinc == -speed) {
+        xinc += speed;
+      }
+      //movement.remove(i);
+    }
+    else if (keyCode == RIGHT) {
+      i.add((Integer)3);
+      if (xinc == speed) {
+        xinc -= speed;
+      }
+    }
+    movement.removeAll(i);
+    //println("xinc, yinc: ("+xinc+", "+yinc+")");
+    //println(toString(movement));
+    //xinc = 0;
+    //yinc = 0;
   }
 
   void move() {
@@ -46,16 +96,21 @@ class Player extends Collider {
     boolean left = movement.contains(2);
     boolean right = movement.contains(3);
     if (up) {
-      yinc = -speed;
+      if (!down){
+        yinc = -speed;
+      }
+      else yinc = 0;
       //println("UP");
     }
-    if (down) {
+    else if (down) {
       yinc = speed;
     }
     if (left) {
+      if (!right){
       xinc = -speed;
+      }else xinc = 0;
     }
-    if (right) {
+    else if (right) {
       xinc = speed;
     }
   }
