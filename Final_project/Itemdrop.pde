@@ -57,9 +57,8 @@ class Shield extends Itemdrop{
 class DoubleBullet extends Itemdrop{
   DoubleBullet(float x, float y, int size, float xinc, float yinc){
     super(x, y, size, xinc, yinc);
-    this.value = value;
   }
   void collected(Game g){
-    g.coinCount += value;
+    g.numBullets = 2; //reminder to implement a count down so this doesn't last forever
   }
 }

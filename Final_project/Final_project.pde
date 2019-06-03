@@ -2,7 +2,7 @@ import java.util.*;
 class Game {
   //create method called endScreen
   Player p;
-  int numBullets = 1;
+  int numBullets = 2;
   int bankAccount = 0;
   int coinCount = 0;
   int stanCounter;
