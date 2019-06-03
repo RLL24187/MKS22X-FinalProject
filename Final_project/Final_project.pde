@@ -2,6 +2,7 @@ import java.util.*;
 class Game {
   //create method called endScreen
   Player p;
+  int coinCount = 0;
   int stanCounter;
   int tankyCounter;
   int tinyCounter;

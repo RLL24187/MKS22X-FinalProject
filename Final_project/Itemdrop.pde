@@ -1,9 +1,11 @@
 class Itemdrop{
   float xcor, ycor, xinc, yinc;
   int size;
-  Itemdrop(float x, float y, int size, int hp, int power) {
+  Itemdrop(float x, float y, int size, float xinc, float yinc) {
     xcor = x;
     ycor = y;
+    this.xinc = xinc;
+    this.yinc = yinc;
     this.size = size;
   }
   float distance(float x1, float x2, float y1, float y2) {
@@ -22,6 +24,7 @@ class Itemdrop{
   }
   boolean die(Player p, ArrayList<Itemdrop> i) {
     if (inContact(p)){
+      collected();
       i.remove(this);
       return true;
     }
@@ -29,4 +32,21 @@ class Itemdrop{
   }
   void display(){
   }
+  void collected(){ //does the power up
+  }
+}
+class Coin extends Itemdrop{
+  int value;
+  Coin(float x, float y, int size, float xinc, float yinc, int value){
+    super(x, y, size, xinc, yinc);
+    this.value = value;
+  }
+  void collected(Game g){
+    g.coinCount += value;
+  }
+}
+class Shield extends Itemdrop{
+  
+}
+class DoubleBullet extends Itemdrop{
 }
