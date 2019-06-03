@@ -5,14 +5,14 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 # Development Log
 
 ***Monday 5/20/19*** (here we go!!!) <br />
-*Rachel*: <br />
+*Rachel*🐦: <br />
 * Made classes, nothing works so far tho :( <br />
 
 *Elizabeth*: <br />
 * wrote player class methods: shoot, move, display(interim), and constructor. <br /> <br />
 
 ***Tuesday 5/21/19***  <br />
-*Rachel*: <br />
+*Rachel*🐦: <br />
 * Bullet can now display! No more issues with class doesn't exist errors <br />
 * Note to self: setup and draw are outside of classes <br />
 
@@ -20,14 +20,14 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * move & shoot weren't working and I couldn't find out why <br /> <br />
 
 ***Wednesday 5/22/19*** (time to cram bois) <br />
-*Rachel*: <br />
+*Rachel*🐦: <br />
 * Created the Game constructor and started work on a new helper function "inRadius" to help with "inContact" <br />
 
 *Elizabeth*: <br />
 * move works!! The cause was because the game kept resetting. Created the abstract monster class. <br /> <br />
 
 ***Thursday 5/23/19*** (APUSH exam aghhhhhh) <br />
-*Rachel*: <br />
+*Rachel*🐦: <br />
 * Worked on Bullet's inRadius, distanceTo, and inContact <br />
 * Need to work on figuring out how to make the code less repetitive: <br /> maybe make a new abstract class
 
@@ -37,7 +37,7 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * Made player move slower so that when the user presses the keys it doesn't fly out of the board immediately <br /> <br />
 
 ***Friday 5/24/2019*** (AP CALC BC exam dkjgogiafhdk) <br />
-*Rachel*: <br />
+*Rachel*🐦: <br />
 * Starting to implement a Collider class: inRadius, inContact, distanceTo <br />
 * Added an ArrayList print method, helpful to see what is in the ArrayList<Collidable>
 * Trying to work on die by adding to ArrayList<Killable> (list of dead things) and removing from ArrayList<Collidable> (list of alive things)<br />
@@ -51,14 +51,14 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * Created Tanky and its methods (move, display, constructor)<br /> <br />
 
 ***Saturday 5/25/2019***<br />
-*Rachel*:<br />
+*Rachel*🐦:<br />
 * Didn't do much today: had a wedding banquet to go to and errands to run :(<br />
 
 *Elizabeth*:<br />
 * Didn't do anything either, on vacay without laptop
 
 ***Sunday 5/26/2019***<br />
-*Rachel*:<br />
+*Rachel*🐦:<br />
 * Updated parameters for methods in Collider
 * Added Collider constructor
 * Worked on distance, distanceTo, inRadius, and inContact in Collider
@@ -73,7 +73,7 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * Tried to make the player move diagonally but wouldn't work: tried ArrayList and LinkedList but ended up getting NullPointerExceptions even when if I put (if != null) so I gave up and commented that out
 
 ***Monday 5/27/2019***<br />
-*Rachel*: <br />
+*Rachel*🐦: <br />
 * Fixed distance
 * Worked on die: issue is that only one dies when both should die
 * Player can now shoot
@@ -84,7 +84,7 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 
 
 ***Tuesday 5/28/2019*** <br />
-*Rachel*: <br />
+*Rachel*🐦: <br />
 * die now kills both objects and changes HP and checks it before killing
 * Updated parameters for move
 * changeHP added: returns new HP given the number to change it by
@@ -96,7 +96,7 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * deleted the species section of the constructor in monster, stan, and tanky, rachel and i agreed that it would be unecessary 
 
 ***Wednesday 5/29/2019*** <br />
-*Rachel*: <br />
+*Rachel*🐦: <br />
 * die works with Bullet and Stan
 * Noticed a bug. Monster always waits for Bullet to move first, so if there is more than one Bullet, Monster will seemingly disappear, but it is actually still there, just stagnant
 
@@ -105,7 +105,7 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * So the error from yesterday was a cause of directly add monster, instead I added stan/tanky (the monster's constructor) in order to add
 
 ***Thursday 5/30/2019*** <br />
-*Rachel*: <br />
+*Rachel*🐦: <br />
 * die works with Tanky now
 * formation fixed
 * Optimized move and die
@@ -118,7 +118,7 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 
 
 ***Friday 5/31/2019*** <br />
-*Rachel*: <br />
+*Rachel* 🐦: <br />
 * Fixed up README to look nicer
 * Edited out of bounds dying boolean for Bullet: dies when whole thing disappears
 * Updated formation to handle different sizes
@@ -127,14 +127,38 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * Starting to put everything together: update is a method that spawns different monsters randomly, but in the same locations and at specific time intervals
 
 *Elizabeth*: <br />
-* worked on spawning and timing (added seconds to the game variable and random spawning)
-* trying to smooth out player but couldn't
-* SAT subject tomorrow so i didn't work on it at home
+* Worked on spawning and timing (added seconds to the game variable and random spawning)
+* Trying to smooth out player but couldn't
+* SAT subject tomorrow so I didn't work on it at home
 
 ***Saturday 6/1/2019*** <br />
-*Rachel*: <br />
-* fill in later
+*Rachel* 🐦: <br />
+* Removed y bounds from die: mostly so Tiny doesn't die after oscilating too high
+* Began randomizing ycor for spawning monsters
+* Updated formations so it looks more interesting
+* Took Mr. K's advice and added an angle parameter, movement is smoother now
+* Added counters for spawning monsters
 
 *Elizabeth*: <br />
 * PLAYER IS NOW SMOOTH but also kinda choppy when going in opposite directions
-* also add monsters shooting 
+* Also add monsters shooting 
+
+***Sunday 6/2/2019*** <br />
+*Rachel*🐦: <br />
+* 
+
+*Elizabeth*: <br />
+*
+
+***Monday 6/3/2019***
+*Rachel*🐦: <br />
+* Fixed the blinking error: extra move was deleted
+
+*Elizabeth*: <br />
+*
+***Tuesday 6/4/2019***
+*Rachel*🐦: <br />
+* fill in later
+
+*Elizabeth*
+* fill in later
