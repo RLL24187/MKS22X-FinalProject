@@ -46,6 +46,12 @@ class Coin extends Itemdrop{
   }
 }
 class Shield extends Itemdrop{
+  Shield(float x, float y, int size, float xinc, float yinc){
+    super(x, y, size, xinc, yinc);
+  }
+  void collected(Game g){
+    g.p.lives = 2; //this doesn't stack
+  }
   
 }
 class DoubleBullet extends Itemdrop{
