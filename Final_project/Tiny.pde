@@ -28,7 +28,7 @@ class Tiny extends Monster {
   }
   void shoot(ArrayList<Bullet> b) {
     if (g.tankyCounter % 90 == 0) {
-      b.add(new Bullet(power, 1, 231, 124, 43, 5, xcor, ycor+size/2, -3*xinc, 0));
+      b.add(new Bullet(power, 1, 255, 124, 43, 10, xcor, ycor+size/2, -3*xinc, 0));
     }
   }
   void formation(ArrayList<Monster> mon) {

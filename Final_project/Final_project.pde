@@ -95,15 +95,55 @@ class Game {
     text("DOWNgradius", width/2, height/2-100);
     textFont(buttonFont, 30);
     noFill();
-    if (width/2-70 <= mouseX && mouseX <= width/2 + 70 && 350 <= mouseY && mouseY <= 395) {
-      stroke(204, 102, 0);
-    } else {
-      stroke(255);
+    stroke(255);
+    rect(width/2 - 100, 350, 200, 45);
+    rect(width/2 -100, 415, 200, 45);
+    rect(width/2-100, 480, 200, 45);
+    rect(width/2-100, 545, 200, 45);
+    if (width/2-100 <= mouseX && mouseX <= width/2 + 100) {
+      if (350 <= mouseY && mouseY <= 395) {
+        stroke(204, 102, 0);
+        rect(width/2 - 100, 350, 200, 45);
+        if (mousePressed) {
+          strokeWeight(1);
+          stroke(0);
+          mode = 1;
+        }
+      }
+      if (415 <= mouseY && mouseY <= 460) {
+        stroke(204, 102, 0);
+        rect(width/2 -100, 415, 200, 45);
+        if (mousePressed) {
+          mode = 2;
+        }
+      }
+      if (480 <= mouseY && mouseY <= 525) {
+        stroke(204, 102, 0);
+        rect(width/2-100, 480, 200, 45);
+        //if (mousePressed) {
+        //  mode = 3;
+        //}
+      }
+      if (545 <= mouseY && mouseY <= 590) {
+        stroke(204, 102, 0);
+        rect(width/2-100, 545, 200, 45);
+        if (mousePressed) {
+          exit();
+        }
+      }
     }
-    rect(width/2 - 72.5, 350, 150, 45);
     text("START", width/2, 385);
+    text("GUIDE", width/2, 450);
+    text("AVATARS", width/2, 515);
+    text("EXIT", width/2, 580);
   }
 
+  void instructions() {
+    image(menuPaper, 0, 0, width, height);
+    textSize(100);
+    text("SHOOOOOOOOOOT", width/2, height/2);
+  }
+  
   void pause() {
   }
 }
@@ -161,6 +201,9 @@ void draw() {
     bulletMove();
     monsterMove();
   }
+  if (g.mode == 2) {
+    g.instructions();
+  }
 }
 void keyPressed() {
   g.p.buttons();
@@ -174,6 +217,7 @@ void keyPressed() {
 void keyReleased() {
   g.p.reset();
 }
+
 //print method for ArrayList
 String toString(ArrayList ary) {
   String output = "[";
