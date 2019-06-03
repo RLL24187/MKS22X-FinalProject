@@ -41,7 +41,6 @@ class Player extends Collider {
         output += ", ";
       }
     }
-    //println(toString(movement));
     return output + "]";
   }
   void reset() {
@@ -52,19 +51,16 @@ class Player extends Collider {
       if (yinc == -speed) {
         yinc += speed;
       }
-      //movement.removeAll(i);
     } else if (keyCode == DOWN) {
       i.add((Integer)1);
       if (yinc == speed) {
         yinc -= speed;
       }
-      //movement.remove(i);
     } else if (keyCode == LEFT) {
       i.add((Integer)2);
       if (xinc == -speed) {
         xinc += speed;
       }
-      //movement.remove(i);
     } else if (keyCode == RIGHT) {
       i.add((Integer)3);
       if (xinc == speed) {
@@ -72,10 +68,6 @@ class Player extends Collider {
       }
     }
     movement.removeAll(i);
-    //println("xinc, yinc: ("+xinc+", "+yinc+")");
-    //println(toString(movement));
-    //xinc = 0;
-    //yinc = 0;
   }
 
   void move() {

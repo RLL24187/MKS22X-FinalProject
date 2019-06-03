@@ -20,6 +20,7 @@ class Game {
     bulletList = new ArrayList<Bullet>();
     killedList = new ArrayList<Killable>();
     collideList = new ArrayList<Collider>();
+    itemdropList = new ArrayList<Itemdrop>();
     p = new Player(10, 1, width/2., height/2., 5, 25);
     int firstWave = (int)(Math.random() * 3);
     if (firstWave == 0) {
@@ -147,7 +148,7 @@ class Game {
     textSize(100);
     text("SHOOOOOOOOOOT", width/2, height/2);
   }
-  
+
   void pause() {
   }
 }
@@ -188,7 +189,15 @@ void monsterMove() {
     }
     mon.shoot(g.bulletList);
     mon.display();
-    mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList);
+    //mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList);
+  }
+}
+void itemdropMove() {
+  for (int i = 0; i < g.itemdropList.size(); i++) {
+    Itemdrop item = g.itemdropList.get(i);
+    if (item.move(g.p, g.itemdropList)) {
+      i--;
+    }
   }
 }
 void draw() {
@@ -203,6 +212,7 @@ void draw() {
     g.update();
     bulletMove();
     monsterMove();
+    itemdropMove();
   }
   if (g.mode == 2) { //instructions
     g.instructions();

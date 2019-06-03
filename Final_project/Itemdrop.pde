@@ -20,6 +20,7 @@ class Itemdrop{
   boolean move(Player p, ArrayList<Itemdrop> i) {
     xcor+= xinc;
     ycor+= yinc;
+    display();
     return die(p, i); //returns true when this dies
   }
   boolean die(Player p, ArrayList<Itemdrop> i) {
@@ -44,6 +45,11 @@ class Coin extends Itemdrop{
   void collected(Game g){
     g.coinCount += value;
   }
+  void display(){
+    //temp display
+    fill(0, 150, 150);
+    ellipse(xcor, ycor, size, size);
+  }
 }
 class Shield extends Itemdrop{
   Shield(float x, float y, int size, float xinc, float yinc){
@@ -52,7 +58,11 @@ class Shield extends Itemdrop{
   void collected(Game g){
     g.p.lives = 2; //this doesn't stack
   }
-  
+  void display(){
+    //temp display
+    fill(150, 20, 20);
+    ellipse(xcor, ycor, size, size);
+  }
 }
 class DoubleBullet extends Itemdrop{
   DoubleBullet(float x, float y, int size, float xinc, float yinc){
@@ -60,5 +70,10 @@ class DoubleBullet extends Itemdrop{
   }
   void collected(Game g){
     g.numBullets = 2; //reminder to implement a count down so this doesn't last forever
+  }
+  void display(){
+    //temp display
+    fill(150, 0, 150);
+    ellipse(xcor, ycor, size, size);
   }
 }
