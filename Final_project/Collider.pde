@@ -45,7 +45,7 @@ class Collider implements Killable {
 
   boolean die(ArrayList<Killable> k, ArrayList<Collider>c, ArrayList<Monster> m, ArrayList<Bullet> b) {
     boolean returnval = false;
-    if (inContact(c) != null) println("inContact");
+    //if (inContact(c) != null) println("inContact");
     Collider temp = inContact(c); 
     if (temp != null) { 
       int thisNewHP = changeHP(temp.power);
@@ -58,14 +58,14 @@ class Collider implements Killable {
         //this.display();
         //temp.display();
         temp.move(k, c, m, b, temp.xinc, temp.yinc);
-        println(this+" removed");
+        //println(this+" removed");
         returnval = true;
       }
       if (tempNewHP <= 0) {
         c.remove(temp);
         m.remove(temp);
         b.remove(temp);
-        println(temp + " removed");
+        //println(temp + " removed");
         //this.display();
         //temp.display();
         this.move(k, c, m, b, this.xinc, this.yinc);
