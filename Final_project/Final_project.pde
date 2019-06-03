@@ -2,6 +2,8 @@ import java.util.*;
 class Game {
   //create method called endScreen
   Player p;
+  int numBullets = 1;
+  int bankAccount = 0;
   int coinCount = 0;
   int stanCounter;
   int tankyCounter;
@@ -190,20 +192,19 @@ void monsterMove() {
   }
 }
 void draw() {
-  if (g.mode == 0) {
+  if (g.mode == 0) { //menu
     g.menu(menuPaper, font, buttonFont);
   }
-  if (g.mode == 1) {
+  if (g.mode == 1) { //playing
     background(255);
     g.p.simpleMove();
     g.p.display();
-    //g.p.die(g.collideList);
-    g.p.shoot(g.bulletList, g.collideList);
+    g.p.shoot(g.bulletList, g.collideList, g.numBullets);
     g.update();
     bulletMove();
     monsterMove();
   }
-  if (g.mode == 2) {
+  if (g.mode == 2) { //instructions
     g.instructions();
   }
 }
