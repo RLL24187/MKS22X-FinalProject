@@ -5,7 +5,6 @@ class Game {
   int stanCounter;
   int tankyCounter;
   int tinyCounter;
-
   ArrayList<Monster> monsterList;
   ArrayList<Bullet> bulletList;
   ArrayList<Killable> killedList;
@@ -85,12 +84,22 @@ class Game {
     fill(255, 0, 0);
     text("YOU DIED.", height/2, width/2);
   }
-  
+
+  void menu(PImage wallpaper, PFont font) {
+    image(wallpaper,0,0, width, height);
+    textFont(font, 40);
+    text("WHOOO HOOO", width/2, height/2);
+  }
 }
 Game g = new Game();
 void setup() {
+  PFont font = createFont("Wingdings", 40);
+  PImage menuPaper = loadImage("menuWallpaper.jpg");
+  //String[] fontList = PFont.list();
+  //printArray(fontList);
   size(1200, 700);
   //g.display();
+  g.menu(menuPaper, font);
   g.p.ycor = height/2;
   for (Bullet bul : g.bulletList) {
     g.collideList.add(bul);
@@ -121,9 +130,9 @@ void monsterMove() {
   }
 }
 void draw() {
-  background(255);
+  //background(255);
   g.p.simpleMove();
-  g.p.display();
+  //g.p.display();
   //g.p.die(g.collideList);
   g.p.shoot(g.bulletList, g.collideList);
   g.update();
