@@ -85,6 +85,7 @@ class Game {
     fill(255, 0, 0);
     text("YOU DIED.", height/2, width/2);
   }
+  
 }
 Game g = new Game();
 void setup() {
@@ -123,6 +124,7 @@ void draw() {
   background(255);
   g.p.simpleMove();
   g.p.display();
+  //g.p.die(g.collideList);
   g.p.shoot(g.bulletList, g.collideList);
   g.update();
   bulletMove();

@@ -21,26 +21,17 @@ class Player extends Collider {
   }
   void buttons() {
     if (keyCode == UP) {
-      if (!movement.contains((Integer)0)) {
         movement.add(0);
-      }
     } 
     if (keyCode == DOWN) {
-      if (!movement.contains((Integer)1)) {
         movement.add(1);
-      }
     } 
     if (keyCode == LEFT) {
-      if (!movement.contains((Integer)2)) {
         movement.add(2);
-      }
     }
     if (keyCode == RIGHT) {
-      if (!movement.contains((Integer)3)) {
         movement.add(3);
-      }
     }
-    println("xinc, yinc: ("+xinc+", "+yinc+")");
   }
   String toString(ArrayList ary) {
     String output = "[";
