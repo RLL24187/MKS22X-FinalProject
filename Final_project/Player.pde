@@ -21,16 +21,16 @@ class Player extends Collider {
   }
   void buttons() {
     if (keyCode == UP) {
-        movement.add(0);
+      movement.add(0);
     } 
     if (keyCode == DOWN) {
-        movement.add(1);
+      movement.add(1);
     } 
     if (keyCode == LEFT) {
-        movement.add(2);
+      movement.add(2);
     }
     if (keyCode == RIGHT) {
-        movement.add(3);
+      movement.add(3);
     }
   }
   String toString(ArrayList ary) {
@@ -90,7 +90,7 @@ class Player extends Collider {
     if (up&&down) {
       if (upIndex > downIndex) {
         yinc = -speed;
-      } else yinc = speed;    
+      } else yinc = speed;
     } else if (left&&right) {
       if (leftIndex > rightIndex) {
         xinc = -speed;
@@ -120,12 +120,25 @@ class Player extends Collider {
     xcor += xinc;
   }
 
-  void shoot(ArrayList<Bullet> b, ArrayList<Collider> c) {
-    if (key == ' ' && keyPressed == true) {
-      Bullet temp = new Bullet(power, 1, 255, 123, 45, 10, xcor, ycor, 3, 0);
-      b.add(temp);
-      c.add(temp);
-      keyPressed = false;
+  void shoot(ArrayList<Bullet> b, ArrayList<Collider> c, int numBullets) {
+    if (numBullets == 1) {
+      if (key == ' ' && keyPressed == true) {
+        Bullet temp = new Bullet(power, 1, 255, 123, 45, 10, xcor, ycor, 3, 0);
+        b.add(temp);
+        c.add(temp);
+        keyPressed = false;
+      }
+    }
+    else if (numBullets == 2) {
+      if (key == ' ' && keyPressed == true) {
+        Bullet temp = new Bullet(power, 1, 255, 123, 45, 10, xcor, ycor + size, 3, 0);
+        Bullet temp2 = new Bullet(power, 1, 255, 123, 45, 10, xcor, ycor - size, 3, 0);
+        b.add(temp);
+        b.add(temp2);
+        c.add(temp);
+        c.add(temp2);
+        keyPressed = false;
+      }
     }
   }
 
