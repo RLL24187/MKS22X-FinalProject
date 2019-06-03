@@ -17,23 +17,23 @@ class Itemdrop{
   boolean inContact (Player p) {
     return (distanceTo(p) <= 0);
   }
-  boolean move(Player p, ArrayList<Itemdrop> i) {
+  boolean move(Game g) {
     xcor+= xinc;
     ycor+= yinc;
     display();
-    return die(p, i); //returns true when this dies
+    return die(g); //returns true when this dies
   }
-  boolean die(Player p, ArrayList<Itemdrop> i) {
-    if (inContact(p)){
-      collected();
-      i.remove(this);
+  boolean die(Game g) {
+    if (inContact(g.p)){
+      collected(g);
+      g.itemdropList.remove(this);
       return true;
     }
     return false;
   }
   void display(){
   }
-  void collected(){ //does the power up
+  void collected(Game g){ //does the power up
   }
 }
 class Coin extends Itemdrop{
@@ -44,6 +44,7 @@ class Coin extends Itemdrop{
   }
   void collected(Game g){
     g.coinCount += value;
+    println("New coin count: "+g.coinCount);
   }
   void display(){
     //temp display
@@ -57,6 +58,7 @@ class Shield extends Itemdrop{
   }
   void collected(Game g){
     g.p.lives = 2; //this doesn't stack
+    println("New lives count: "+g.p.lives);
   }
   void display(){
     //temp display
@@ -70,6 +72,7 @@ class DoubleBullet extends Itemdrop{
   }
   void collected(Game g){
     g.numBullets = 2; //reminder to implement a count down so this doesn't last forever
+    println("New numBullets: "+g.numBullets);
   }
   void display(){
     //temp display
