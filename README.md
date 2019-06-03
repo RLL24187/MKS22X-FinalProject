@@ -92,8 +92,8 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * inContact returns a Collider or null
 
 *Elizabeth*: <br />
-* worked on formation: tested out different ways like forming the top then bottom first but still didn't display and adding the list to the function as a variable and adding monster directly but it created an error
-* deleted the species section of the constructor in monster, stan, and tanky, rachel and i agreed that it would be unecessary 
+* Worked on formation: tested out different ways like forming the top then bottom first but still didn't display and adding the list to the function as a variable and adding monster directly but it created an error
+* Deleted the species section of the constructor in monster, stan, and tanky, rachel and i agreed that it would be unecessary 
 
 ***Wednesday 5/29/2019*** <br />
 *Rachel*🐦: <br />
@@ -101,7 +101,7 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * Noticed a bug. Monster always waits for Bullet to move first, so if there is more than one Bullet, Monster will seemingly disappear, but it is actually still there, just stagnant
 
 *Elizabeth*: <br />
-* I thought it wasn't working even though the code had no errors and i found out why tomorrow
+* I thought it wasn't working even though the code had no errors and I found out why tomorrow
 * So the error from yesterday was a cause of directly add monster, instead I added stan/tanky (the monster's constructor) in order to add
 
 ***Thursday 5/30/2019*** <br />
@@ -113,8 +113,8 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * Out of bounds dying boolean statements changed so that it'll only die when the whole object disappears from screen
 
 *Elizabeth*: <br />
-* the bug was that IT WAS SPAWNING IN THE WRONG SPOT bc i mixed up the input when constructing the monsters
-* editing the player to move diagonally, finally working, i created an arraylist to track movement
+* the bug was that IT WAS SPAWNING IN THE WRONG SPOT bc I mixed up the input when constructing the monsters
+* editing the player to move diagonally, finally working, I created an arraylist to track movement
 
 
 ***Friday 5/31/2019*** <br />
@@ -145,17 +145,22 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 
 ***Sunday 6/2/2019*** <br />
 *Rachel*🐦: <br />
-* 
+* Adjusted frequency of monster spawning and better spread out their locations
+* Cleaned up the code: update format and remove old comments
+* Tried to get smooth movement... only got diagonal
 
 *Elizabeth*: <br />
-*
+* fill in later
 
 ***Monday 6/3/2019***
 *Rachel*🐦: <br />
 * Fixed the blinking error: extra move was deleted
+* Added Itemdrop, Coin, Shield, and DoubleBullet class
+* Powerups work with time limits on when to collect and how long powers last
 
 *Elizabeth*: <br />
-*
+* fill in later
+
 ***Tuesday 6/4/2019***
 *Rachel*🐦: <br />
 * fill in later
