@@ -26,19 +26,23 @@ abstract class Monster extends Collider {
   void dropItem(ArrayList<Itemdrop> i){
     if (drop == 0){
       //Coin(float x, float y, int size, float xinc, float yinc, int value)
-      Coin c = new Coin(xcor, ycor, 5, 1, 0, 1);
+      Coin c = new Coin(xcor, ycor, 15, -2, 0, 1);
       i.add(c);
     } else if (drop == 1){
-      Shield s = new Shield(xcor, ycor, 7, 1, 0);
+      Shield s = new Shield(xcor, ycor, 15, -2, 0);
       i.add(s);
     } else if (drop == 2){
-      DoubleBullet db = new DoubleBullet(xcor, ycor, 6, 1, 0);
+      DoubleBullet db = new DoubleBullet(xcor, ycor, 15, -2, 0);
       i.add(db);
     }
   }
-  boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b) {
+  boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b, ArrayList<Itemdrop> i) {//true when removed
     xcor-=xinc;
     ycor-=yinc;
-    return super.move(k, c, m, b, -1 * xinc, -1 * yinc); //true when removed
+    if (super.move(k, c, m, b, -1 * xinc, -1 * yinc)){
+      dropItem(i);
+      return true;
+    }
+    return false;
   }
 }

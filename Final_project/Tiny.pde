@@ -14,13 +14,13 @@ class Tiny extends Monster {
     fill(30, 160, 0);
     rect(xcor, ycor, size, size);
   }
-  boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b) {
+  boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b, ArrayList<Itemdrop> i) {
     angle += PI/angle;
     yinc = height/amp * sin(angle);
     if (neg) {
       yinc *= -1;
     }
-    if (super.move(k, c, m, b)) {
+    if (super.move(k, c, m, b, i)) {
       m.remove(this);
       return true;
     }

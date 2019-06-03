@@ -5,8 +5,8 @@ class Stan extends Monster {
   float distanceTo(Collider c) {
     return distance(c.xcor, this.xcor + this.size/2, c.ycor, this.ycor + this.size/2) - (c.size/2) - (this.size/2);
   }
-  boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b) {
-    if (super.move(k, c, m, b)) {
+  boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b, ArrayList<Itemdrop> i) {
+    if (super.move(k, c, m, b, i)) {
       m.remove(this);
       return true;
     }
