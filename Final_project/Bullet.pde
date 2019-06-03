@@ -41,6 +41,4 @@ class Bullet extends Collider {
     }
     return false;
   }
-  void splitIt() {
-  }
 }
