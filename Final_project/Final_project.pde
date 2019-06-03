@@ -97,6 +97,7 @@ void setup() {
   for (Monster mon : g.monsterList) {
     g.collideList.add(mon);
   }
+  g.collideList.add(g.p);
 }
 void bulletMove() {
   for (int i = 0; i < g.bulletList.size(); i++) {
@@ -120,12 +121,12 @@ void monsterMove() {
 }
 void draw() {
   background(255);
+  g.p.simpleMove();
   g.p.display();
   g.p.shoot(g.bulletList, g.collideList);
   g.update();
   bulletMove();
   monsterMove();
-  g.p.simpleMove();
 }
 void keyPressed() {
   g.p.buttons();

@@ -62,22 +62,19 @@ class Player extends Collider {
         yinc += speed;
       }
       //movement.removeAll(i);
-    }
-    else if (keyCode == DOWN) {
+    } else if (keyCode == DOWN) {
       i.add((Integer)1);
       if (yinc == speed) {
         yinc -= speed;
       }
       //movement.remove(i);
-    }
-    else if (keyCode == LEFT) {
+    } else if (keyCode == LEFT) {
       i.add((Integer)2);
       if (xinc == -speed) {
         xinc += speed;
       }
       //movement.remove(i);
-    }
-    else if (keyCode == RIGHT) {
+    } else if (keyCode == RIGHT) {
       i.add((Integer)3);
       if (xinc == speed) {
         xinc -= speed;
@@ -95,23 +92,31 @@ class Player extends Collider {
     boolean down = movement.contains(1);
     boolean left = movement.contains(2);
     boolean right = movement.contains(3);
-    if (up) {
-      if (!down){
+    int upIndex = movement.lastIndexOf(0);
+    int downIndex = movement.lastIndexOf(1);
+    int leftIndex = movement.lastIndexOf(2);
+    int rightIndex = movement.lastIndexOf(3);
+    if (up&&down) {
+      if (upIndex > downIndex) {
+        yinc = -speed;
+      } else yinc = speed;    
+    } else if (left&&right) {
+      if (leftIndex > rightIndex) {
+        xinc = -speed;
+      } else xinc = speed;
+    } else {
+      if (up) {
         yinc = -speed;
       }
-      else yinc = 0;
-      //println("UP");
-    }
-    else if (down) {
-      yinc = speed;
-    }
-    if (left) {
-      if (!right){
-      xinc = -speed;
-      }else xinc = 0;
-    }
-    else if (right) {
-      xinc = speed;
+      if (down) {
+        yinc = speed;
+      }
+      if (left) {
+        xinc = -speed;
+      }
+      if (right) {
+        xinc = speed;
+      }
     }
   }
   //move will be based on velocity
