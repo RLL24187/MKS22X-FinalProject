@@ -94,7 +94,7 @@ class DoubleBullet extends Itemdrop{
   void collected(Game g){
     g.numBullets = 2; //reminder to implement a count down so this doesn't last forever
     println("New numBullets: "+g.numBullets);
-    g.shieldTime = millis; //1 minute
+    g.dbTime = millis; //1 minute
   }
   void display(){
     //temp display

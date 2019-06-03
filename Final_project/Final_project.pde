@@ -11,6 +11,7 @@ class Game {
   int mode = 0;
   float dbTime = 0;
   float shieldTime = 0;
+  float time = millis();
   ArrayList<Monster> monsterList;
   ArrayList<Bullet> bulletList;
   ArrayList<Killable> killedList;
@@ -64,6 +65,20 @@ class Game {
     stanCounter++;
     tankyCounter++;
     tinyCounter++;
+    if (dbTime > 0) {
+      dbTime -= millis() - time;
+      if (dbTime <= 0) {
+        numBullets = 1;
+        println("numBullets fixed");
+      }
+    }
+    if (shieldTime > 0) {
+      shieldTime -= millis() - time;
+      if (shieldTime <= 0) {
+        g.p.lives = 1;
+        println("lives fixed");
+      }
+    }
     if (stanCounter % 150 == 0) {
       display(0);
       stanCounter = 1;
@@ -76,6 +91,7 @@ class Game {
       display(2);
       tinyCounter = 1;
     }
+    time = millis();
   }
   void endScreen() {
     textSize(100);
