@@ -2,7 +2,7 @@ import java.util.*;
 class Game {
   //create method called endScreen
   Player p;
-  int numBullets = 2;
+  int numBullets = 1;
   int bankAccount = 0;
   int coinCount = 0;
   int stanCounter;
@@ -184,7 +184,7 @@ void bulletMove() {
 void monsterMove() {
   for (int i = 0; i < g.monsterList.size(); i++) {
     Monster mon = g.monsterList.get(i);
-    if (mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList)) {
+    if (mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList, g.itemdropList)) {
       i--;
     }
     mon.shoot(g.bulletList);
@@ -195,7 +195,7 @@ void monsterMove() {
 void itemdropMove() {
   for (int i = 0; i < g.itemdropList.size(); i++) {
     Itemdrop item = g.itemdropList.get(i);
-    if (item.move(g.p, g.itemdropList)) {
+    if (item.move(g)) {
       i--;
     }
   }
