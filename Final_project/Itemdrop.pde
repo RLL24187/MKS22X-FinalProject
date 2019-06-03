@@ -1,12 +1,29 @@
 class Itemdrop{
   float xcor, ycor, xinc, yinc;
   int size;
-  Itemdrop(float x, float y, int size, float xinc, float yinc) {
+  float beginTime;
+  float lifeSpan; 
+  float millis;
+  //lifeSpan is for how many seconds left before it can't be collected anymore
+  //seconds doesn't apply to Coin, this is how long the power lasts
+  Itemdrop(float x, float y, int size, float xinc, float yinc, float lifeSpan) {
     xcor = x;
     ycor = y;
     this.xinc = xinc;
     this.yinc = yinc;
     this.size = size;
+    beginTime = millis();
+    this.lifeSpan = lifeSpan;
+  }
+  Itemdrop(float x, float y, int size, float xinc, float yinc, float lifeSpan, float millis) {
+    xcor = x;
+    ycor = y;
+    this.xinc = xinc;
+    this.yinc = yinc;
+    this.size = size;
+    beginTime = millis();
+    this.lifeSpan = lifeSpan;
+    this.millis = millis;
   }
   float distance(float x1, float x2, float y1, float y2) {
     return pow((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2), .5);
@@ -28,6 +45,9 @@ class Itemdrop{
       collected(g);
       g.itemdropList.remove(this);
       return true;
+    } else if (millis() - beginTime > lifeSpan){
+      g.itemdropList.remove(this);
+      return true;
     }
     return false;
   }
@@ -38,8 +58,8 @@ class Itemdrop{
 }
 class Coin extends Itemdrop{
   int value;
-  Coin(float x, float y, int size, float xinc, float yinc, int value){
-    super(x, y, size, xinc, yinc);
+  Coin(float x, float y, int size, float xinc, float yinc, int value, float lifeSpan){
+    super(x, y, size, xinc, yinc, lifeSpan);
     this.value = value;
   }
   void collected(Game g){
@@ -53,12 +73,13 @@ class Coin extends Itemdrop{
   }
 }
 class Shield extends Itemdrop{
-  Shield(float x, float y, int size, float xinc, float yinc){
-    super(x, y, size, xinc, yinc);
+  Shield(float x, float y, int size, float xinc, float yinc, float lifeSpan, int millis){
+    super(x, y, size, xinc, yinc, lifeSpan, millis);
   }
   void collected(Game g){
     g.p.lives = 2; //this doesn't stack
     println("New lives count: "+g.p.lives);
+    g.shieldTime = millis;
   }
   void display(){
     //temp display
@@ -67,12 +88,13 @@ class Shield extends Itemdrop{
   }
 }
 class DoubleBullet extends Itemdrop{
-  DoubleBullet(float x, float y, int size, float xinc, float yinc){
-    super(x, y, size, xinc, yinc);
+  DoubleBullet(float x, float y, int size, float xinc, float yinc, float lifeSpan, int millis){
+    super(x, y, size, xinc, yinc, lifeSpan, millis);
   }
   void collected(Game g){
     g.numBullets = 2; //reminder to implement a count down so this doesn't last forever
     println("New numBullets: "+g.numBullets);
+    g.shieldTime = millis; //1 minute
   }
   void display(){
     //temp display

@@ -25,14 +25,14 @@ abstract class Monster extends Collider {
   abstract void shoot(ArrayList<Bullet> b);
   void dropItem(ArrayList<Itemdrop> i){
     if (drop == 0){
-      //Coin(float x, float y, int size, float xinc, float yinc, int value)
-      Coin c = new Coin(xcor, ycor, 15, -2, 0, 1);
+      //Coin(float x, float y, int size, float xinc, float yinc, int value, float lifeSpan)
+      Coin c = new Coin(xcor, ycor, 15, -2, 0, 1, 5000);
       i.add(c);
     } else if (drop == 1){
-      Shield s = new Shield(xcor, ycor, 15, -2, 0);
+      Shield s = new Shield(xcor, ycor, 15, -2, 0, 5000, 30000);
       i.add(s);
     } else if (drop == 2){
-      DoubleBullet db = new DoubleBullet(xcor, ycor, 15, -2, 0);
+      DoubleBullet db = new DoubleBullet(xcor, ycor, 15, -2, 0, 5000, 30000);
       i.add(db);
     }
   }

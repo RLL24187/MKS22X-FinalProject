@@ -9,6 +9,8 @@ class Game {
   int tankyCounter;
   int tinyCounter;
   int mode = 0;
+  float dbTime = 0;
+  float shieldTime = 0;
   ArrayList<Monster> monsterList;
   ArrayList<Bullet> bulletList;
   ArrayList<Killable> killedList;
@@ -32,13 +34,8 @@ class Game {
     }
   }
   void display(int chooseMonster) {
-    //int hp, int level, int xp, int power, int size, float x, float y, float xinc, float yinc
-    //int chooseMonster = (int)(Math.random() * 3);
-    //int chooseMonster = 2;
-    //println(chooseMonster);
     int chooseYcor = (int)(Math.random()* (height));
     if (chooseMonster == 0) {
-      //Stan x = new Stan(10, 250, 0, 10, 15, width, height/2, 2, 0.);
       Stan x = new Stan(10, 250, 0, 10, 15, width, chooseYcor, 2, 0.);
       if (chooseYcor <= 2*x.size) {
         x.ycor += 2*x.size;
@@ -46,8 +43,6 @@ class Game {
         x.ycor -= height - 3*x.size;
       }
       x.formation(monsterList);
-      //counter = 360;
-      //p.ycor = height/2;
     } else if (chooseMonster == 1) {
       Tanky y = new Tanky(20, 250, 0, 10, 75, width, chooseYcor, 1, 0);
       if (chooseYcor > height-(3*y.size)) {
@@ -56,8 +51,6 @@ class Game {
       y.formation(monsterList);
     } else if (chooseMonster == 2) {
       boolean b = (int)(Math.random() * 2) % 2 == 0;
-      //Tiny z = new Tiny(10, 1, 5, 1, 10, width, height / 2, 2, 0, 200, PI/12, b);
-      //counter = 280;
       Tiny z = new Tiny(10, 1, 5, 1, 10, width, chooseYcor, 2, 0, 200, PI/12, b);
       if (chooseYcor-z.amp < 0) {
         z.ycor += z.amp;
@@ -65,7 +58,6 @@ class Game {
         z.ycor -= z.amp;
       }
       z.formation(monsterList);
-      //p.ycor = height / 2;
     }
   }
   void update() {
