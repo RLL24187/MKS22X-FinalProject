@@ -67,7 +67,8 @@ class Itemdrop {
   void display() {
     image(dropImg, xcor, ycor, size, size);
   }
-  void collected(Game g) { //does the power up
+  boolean collected(Game g) { 
+    return true;//does the power up
   }
 }
 class Coin extends Itemdrop {
@@ -76,43 +77,36 @@ class Coin extends Itemdrop {
     super(x, y, size, xinc, yinc, lifeSpan, coinImg);
     this.value = value;
   }
-  void collected(Game g) {
+  boolean collected(Game g) {
     g.coinCount += value;
     println("New coin count: "+g.coinCount);
+    return true;
   }
-  void display() {
-    //temp display
-    fill(0, 150, 150);
-    ellipse(xcor, ycor, size, size);
-  }
+
 }
 class Shield extends Itemdrop {
   Shield(float x, float y, int size, float xinc, float yinc, float lifeSpan, int millis, PImage shieldImg) {
     super(x, y, size, xinc, yinc, lifeSpan, millis, shieldImg);
   }
-  void collected(Game g) {
+  boolean collected(Game g) {
     g.p.lives = 2; //this doesn't stack
     println("New lives count: "+g.p.lives);
     g.shieldTime = millis;
+    return true;
   }
-  void display() {
-    //temp display
-    fill(150, 20, 20);
-    ellipse(xcor, ycor, size, size);
-  }
+  void bigDisplay() {
+    if (collected) {
+      image(dropImg, g.p.xcor, g.p.ycor);
+    }
 }
 class DoubleBullet extends Itemdrop {
-  DoubleBullet(float x, float y, int size, float xinc, float yinc, float lifeSpan, int millis) {
-    super(x, y, size, xinc, yinc, lifeSpan, millis);
+  DoubleBullet(float x, float y, int size, float xinc, float yinc, float lifeSpan, int millis, PImage bulImg) {
+    super(x, y, size, xinc, yinc, lifeSpan, millis, bulImg);
   }
-  void collected(Game g) {
+  boolean collected(Game g) {
     g.numBullets = 2; //reminder to implement a count down so this doesn't last forever
     println("New numBullets: "+g.numBullets);
     g.dbTime = millis; //1 minute
-  }
-  void display() {
-    //temp display
-    fill(150, 0, 150);
-    ellipse(xcor, ycor, size, size);
+    return true;
   }
 }
