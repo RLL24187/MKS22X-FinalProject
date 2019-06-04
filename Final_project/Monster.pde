@@ -41,6 +41,9 @@ abstract class Monster extends Collider {
   boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b, ArrayList<Itemdrop> i) {//true when removed
     xcor-=xinc;
     ycor-=yinc;
+    if (hp<=0) {
+      return false;
+    }
     if (super.move(k, c, m, b, -1 * xinc, -1 * yinc)){
       dropItem(i);
       return true;

@@ -15,11 +15,15 @@ class Collider implements Killable {
     return pow((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2), .5);
   }
   float distanceTo(Collider c) {
-    return distance(c.xcor, this.xcor, c.ycor, this.ycor) - (c.size/2) - (this.size/2);
+    return distance(c.xcor, this.xcor, c.ycor, this.ycor) + (c.size/2) + (this.size/2);
   }
   boolean inRadius (Collider c) {
     if (c.equals(this)) return false;
-    return (distanceTo(c) <= 0);
+    //return (distanceTo(c) <= 0);
+    if (this.xcor >= c.xcor - c.size/2 && this.xcor <= c.xcor + c.size/2 && c.ycor - c.size/2 >= ycor && ycor <= c.ycor + c.size/2) {
+      return true;
+    }
+    return false;
   }
   Collider inContact(ArrayList<Collider> c) {
     //println("inContact: ");

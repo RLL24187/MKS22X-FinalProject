@@ -96,6 +96,7 @@ class Shield extends Itemdrop {
   }
   void display() {
     if (intact) {
+      text("HELLO", g.p.xcor, g.p.ycor);
       bigDisplay(g);
     } else {
        fill(0, 0, 175);
