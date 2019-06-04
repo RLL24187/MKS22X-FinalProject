@@ -230,7 +230,6 @@ void draw() {
     g.p.shoot(g.bulletList, g.collideList, g.numBullets);
     g.update();
     bulletMove();
-    //monsterMove();
     itemdropMove();
     monsterMove();
   }
