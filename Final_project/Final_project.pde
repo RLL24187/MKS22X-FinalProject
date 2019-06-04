@@ -38,22 +38,25 @@ class Game {
   void display(int chooseMonster) {
     int chooseYcor = (int)(Math.random()* (height));
     if (chooseMonster == 0) {
-      Stan x = new Stan(10, 250, 0, 10, 15, width, chooseYcor, 2, 0., stanImg);
-      if (chooseYcor <= 2*x.size) {
-        x.ycor += 2*x.size;
+      Stan x = new Stan(10, 250, 0, 10, 30, width, chooseYcor, 2, 0., stanImg);
+      if (chooseYcor <= 3*x.size) {
+        x.ycor += 3*x.size;
       } else if (chooseYcor > height-(3*x.size)) {
-        x.ycor -= height - 3*x.size;
+        x.ycor -= 3*x.size;
       }
       x.formation(monsterList);
     } else if (chooseMonster == 1) {
       Tanky y = new Tanky(20, 250, 0, 10, 75, width, chooseYcor, 1, 0, tankyImg);
-      if (chooseYcor > height-(3*y.size)) {
-        y.ycor -= height - 3*y.size;
+      if (chooseYcor < y.size/2) {
+        y.ycor += y.size/2;
+      }
+      if (chooseYcor > height-y.size/2) {
+        y.ycor -= y.size/2;
       }
       y.formation(monsterList);
     } else if (chooseMonster == 2) {
       boolean b = (int)(Math.random() * 2) % 2 == 0;
-      Tiny z = new Tiny(10, 1, 5, 1, 10, width, chooseYcor, 2, 0, 200, PI/12, b, tinyImg);
+      Tiny z = new Tiny(10, 1, 5, 1, 20, width, chooseYcor, 2, 0, 200, PI/12, b, tinyImg);
       if (chooseYcor-z.amp < 0) {
         z.ycor += z.amp;
       } else if (chooseYcor+z.amp>height) {
