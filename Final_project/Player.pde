@@ -151,7 +151,6 @@ class Player extends Collider {
 
   void display() {
     //temp display
-    fill(123, 244, 23);
-    ellipse(xcor, ycor, size, size);
+    image(img, xcor, ycor, size, size);
   }
 }
