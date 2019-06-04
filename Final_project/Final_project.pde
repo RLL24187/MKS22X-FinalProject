@@ -211,7 +211,7 @@ void monsterMove() {
     }
     mon.shoot(g.bulletList);
     mon.display();
-    //mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList);
+    //mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList, g.itemdropList);
   }
 }
 void itemdropMove() {
@@ -233,6 +233,7 @@ void draw() {
     g.p.shoot(g.bulletList, g.collideList, g.numBullets);
     g.update();
     bulletMove();
+    //monsterMove();
     itemdropMove();
     monsterMove();
   }
