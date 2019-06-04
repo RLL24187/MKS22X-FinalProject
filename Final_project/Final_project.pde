@@ -1,4 +1,5 @@
 import java.util.*;
+
 class Game {
   //create method called endScreen
   Player p;
@@ -17,19 +18,21 @@ class Game {
   ArrayList<Killable> killedList;
   ArrayList<Collider> collideList;
   ArrayList<Itemdrop> itemdropList;
-  PImage stanImg, tankyImg, tinyImg, playerImg, coinImg, shieldImg;
-  Game() {
-    monsterList = new ArrayList<Monster>();
-    bulletList = new ArrayList<Bullet>();
-    killedList = new ArrayList<Killable>();
-    collideList = new ArrayList<Collider>();
-    itemdropList = new ArrayList<Itemdrop>();
+  //PImage stanImg, tankyImg, tinyImg, playerImg, coinImg, shieldImg;
+  void gameSetup() {
     stanImg = loadImage("stanImg.png");
     tankyImg = loadImage("tankyImg.png");
     tinyImg = loadImage("tinyImg.png");
     playerImg = loadImage("playerImg.png");
     coinImg = loadImage("coinImg.png");
     shieldImg = loadImage("shieldImg.png");
+  }
+  Game() {
+    monsterList = new ArrayList<Monster>();
+    bulletList = new ArrayList<Bullet>();
+    killedList = new ArrayList<Killable>();
+    collideList = new ArrayList<Collider>();
+    itemdropList = new ArrayList<Itemdrop>();
     p = new Player(10, 1, width/2., height/2., 5, 25, playerImg);
     int firstWave = (int)(Math.random() * 3);
     if (firstWave == 0) {
@@ -166,13 +169,21 @@ class Game {
   void pause() {
   }
 }
-Game g = new Game();
+Game g;
 PFont font, buttonFont;
 PImage menuPaper;
+PImage stanImg, tankyImg, tinyImg, playerImg, coinImg, shieldImg;
 void setup() {
   font = createFont("Monotxt_IV50", 60);
   menuPaper = loadImage("menuWallpaper.jpg");
   buttonFont = createFont("Monotxt_IV25", 30);
+  stanImg = loadImage("stanImg.png");
+  tankyImg = loadImage("tankyImg.png");
+  tinyImg = loadImage("tinyImg.png");
+  playerImg = loadImage("playerImg.png");
+  coinImg = loadImage("coinImg.png");
+  shieldImg = loadImage("shieldImg.png");
+  g= new Game();
   //String[] fontList = PFont.list();
   //printArray(fontList);
   size(1200, 700);
