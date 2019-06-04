@@ -34,7 +34,7 @@ abstract class Monster extends Collider {
       Shield s = new Shield(xcor, ycor, 15, -2, 0, 5000, 5000, shieldImg);
       i.add(s);
     } else if (drop == 2){
-      DoubleBullet db = new DoubleBullet(xcor, ycor, 15, -2, 0, 5000, 5000);
+      DoubleBullet db = new DoubleBullet(xcor, ycor, 15, -2, 0, 5000, 5000, bulImg);
       i.add(db);
     }
   }
