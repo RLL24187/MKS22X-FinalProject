@@ -83,7 +83,6 @@ class Coin extends Itemdrop {
   }
 }
 class Shield extends Itemdrop {
-  boolean intact;
   Shield(float x, float y, int size, float xinc, float yinc, float lifeSpan, int millis, PImage shieldImg) {
     super(x, y, size, xinc, yinc, lifeSpan, millis, shieldImg);
   }

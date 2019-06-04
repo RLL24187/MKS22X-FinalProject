@@ -14,7 +14,7 @@ abstract class Monster extends Collider {
     this.xcor = x;
     this.ycor = y;
     this.img = img;
-    int chooseDrop = (int)(Math.random() * 101);
+    int chooseDrop = 90;//(int)(Math.random() * 101);
     if (chooseDrop <= 75){
       drop = 0; //new Coin();
     } else if (chooseDrop <= 90){
