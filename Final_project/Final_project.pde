@@ -19,14 +19,6 @@ class Game {
   ArrayList<Collider> collideList;
   ArrayList<Itemdrop> itemdropList;
   //PImage stanImg, tankyImg, tinyImg, playerImg, coinImg, shieldImg;
-  void gameSetup() {
-    stanImg = loadImage("stanImg.png");
-    tankyImg = loadImage("tankyImg.png");
-    tinyImg = loadImage("tinyImg.png");
-    playerImg = loadImage("playerImg.png");
-    coinImg = loadImage("coinImg.png");
-    shieldImg = loadImage("shieldImg.png");
-  }
   Game() {
     monsterList = new ArrayList<Monster>();
     bulletList = new ArrayList<Bullet>();
@@ -230,7 +222,7 @@ void draw() {
     g.menu(menuPaper, font, buttonFont);
   }
   if (g.mode == 1) { //playing
-    background(255);
+    background(0);
     g.p.simpleMove();
     g.p.display();
     g.p.shoot(g.bulletList, g.collideList, g.numBullets);

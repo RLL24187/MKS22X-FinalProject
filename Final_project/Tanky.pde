@@ -3,8 +3,7 @@ class Tanky extends Monster {
     super(hp, level, xp, power, size, xcor, ycor, xinc, yinc, img);
   }
   void display() {
-    fill(123, 35, 58);
-    rect(xcor, ycor, size, size);
+    image(img, xcor, ycor, size, size);
   }
   float distanceTo(Collider c) {
     return distance(c.xcor, this.xcor + this.size/2, c.ycor, this.ycor + this.size/2) - (c.size/2) - (this.size/2);

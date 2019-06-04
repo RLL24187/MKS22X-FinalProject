@@ -65,6 +65,7 @@ class Itemdrop {
     return false;
   }
   void display() {
+    image(dropImg, xcor, ycor, size, size);
   }
   void collected(Game g) { //does the power up
   }

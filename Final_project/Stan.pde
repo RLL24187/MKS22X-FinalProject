@@ -18,8 +18,7 @@ class Stan extends Monster {
     }
   }
   void display() {
-    fill(255, 0, 0);
-    rect(xcor, ycor, size, size);
+    image(img, xcor, ycor, size, size);
   }
   void formation(ArrayList<Monster> mon) {
     mon.add(this);
