@@ -1,6 +1,6 @@
 class Tanky extends Monster {
-  Tanky(int hp, int level, int xp, int power, int size, float xcor, float ycor, float xinc, float yinc) {
-    super(hp, level, xp, power, size, xcor, ycor, xinc, yinc);
+  Tanky(int hp, int level, int xp, int power, int size, float xcor, float ycor, float xinc, float yinc, PImage img) {
+    super(hp, level, xp, power, size, xcor, ycor, xinc, yinc, img);
   }
   void display() {
     fill(123, 35, 58);
@@ -36,7 +36,7 @@ class Tanky extends Monster {
       } else if (chooseYcor > height - size) {
         chooseYcor -= height - size;
       }
-      t = new Tanky(hp, level, xp, power, size, xcor + 2 * size*i, chooseYcor, xinc, yinc);
+      t = new Tanky(hp, level, xp, power, size, xcor + 2 * size*i, chooseYcor, xinc, yinc, img);
       mon.add(t);
     }
   }

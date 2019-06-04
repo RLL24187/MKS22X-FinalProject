@@ -1,6 +1,6 @@
 class Stan extends Monster {
-  Stan(int hp, int level, int xp, int power, int size, float x, float y, float xinc, float yinc) {
-    super(hp, level, xp, power, size, x, y, xinc, yinc);
+  Stan(int hp, int level, int xp, int power, int size, float x, float y, float xinc, float yinc, PImage img) {
+    super(hp, level, xp, power, size, x, y, xinc, yinc, img);
   }
   float distanceTo(Collider c) {
     return distance(c.xcor, this.xcor + this.size/2, c.ycor, this.ycor + this.size/2) - (c.size/2) - (this.size/2);
@@ -24,8 +24,8 @@ class Stan extends Monster {
   void formation(ArrayList<Monster> mon) {
     mon.add(this);
     for (int i = 1; i < 3; i++) { 
-      mon.add(new Stan(hp, level, xp, power, size, xcor+size*i, ycor+size*i, xinc, yinc));
-      mon.add(new Stan(hp, level, xp, power, size, xcor+size*i, ycor-size*i, xinc, yinc));
+      mon.add(new Stan(hp, level, xp, power, size, xcor+size*i, ycor+size*i, xinc, yinc, img));
+      mon.add(new Stan(hp, level, xp, power, size, xcor+size*i, ycor-size*i, xinc, yinc, img));
     }
   }
 }

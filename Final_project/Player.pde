@@ -5,12 +5,13 @@ class Player extends Collider {
   String name;
   float yinc = 0;
   float xinc = 0;
+  PImage img;
   //UP=0
   //DOWN=1
   //LEFT=2
   //RIGHT=3
   ArrayList<Integer> movement = new ArrayList<Integer>();
-  Player(int power, int numLives, float startingX, float startingY, float speed, int size) {
+  Player(int power, int numLives, float startingX, float startingY, float speed, int size, PImage img) {
     super(startingX, startingY, size, numLives, power);
     this.power = power;
     lives = numLives;
@@ -18,6 +19,7 @@ class Player extends Collider {
     ycor = startingY;
     this.speed = speed;
     this.size = size;
+    this.img = img;
   }
   void buttons() {
     if (keyCode == UP) {

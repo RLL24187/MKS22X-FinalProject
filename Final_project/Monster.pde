@@ -1,7 +1,8 @@
 abstract class Monster extends Collider {
   int hp, level, xp, power, speed, size, drop;
   float xcor, ycor, xinc, yinc;
-  Monster(int hp, int level, int xp, int power, int size, float x, float y, float xinc, float yinc) {
+  PImage img;
+  Monster(int hp, int level, int xp, int power, int size, float x, float y, float xinc, float yinc, PImage img) {
     super(x, y, size, hp, power);
     this.hp = hp;
     this.level = level;
@@ -12,6 +13,7 @@ abstract class Monster extends Collider {
     this.size = size;
     this.xcor = x;
     this.ycor = y;
+    this.img = img;
     int chooseDrop = (int)(Math.random() * 101);
     if (chooseDrop <= 75){
       drop = 0; //new Coin();

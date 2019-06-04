@@ -1,8 +1,8 @@
 class Tiny extends Monster {
   boolean neg;
   float amp, angle;
-  Tiny(int hp, int level, int xp, int power, int size, float xcor, float ycor, float xinc, float yinc, float amp, float angle, boolean neg) {
-    super(hp, level, xp, power, size, xcor, ycor, xinc, yinc);
+  Tiny(int hp, int level, int xp, int power, int size, float xcor, float ycor, float xinc, float yinc, float amp, float angle, boolean neg, PImage img) {
+    super(hp, level, xp, power, size, xcor, ycor, xinc, yinc, img);
     this.neg = neg;
     this.amp = amp;
     this.angle = angle; //in rads
@@ -36,11 +36,11 @@ class Tiny extends Monster {
     for (int i = 0; i < 3; i++) {
       Tiny t;
       if (i % 3 == 0) {
-        t = new Tiny(hp, level, xp, power, size, xcor+size*i + 10 * size, ycor + 10 * size, xinc, yinc, amp + 5, angle + amp/ 4, true);
+        t = new Tiny(hp, level, xp, power, size, xcor+size*i + 10 * size, ycor + 10 * size, xinc, yinc, amp + 5, angle + amp/ 4, true, img);
       } else if (i % 3 == 1) {
-        t = new Tiny(hp, level, xp, power, size, xcor+size*i + 15 * size, ycor - 10 * size, xinc, yinc, amp + 5, angle + size/ 3, false);
+        t = new Tiny(hp, level, xp, power, size, xcor+size*i + 15 * size, ycor - 10 * size, xinc, yinc, amp + 5, angle + size/ 3, false, img);
       } else {
-        t = new Tiny(hp, level, xp, power, size, xcor+size*i + 20 * size, ycor, xinc, yinc, amp, angle / 6, neg);
+        t = new Tiny(hp, level, xp, power, size, xcor+size*i + 20 * size, ycor, xinc, yinc, amp, angle / 6, neg, img);
       }
       mon.add(t);
     }
