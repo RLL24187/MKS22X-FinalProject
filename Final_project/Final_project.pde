@@ -162,7 +162,7 @@ class Game {
 }
 Game g = new Game();
 PFont font, buttonFont;
-PImage menuPaper, stanImg, tankyImg, tinyImg, playerImg;
+PImage menuPaper, stanImg, tankyImg, tinyImg, playerImg, coinImg, shieldImg;
 void setup() {
   font = createFont("Monotxt_IV50", 60);
   menuPaper = loadImage("menuWallpaper.jpg");
@@ -171,6 +171,8 @@ void setup() {
   tankyImg = loadImage("tankyImg.png");
   tinyImg = loadImage("tinyImg.png");
   playerImg = loadImage("playerImg.png");
+  coinImg = loadImage("coinImg.png");
+  shieldImg = loadImage("shieldImg.png");
   //String[] fontList = PFont.list();
   //printArray(fontList);
   size(1200, 700);

@@ -4,23 +4,26 @@ class Itemdrop{
   float beginTime;
   float lifeSpan; 
   float millis;
+  PImage dropImg;
   //lifeSpan is for how many seconds left before it can't be collected anymore
   //seconds doesn't apply to Coin, this is how long the power lasts
-  Itemdrop(float x, float y, int size, float xinc, float yinc, float lifeSpan) {
+  Itemdrop(float x, float y, int size, float xinc, float yinc, float lifeSpan, PImage dropImg) {
     xcor = x;
     ycor = y;
     this.xinc = xinc;
     this.yinc = yinc;
     this.size = size;
+    this.dropImg = dropImg;
     beginTime = millis();
     this.lifeSpan = lifeSpan;
   }
-  Itemdrop(float x, float y, int size, float xinc, float yinc, float lifeSpan, float millis) {
+  Itemdrop(float x, float y, int size, float xinc, float yinc, float lifeSpan, float millis, PImage dropImg) {
     xcor = x;
     ycor = y;
     this.xinc = xinc;
     this.yinc = yinc;
     this.size = size;
+    this.dropImg = dropImg;
     beginTime = millis();
     this.lifeSpan = lifeSpan;
     this.millis = millis;
@@ -58,8 +61,8 @@ class Itemdrop{
 }
 class Coin extends Itemdrop{
   int value;
-  Coin(float x, float y, int size, float xinc, float yinc, int value, float lifeSpan){
-    super(x, y, size, xinc, yinc, lifeSpan);
+  Coin(float x, float y, int size, float xinc, float yinc, int value, float lifeSpan, PImage coinImg){
+    super(x, y, size, xinc, yinc, lifeSpan, coinImg);
     this.value = value;
   }
   void collected(Game g){
@@ -73,8 +76,8 @@ class Coin extends Itemdrop{
   }
 }
 class Shield extends Itemdrop{
-  Shield(float x, float y, int size, float xinc, float yinc, float lifeSpan, int millis){
-    super(x, y, size, xinc, yinc, lifeSpan, millis);
+  Shield(float x, float y, int size, float xinc, float yinc, float lifeSpan, int millis, PImage shieldImg){
+    super(x, y, size, xinc, yinc, lifeSpan, millis, shieldImg);
   }
   void collected(Game g){
     g.p.lives = 2; //this doesn't stack
