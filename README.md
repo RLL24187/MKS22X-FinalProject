@@ -141,7 +141,7 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 
 *Elizabeth*: <br />
 * PLAYER IS NOW SMOOTH but also kinda choppy when going in opposite directions
-* Also add monsters shooting 
+* Also added monsters shooting 
 
 ***Sunday 6/2/2019*** <br />
 *Rachel*🐦: <br />
@@ -150,7 +150,10 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * Tried to get smooth movement... only got diagonal
 
 *Elizabeth*: <br />
-* fill in later
+* Added menu, mouse guided: click start to start, guide for instructions, and exit to exit with fancy buttons that change color when hovered over
+* the menu background is from google image (idk if it's copyrighted or not)
+* avatar doesn't lead anywhere bc we haven't implemented that yet
+* Cleaned up player movement, now it is no longer choppy when going in opposite directions, i just chose whatever the player clicked last
 
 ***Monday 6/3/2019*** <br />
 *Rachel*🐦: <br />
@@ -159,7 +162,10 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * Powerups work with time limits on when to collect and how long powers last
 
 *Elizabeth*: <br />
-* fill in later
+* Fixed monster spawn as they spawned outside of board
+* Added images for monsters, player, and itemdrop found online (idk if it's copyrighted or not)
+* Shield generates around player when collected, imgs are really tiny for item drop and certain monsters
+
 
 ***Tuesday 6/4/2019*** <br />
 *Rachel*🐦: <br />
