@@ -121,6 +121,7 @@ class Game {
         if (mousePressed) {
           strokeWeight(1);
           stroke(0);
+          imageMode(CENTER);
           mode = 1;
         }
       }
@@ -229,8 +230,9 @@ void draw() {
     g.p.shoot(g.bulletList, g.collideList, g.numBullets);
     g.update();
     bulletMove();
-    monsterMove();
+    //monsterMove();
     itemdropMove();
+    monsterMove();
   }
   if (g.mode == 2) { //instructions
     g.instructions();

@@ -92,7 +92,9 @@ class Shield extends Itemdrop {
     g.shieldTime = millis;
   }
   void bigDisplay(Game g) {
-    image(dropImg, g.p.xcor, g.p.ycor, g.p.size+ 10, g.p.size+10);
+    for(int i = 0; i < 5; i++) {
+      image(dropImg, g.p.xcor, g.p.ycor, g.p.size+ 20, g.p.size+20);
+    }
   }
   void display() {
     if (intact) {
