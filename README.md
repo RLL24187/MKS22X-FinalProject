@@ -1,7 +1,6 @@
 # MKS22X-FinalProject
 # Welcome and Intro
 DownGradius: <br /> It isn't quite like GradiusNes, but it's getting there. br /> 
-<br />
 Description: Our game DownGradius is based on the old arcade game Gradius Nes. The player controls a sprite which attempts to survive in a barrage of bullets from waves of monsters approaching in preprogrammed algorithms, based on the type of monster,  in the opposite direction. By shooting these monsters, the player can increase his/her score and earn item drops which can help them progress further into the game. Once the player is hit by one of the bullets, either by monster or boss, or comes in contact with the monster or boss, the game is over, and the player restarts at the beginning with their score reset to 0. The ojective of this game is to get the highest score.
 
 Directions: 
