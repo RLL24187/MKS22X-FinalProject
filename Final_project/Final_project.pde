@@ -75,14 +75,15 @@ class Game {
       dbTime -= millis() - time;
       if (dbTime <= 0) {
         numBullets = 1;
-        println("numBullets fixed");
+        //println("numBullets fixed");
       }
     }
     if (shieldTime > 0) {
       shieldTime -= millis() - time;
       if (shieldTime <= 0) {
         g.p.lives = 1;
-        println("lives fixed");
+        g.p.shieldActivated = false;
+        //println("lives fixed");
       }
     }
     if (playerShootTime > 0){

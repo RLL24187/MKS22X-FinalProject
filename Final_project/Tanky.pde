@@ -12,6 +12,7 @@ class Tanky extends Monster {
   boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b, ArrayList<Itemdrop> i) {
     if (super.move(k, c, m, b, i)) {
       m.remove(this);
+      dropItem(g.itemdropList);
       return true;
     }
     return false;

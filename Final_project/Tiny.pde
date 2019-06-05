@@ -22,6 +22,7 @@ class Tiny extends Monster {
     }
     if (super.move(k, c, m, b, i)) {
       m.remove(this);
+      dropItem(g.itemdropList);
       return true;
     }
     return false;

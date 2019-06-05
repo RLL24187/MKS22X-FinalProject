@@ -23,7 +23,7 @@ abstract class Monster extends Collider {
     } else {
       drop = 2; //new doubleBullet();
     }
-    drop = 1;
+    //drop = 1;
   }
 
   abstract void display();
@@ -46,7 +46,6 @@ abstract class Monster extends Collider {
     xcor-=xinc;
     ycor-=yinc;
     if (super.move(k, c, m, b, -1 * xinc, -1 * yinc)) {
-      dropItem(i);
       return true;
     }
     return false;

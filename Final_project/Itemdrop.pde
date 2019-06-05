@@ -52,11 +52,7 @@ class Itemdrop {
       //g.itemdropList.remove(this);
       return true;
     } else if (millis() - beginTime > lifeSpan) {
-      if (type.equals("shield") && g.p.shieldActivated == true) {
-        return false;
-      } else {
         g.itemdropList.remove(this);
-      }
       return true;
     }
     return false;
