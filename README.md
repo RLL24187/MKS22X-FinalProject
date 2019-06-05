@@ -172,4 +172,5 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * fill in later
 
 *Elizabeth*
-* fill in later
+* Fixed bugs like player's bullet killing each other during repeated shooting and monsters not dying
+* Added bounds for player
