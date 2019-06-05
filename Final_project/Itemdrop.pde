@@ -49,7 +49,7 @@ class Itemdrop {
       collected(g);
       intact = true;
       display();
-      g.itemdropList.remove(this);
+      //g.itemdropList.remove(this);
       return true;
     } else if (millis() - beginTime > lifeSpan) {
       intact = false;

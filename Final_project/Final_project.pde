@@ -92,15 +92,15 @@ class Game {
       }
       */
     }
-    if (stanCounter % 3000 == 0) {
+    if (stanCounter % 600 == 0) {
       display(0);
       stanCounter = 1;
     }
-    if (tankyCounter % 4000 == 0) {
+    if (tankyCounter % 740 == 0) {
       display(1);
       tankyCounter = 1;
     }
-    if (tinyCounter % 2000 == 0) {
+    if (tinyCounter % 680 == 0) {
       display(2);
       tinyCounter = 1;
     }
@@ -195,13 +195,6 @@ void setup() {
   size(1200, 700);
   g.menu(menuPaper, font, buttonFont);
   g.p.ycor = height/2;
-  //for (Bullet bul : g.bulletList) {
-  //  g.collideList.add(bul);
-  //}
-  //for (Monster mon : g.monsterList) {
-  //  g.collideList.add(mon);
-  //}
-  //g.collideList.add(g.p);
 }
 void bulletMove() {
   for (int i = 0; i < g.bulletList.size(); i++) {
@@ -220,7 +213,6 @@ void monsterMove() {
     }
     mon.shoot(g.bulletList, g.collideList);
     mon.display();
-    //mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList);
   }
 }
 void itemdropMove() {
@@ -237,7 +229,7 @@ void draw() {
   }
   if (g.mode == 1) { //playing
     background(0);
-    g.p.die(g.collideList);
+    g.p.die(g, g.collideList);
     g.p.simpleMove();
     g.p.display();
     g.p.die(g, g.collideList);
