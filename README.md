@@ -184,3 +184,7 @@ Move the player around using the arrow keys on your keyboard. Press space to sho
 *Elizabeth*
 * Fixed bugs like player's bullet killing each other during repeated shooting and monsters not dying
 * Added bounds for player
+* Tried to fix any remaining bugs and any that popped up
+* Added a scoring counter and displayed coin counter
+* Added a reset button when you died, press r to restart
+* Took out the avator button from the menu
