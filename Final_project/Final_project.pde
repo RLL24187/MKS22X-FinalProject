@@ -92,15 +92,15 @@ class Game {
       }
       */
     }
-    if (stanCounter % 150 == 0) {
+    if (stanCounter % 3000 == 0) {
       display(0);
       stanCounter = 1;
     }
-    if (tankyCounter % 400 == 0) {
+    if (tankyCounter % 4000 == 0) {
       display(1);
       tankyCounter = 1;
     }
-    if (tinyCounter % 200 == 0) {
+    if (tinyCounter % 2000 == 0) {
       display(2);
       tinyCounter = 1;
     }
@@ -237,6 +237,7 @@ void draw() {
   }
   if (g.mode == 1) { //playing
     background(0);
+    g.p.die(g.collideList);
     g.p.simpleMove();
     g.p.display();
     g.p.die(g, g.collideList);
@@ -252,6 +253,7 @@ void draw() {
     g.instructions();
   }
   if (g.mode == 3) { //end
+    background(0);
     g.endScreen();
   }
 }

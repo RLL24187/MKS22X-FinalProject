@@ -111,21 +111,25 @@ class Player extends Collider {
 
 
   void simpleMove() {
-    ycor += yinc;
-    xcor += xinc;
+    if ((ycor + yinc < height && ycor + yinc > 0) & xcor + xinc < width && xcor + xinc > 0) {
+      ycor += yinc;
+      xcor += xinc;
+    }
   }
 
   boolean shoot(ArrayList<Bullet> b, ArrayList<Collider> c, int numBullets) {
     if (numBullets == 1) {
       if (key == ' ' && keyPressed == true) {
-        Bullet temp = new Bullet(power, 1, 255, 123, 45, 10, xcor, ycor, 3, 0, "player");
-        b.add(temp);
-        c.add(temp);
-        keyPressed = false;
-        return true;
+        Bullet temp = new Bullet(power, 1, 255, 123, 45, 10, xcor+4, ycor, 3, 0);
+        if (temp.inContactB(b)) {
+          return;
+        } else {
+          b.add(temp);
+          c.add(temp);
+          keyPressed = false;
+        }
       }
-    }
-    else if (numBullets == 2) {
+    } else if (numBullets == 2) {
       if (key == ' ' && keyPressed == true) {
         Bullet temp = new Bullet(power, 1, 255, 123, 45, 10, xcor, ycor + size/2, 3, 0, "player");
         Bullet temp2 = new Bullet(power, 1, 255, 123, 45, 10, xcor, ycor - size/2, 3, 0, "player");

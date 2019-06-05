@@ -43,4 +43,14 @@ class Bullet extends Collider {
     }
     return false;
   }
+  boolean inContactB(ArrayList<Bullet> c) {
+    //println("inContact: ");
+    for (Bullet obj : c) {
+      if (inRadius(obj)) {
+        //println(true);
+        return true;
+      }
+    }
+    return false;
+  }
 }
