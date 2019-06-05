@@ -19,7 +19,7 @@ class Tanky extends Monster {
   }
   void shoot(ArrayList<Bullet> b, ArrayList<Collider> c) {
     if (g.tankyCounter % 80 == 0) {
-      Bullet bul = new Bullet(power, 1,255, 124, 43, 10, xcor, ycor, -3*xinc, yinc, "monster");
+      Bullet bul = new Bullet(power, 1, 255, 124, 43, 10, xcor, ycor, -3*xinc, yinc, "monster");
       b.add(bul);
       c.add(bul);
     }

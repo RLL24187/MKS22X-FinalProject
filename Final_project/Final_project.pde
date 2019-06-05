@@ -245,7 +245,7 @@ void draw() {
     textSize(20);
     fill(255);
     text("Score:" +  g.score, width/2, 30);
-    text("Coins:" + g.coinCount, 20, 30);
+    text("Coins:" + g.coinCount, width/2, 60);
   }
   if (g.mode == 2) { //instructions
     g.instructions();
