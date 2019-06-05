@@ -5,7 +5,7 @@ Description: Our game DownGradius is based on the old arcade game Gradius Nes. T
 
 Directions: 
 Move the player around using the arrow keys on your keyboard. Press space to shoot the monsters and hold down space for rapid fire. If you get hit by a monster's bullet or the monster, you will die. If your bullet hits the monster's bullets, they cancel each other other. 
-
+Sometimes monsters drop item drops. In order to collect those drops, you'll have to hover over them. Item drops are fixed so they will disappear after a certain time. If you collect shield, it too will disappear after a certain time. 
 
 
 # Development Log
