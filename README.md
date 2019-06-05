@@ -9,7 +9,7 @@ Once the player is hit by one of the bullets, either by monster or boss, or come
 The objective of this game is to get the highest score.
 
 # How to Play
-**Instructions**
+**Instructions** <br />
 Upon going to the menu, you can either start playing the game, look at the guide, or exit. 
 To play, click the Start button and the game will commence immediately.
 Move the player around using the arrow keys on your keyboard. 
@@ -17,7 +17,7 @@ Press the space bar to shoot bullets towards the monsters and hold down space fo
 If you get hit by a monster's bullet or the monster, you will die. 
 If your bullet hits the monster's bullets, they cancel each other out. 
 
-**Items**
+**Items** <br />
 Sometimes monsters drop **Items**, either a **Coin**, **Shield**, or a **DoubleBullet**.
 * Coin: (appears a yellow circle) Collecting coins boosts your score and its effect remains until the game is over.
 * Shield: (appears a white circle) Temporarily provides protection against one Bullet or one encounter with a Monster
