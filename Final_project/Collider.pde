@@ -1,12 +1,14 @@
 class Collider implements Killable {
   float xcor, ycor, xinc, yinc;
   int size, hp, power;
-  Collider(float x, float y, int size, int hp, int power) {
+  String type; //Player or monster
+  Collider(float x, float y, int size, int hp, int power, String type) {
     xcor = x;
     ycor = y;
     this.size = size;
     this.hp = hp;
     this.power = power;
+    this.type = type;
   }
 
   void display() {
@@ -20,16 +22,6 @@ class Collider implements Killable {
   float distanceTo(Collider c) {
     return distance(c.xcor-c.size/2, this.xcor-this.size/2, c.ycor, this.ycor)- (c.size/2) - (this.size/2);
   }
-  //boolean distanceTo(Collider c) {
-  //  if((c.xcor-c.size/2 <= this.xcor || this.xcor <= c.xcor + c.size/2 )
-  //  //|| xcor-size/2 <= c.xcor || c.xcor <= xcor+size/2)
-  //  && (c.ycor - c.size/2 <= ycor || ycor <= c.ycor + c.size/2 ))//||
-  //  //ycor-size/2 <= c.ycor || c.ycor <= ycor+size/2)) 
-  //  {
-  //    return true;
-  //  }
-  //  return false;
-  //}
   boolean inRadius (Collider c) {
     if (c.equals(this)) return false;
     return (distanceTo(c) <= 0);
@@ -59,8 +51,8 @@ class Collider implements Killable {
   boolean die(ArrayList<Killable> k, ArrayList<Collider>c, ArrayList<Monster> m, ArrayList<Bullet> b) {
     boolean returnval = false;
     //if (inContact(c) != null) println("inContact");
-    Collider temp = inContact(c); 
-    if (temp != null) { 
+    Collider temp = inContact(c);
+    if (temp != null && this.type != temp.type) {
       int thisNewHP = changeHP(temp.power);
       int tempNewHP = temp.changeHP(this.power);
       if (thisNewHP <= 0) {

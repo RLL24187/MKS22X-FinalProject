@@ -6,13 +6,14 @@ class Player extends Collider {
   float yinc = 0;
   float xinc = 0;
   PImage img;
+  String type = "player";
   //UP=0
   //DOWN=1
   //LEFT=2
   //RIGHT=3
   ArrayList<Integer> movement = new ArrayList<Integer>();
   Player(int power, int numLives, float startingX, float startingY, float speed, int size, PImage img) {
-    super(startingX, startingY, size, numLives, power);
+    super(startingX, startingY, size, numLives, power, "player");
     this.power = power;
     lives = numLives;
     xcor = startingX;
@@ -24,10 +25,10 @@ class Player extends Collider {
   void buttons() {
     if (keyCode == UP) {
       movement.add(0);
-    } 
+    }
     if (keyCode == DOWN) {
       movement.add(1);
-    } 
+    }
     if (keyCode == LEFT) {
       movement.add(2);
     }
@@ -109,40 +110,50 @@ class Player extends Collider {
   //no buttons pressed set velocity 0
 
 
-  void simpleMove() {  
+  void simpleMove() {
     ycor += yinc;
     xcor += xinc;
   }
 
-  void shoot(ArrayList<Bullet> b, ArrayList<Collider> c, int numBullets) {
+  boolean shoot(ArrayList<Bullet> b, ArrayList<Collider> c, int numBullets) {
     if (numBullets == 1) {
       if (key == ' ' && keyPressed == true) {
-        Bullet temp = new Bullet(power, 1, 255, 123, 45, 10, xcor+4, ycor, 3, 0);
+        Bullet temp = new Bullet(power, 1, 255, 123, 45, 10, xcor, ycor, 3, 0, "player");
         b.add(temp);
         c.add(temp);
         keyPressed = false;
+        return true;
       }
     }
     else if (numBullets == 2) {
       if (key == ' ' && keyPressed == true) {
-        Bullet temp = new Bullet(power, 1, 255, 123, 45, 10, xcor+4, ycor + size/2, 3, 0);
-        Bullet temp2 = new Bullet(power, 1, 255, 123, 45, 10, xcor+4, ycor - size/2, 3, 0);
+        Bullet temp = new Bullet(power, 1, 255, 123, 45, 10, xcor, ycor + size/2, 3, 0, "player");
+        Bullet temp2 = new Bullet(power, 1, 255, 123, 45, 10, xcor, ycor - size/2, 3, 0, "player");
         b.add(temp);
         b.add(temp2);
         c.add(temp);
         c.add(temp2);
         keyPressed = false;
+        return true;
       }
     }
+    return false;
   }
 
-  boolean die(ArrayList<Collider> enemy) {
-    if (inContact(enemy)!= null) {
+  float distanceTo(Collider c) {
+    return distance(c.xcor, this.xcor, c.ycor, this.ycor) - (c.size/2) - (this.size/2);
+  }
+
+  boolean die(Game g, ArrayList<Collider> enemy) {
+    Collider c = inContact(enemy);
+    //println(c);
+    if (c!= null && c.type != "player") {
+      //println("inContact player");
       lives--;
       xcor = 0;
       ycor = height / 2;
-      if (lives < 0) {
-        g.endScreen();
+      if (lives <= 0) {
+        g.mode = 3;
         return true;
       }
     }

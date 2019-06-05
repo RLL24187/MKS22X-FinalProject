@@ -1,4 +1,5 @@
 class Tanky extends Monster {
+  String type = "monster";
   Tanky(int hp, int level, int xp, int power, int size, float xcor, float ycor, float xinc, float yinc, PImage img) {
     super(hp, level, xp, power, size, xcor, ycor, xinc, yinc, img);
   }
@@ -15,12 +16,14 @@ class Tanky extends Monster {
     }
     return false;
   }
-  void shoot(ArrayList<Bullet> b) {
+  void shoot(ArrayList<Bullet> b, ArrayList<Collider> c) {
     if (g.tankyCounter % 80 == 0) {
-      b.add(new Bullet(power, 1,255, 124, 43, 10, xcor, ycor, -3*xinc, yinc));
+      Bullet bul = new Bullet(power, 1,255, 124, 43, 10, xcor, ycor, -3*xinc, yinc, "monster");
+      b.add(bul);
+      c.add(bul);
     }
   }
-  void formation(ArrayList<Monster> mon) {
+  void formation(ArrayList<Monster> mon, ArrayList<Collider> c) {
     mon.add(this);
     for (int i = 1; i < 5; i++) {
       Tanky t;
@@ -37,6 +40,7 @@ class Tanky extends Monster {
       }
       t = new Tanky(hp, level, xp, power, size, xcor + 2 * size*i, chooseYcor, xinc, yinc, img);
       mon.add(t);
+      c.add(t);
     }
   }
 }

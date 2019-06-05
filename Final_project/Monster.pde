@@ -2,8 +2,9 @@ abstract class Monster extends Collider {
   int hp, level, xp, power, speed, size, drop;
   float xcor, ycor, xinc, yinc;
   PImage img;
+  String type = "monster";
   Monster(int hp, int level, int xp, int power, int size, float x, float y, float xinc, float yinc, PImage img) {
-    super(x, y, size, hp, power);
+    super(x, y, size, hp, power,"monster");
     this.hp = hp;
     this.level = level;
     this.xp = xp;
@@ -22,9 +23,10 @@ abstract class Monster extends Collider {
     } else {
       drop = 2; //new doubleBullet();
     }
+    drop = 1;
   }
   abstract void display();
-  abstract void shoot(ArrayList<Bullet> b);
+  abstract void shoot(ArrayList<Bullet> b, ArrayList<Collider> c);
   void dropItem(ArrayList<Itemdrop> i){
     if (drop == 0){
       //Coin(float x, float y, int size, float xinc, float yinc, int value, float lifeSpan)

@@ -12,6 +12,7 @@ class Game {
   int mode = 0;
   float dbTime = 0;
   float shieldTime = 0;
+  float playerShootTime = 0;
   float time = millis();
   ArrayList<Monster> monsterList;
   ArrayList<Bullet> bulletList;
@@ -44,7 +45,7 @@ class Game {
       } else if (chooseYcor > height-(3*x.size)) {
         x.ycor -= 3*x.size;
       }
-      x.formation(monsterList);
+      x.formation(monsterList, collideList);
     } else if (chooseMonster == 1) {
       Tanky y = new Tanky(20, 250, 0, 10, 75, width, chooseYcor, 1, 0, tankyImg);
       if (chooseYcor < y.size/2) {
@@ -53,7 +54,7 @@ class Game {
       if (chooseYcor > height-y.size/2) {
         y.ycor -= y.size/2;
       }
-      y.formation(monsterList);
+      y.formation(monsterList, collideList);
     } else if (chooseMonster == 2) {
       boolean b = (int)(Math.random() * 2) % 2 == 0;
       Tiny z = new Tiny(10, 1, 5, 1, 20, width, chooseYcor, 2, 0, 200, PI/12, b, tinyImg);
@@ -62,7 +63,7 @@ class Game {
       } else if (chooseYcor+z.amp>height) {
         z.ycor -= z.amp;
       }
-      z.formation(monsterList);
+      z.formation(monsterList, collideList);
     }
   }
   void update() {
@@ -83,10 +84,18 @@ class Game {
         println("lives fixed");
       }
     }
+    if (playerShootTime > 0){
+      playerShootTime -= millis() - time;
+      /*
+      if (playerShootTime <= 0) {
+        println("Ready to fire!");
+      }
+      */
+    }
     if (stanCounter % 150 == 0) {
       display(0);
       stanCounter = 1;
-    } 
+    }
     if (tankyCounter % 400 == 0) {
       display(1);
       tankyCounter = 1;
@@ -183,19 +192,16 @@ void setup() {
   g= new Game();
   //String[] fontList = PFont.list();
   //printArray(fontList);
-  //for testing purposes
-  //Tanky y = new Tanky(20, 250, 0, 10, 75, width, height/2, 1, 0, tankyImg);
-  //y.formation(g.monsterList);
   size(1200, 700);
   g.menu(menuPaper, font, buttonFont);
   g.p.ycor = height/2;
-  for (Bullet bul : g.bulletList) {
-    g.collideList.add(bul);
-  }
-  for (Monster mon : g.monsterList) {
-    g.collideList.add(mon);
-  }
-  g.collideList.add(g.p);
+  //for (Bullet bul : g.bulletList) {
+  //  g.collideList.add(bul);
+  //}
+  //for (Monster mon : g.monsterList) {
+  //  g.collideList.add(mon);
+  //}
+  //g.collideList.add(g.p);
 }
 void bulletMove() {
   for (int i = 0; i < g.bulletList.size(); i++) {
@@ -212,7 +218,7 @@ void monsterMove() {
     if (mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList, g.itemdropList)) {
       i--;
     }
-    mon.shoot(g.bulletList);
+    mon.shoot(g.bulletList, g.collideList);
     mon.display();
     //mon.move(g.killedList, g.collideList, g.monsterList, g.bulletList);
   }
@@ -225,7 +231,6 @@ void itemdropMove() {
     }
   }
 }
-
 void draw() {
   if (g.mode == 0) { //menu
     g.menu(menuPaper, font, buttonFont);
@@ -234,7 +239,10 @@ void draw() {
     background(0);
     g.p.simpleMove();
     g.p.display();
-    g.p.shoot(g.bulletList, g.collideList, g.numBullets);
+    g.p.die(g, g.collideList);
+    if (g.playerShootTime <= 0 && g.p.shoot(g.bulletList, g.collideList, g.numBullets)){
+      g.playerShootTime = 100;
+    }
     g.update();
     bulletMove();
     itemdropMove();
@@ -242,6 +250,9 @@ void draw() {
   }
   if (g.mode == 2) { //instructions
     g.instructions();
+  }
+  if (g.mode == 3) { //end
+    g.endScreen();
   }
 }
 void keyPressed() {

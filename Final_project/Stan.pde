@@ -1,4 +1,5 @@
 class Stan extends Monster {
+  String type = "monster";
   Stan(int hp, int level, int xp, int power, int size, float x, float y, float xinc, float yinc, PImage img) {
     super(hp, level, xp, power, size, x, y, xinc, yinc, img);
   }
@@ -12,19 +13,25 @@ class Stan extends Monster {
     }
     return false;
   }
-  void shoot(ArrayList<Bullet> b) {
+  void shoot(ArrayList<Bullet> b, ArrayList<Collider> c) {
     if (g.stanCounter % 60 == 0) {
-      b.add(new Bullet(power, 1, 255, 124, 43, 10, xcor, ycor, -3*xinc, yinc));
+      Bullet bul = new Bullet(power, 1, 255, 124, 43, 10, xcor, ycor, -3*xinc, yinc, "monster");
+      b.add(bul);
+      c.add(bul);
     }
   }
   void display() {
     image(img, xcor, ycor, size, size);
   }
-  void formation(ArrayList<Monster> mon) {
+  void formation(ArrayList<Monster> mon, ArrayList<Collider> c) {
     mon.add(this);
     for (int i = 1; i < 3; i++) { 
-      mon.add(new Stan(hp, level, xp, power, size, xcor+size*i, ycor+size*i, xinc, yinc, img));
-      mon.add(new Stan(hp, level, xp, power, size, xcor+size*i, ycor-size*i, xinc, yinc, img));
+      Stan temp1 = new Stan(hp, level, xp, power, size, xcor+size*i, ycor+size*i, xinc, yinc, img);
+      Stan temp2 = new Stan(hp, level, xp, power, size, xcor+size*i, ycor-size*i, xinc, yinc, img);
+      mon.add(temp1);
+      mon.add(temp2);
+      c.add(temp1);
+      c.add(temp2);
     }
   }
 }
