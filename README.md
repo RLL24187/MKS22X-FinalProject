@@ -9,7 +9,7 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * Made classes, nothing works so far tho :( <br />
 
 *Elizabeth*: <br />
-* Wrote Player class methods: shoot, move, display(interim), and constructor. <br /> <br />
+* Wrote Player class methods: shoot (in a straight line), move , display(interim), and constructor. <br /> <br />
 
 ***Tuesday 5/21/19***  <br />
 *Rachel* 🐦: <br />
@@ -24,7 +24,8 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * Created the Game constructor and started work on a new helper function "inRadius" to help with "inContact" <br />
 
 *Elizabeth*: <br />
-* move works!! The cause was because the game kept resetting. Created the abstract monster class. <br /> <br />
+* move works!! The cause was because the game kept resetting. 
+* Created the abstract monster class. <br /> <br />
 
 ***Thursday 5/23/19*** (APUSH exam aghhhhhh) <br />
 *Rachel* 🐦: <br />
@@ -32,7 +33,7 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * Need to work on figuring out how to make the code less repetitive: <br /> maybe make a new abstract class
 
 *Elizabeth*: <br />
-* Created Stan and worked on Stan methods (move, display, constructor, etc) <br />
+* Created Stan and worked on Stan methods (move (in a straight line), display, constructor, etc) <br />
 * Edited the game variables for more suitable names <br />
 * Made player move slower so that when the user presses the keys it doesn't fly out of the board immediately <br /> <br />
 
@@ -48,7 +49,10 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 
 *Elizabeth*: <br />
 * Fixed Stan methods so stan would die outside of the board <br />
-* Created Tanky and its methods (move, display, constructor)<br /> <br />
+* Created Tanky and its methods:
+* moves in a straight line
+* displays as the largest monster
+* constructor uses super monster class<br /> <br />
 
 ***Saturday 5/25/2019***<br />
 *Rachel* 🐦:<br />
@@ -67,7 +71,7 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * Implemented inheritance with calls to super in Monster child classes <br />
 
 *Elizabeth*:<br />
-* Created player shooting so it wouldn't shoot multiple bullets at once when you press space
+* Created player shooting so it wouldn't shoot multiple bullets at once when you press space once
 * Edited the Stan and Tanky classes so there wouldn't be double methods of the same thing
 * Worked on spawning the monsters and in the midst of creating a formation for the monster
 * Tried to make the player move diagonally but wouldn't work: tried ArrayList and LinkedList but ended up getting NullPointerExceptions even when if I put (if != null) so I gave up and commented that out
@@ -101,7 +105,7 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 * Noticed a bug. Monster always waits for Bullet to move first, so if there is more than one Bullet, Monster will seemingly disappear, but it is actually still there, just stagnant
 
 *Elizabeth*: <br />
-* I thought it wasn't working even though the code had no errors and I found out why tomorrow
+* formation  wasn't working even though the code had no errors and I found out why tomorrow
 * So the error from yesterday was a cause of directly add monster, instead I added stan/tanky (the monster's constructor) in order to add
 
 ***Thursday 5/30/2019*** <br />
@@ -114,7 +118,7 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 
 *Elizabeth*: <br />
 * the bug was that IT WAS SPAWNING IN THE WRONG SPOT bc I mixed up the input when constructing the monsters
-* editing the player to move diagonally, finally working, I created an arraylist to track movement
+* editing the player to move diagonally, finally working, I created an arraylist to track movement and iterim method buttons to add to the arraylist the correct movements
 
 
 ***Friday 5/31/2019*** <br />
@@ -141,7 +145,7 @@ DownGradius: <br /> a harder version of Everwing but not quite up to Gradius Nes
 
 *Elizabeth*: <br />
 * PLAYER IS NOW SMOOTH but also kinda choppy when going in opposite directions
-* Also added monsters shooting 
+* Also added monsters shooting from where they were
 
 ***Sunday 6/2/2019*** <br />
 *Rachel*🐦: <br />
