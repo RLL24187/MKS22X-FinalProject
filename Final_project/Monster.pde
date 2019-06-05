@@ -18,12 +18,12 @@ abstract class Monster extends Collider {
     int chooseDrop = (int)(Math.random() * 101);
     if (chooseDrop <= 75){
       drop = 0; //new Coin();
-    } else if (chooseDrop <= 90){
+    } else if (chooseDrop <= 90 && g.p.shieldActivated == false){
       drop = 1; //new Shield();
     } else {
       drop = 2; //new doubleBullet();
     }
-    drop = 1;
+    //drop = 1;
   }
   abstract void display();
   abstract void shoot(ArrayList<Bullet> b, ArrayList<Collider> c);

@@ -110,7 +110,9 @@ class Game {
   void endScreen() {
     textSize(100);
     fill(255, 0, 0);
-    text("YOU DIED.", height/2, width/2);
+    text("YOU DIED.", width/2, height/2);
+    textSize(70);
+    text("Press R to restart", width/2, height/2 + 100);
   }
   //buttons:
   //width/2 - rectWidth/2, 500
@@ -266,6 +268,11 @@ void keyPressed() {
   //method simpleMove
   //x+=dx, y+=dy
   //growTimer--
+  if (g.mode == 3) {
+    if (key == 'r' || key == 'R') {
+      g.mode = 1;
+    }
+  }
 }
 void keyReleased() {
   g.p.reset();
