@@ -9,7 +9,7 @@ class Game {
   int stanCounter;
   int tankyCounter;
   int tinyCounter;
-  int mode = 0;
+  int mode = 1;
   float dbTime = 0;
   float shieldTime = 0;
   float time = millis();
@@ -183,6 +183,9 @@ void setup() {
   g= new Game();
   //String[] fontList = PFont.list();
   //printArray(fontList);
+  //testing purposes
+  Tanky tank = new Tanky(20, 250, 0, 10, 75, width, height/2, 1, 0, tankyImg);
+  tank.formation(g.monsterList);
   size(1200, 700);
   g.menu(menuPaper, font, buttonFont);
   g.p.ycor = height/2;
@@ -233,7 +236,7 @@ void draw() {
     g.p.shoot(g.bulletList, g.collideList, g.numBullets);
     g.update();
     bulletMove();
-    //monsterMove();
+    ////monsterMove();
     itemdropMove();
     monsterMove();
   }

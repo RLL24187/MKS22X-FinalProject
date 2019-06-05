@@ -47,7 +47,6 @@ class Itemdrop {
   boolean die(Game g) {
     if (inContact(g.p)) {
       collected(g);
-      intact = true;
       display();
       g.itemdropList.remove(this);
       return true;
@@ -78,24 +77,24 @@ class Coin extends Itemdrop {
     g.coinCount += value;
     println("New coin count: "+g.coinCount);
   }
-  void bigDisplay(Game g) {
-    return;
-  }
 }
 class Shield extends Itemdrop {
   Shield(float x, float y, int size, float xinc, float yinc, float lifeSpan, int millis, PImage shieldImg) {
     super(x, y, size, xinc, yinc, lifeSpan, millis, shieldImg);
   }
   void collected(Game g) {
+    intact = true;
     g.p.lives = 2; //this doesn't stack
     println("New lives count: "+g.p.lives);
     g.shieldTime = millis;
   }
   void bigDisplay(Game g) {
+    text("HELLO", g.p.xcor, g.p.ycor);
       image(dropImg, g.p.xcor, g.p.ycor, g.p.size+ 20, g.p.size+20);
   }
   void display() {
     if (intact) {
+      println("displaying");
       text("HELLO", g.p.xcor, g.p.ycor);
       bigDisplay(g);
     } else {
@@ -112,8 +111,5 @@ class DoubleBullet extends Itemdrop {
     g.numBullets = 2; //reminder to implement a count down so this doesn't last forever
     println("New numBullets: "+g.numBullets);
     g.dbTime = millis; //1 minute
-  }
-  void bigDisplay(Game g) {
-    return;
   }
 }
