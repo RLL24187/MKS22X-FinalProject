@@ -1,12 +1,23 @@
 # MKS22X-FinalProject
 # Welcome and Intro
-DownGradius: <br /> It isn't quite like GradiusNes, but it's getting there. <br /> <br/>
-Description: Our game DownGradius is based on the old arcade game Gradius Nes. The player controls a sprite which attempts to survive in a barrage of bullets from waves of monsters approaching in preprogrammed algorithms, based on the type of monster,  in the opposite direction. By shooting these monsters, the player can increase his/her score and earn item drops which can help them progress further into the game. Once the player is hit by one of the bullets, either by monster or boss, or comes in contact with the monster or boss, the game is over, and the player restarts at the beginning with their score reset to 0. The ojective of this game is to get the highest score.
+**DownGradius: <br /> It isn't quite like GradiusNes, but it's getting there. <br /> <br/>**
+**Description: <br />**
+**DownGradius** is based on the old arcade game Gradius Nes. The Player (you!) controls a small plane which attempts to survive in a barrage of bullets from waves of monsters approaching in preprogrammed algorithms, based on the type of monster, in the opposite direction. By shooting these monsters, the player can increase his/her score and collect item drops which can help them progress further into the game. Once the player is hit by one of the bullets, either by monster or boss, or comes in contact with the monster or boss and loses all of its lives, the game is over, and the player restarts at the beginning with their score reset to 0. The objective of this game is to get the highest score.
 
-Directions: 
-Move the player around using the arrow keys on your keyboard. Press space to shoot the monsters and hold down space for rapid fire. If you get hit by a monster's bullet or the monster, you will die. If your bullet hits the monster's bullets, they cancel each other other. 
-Sometimes monsters drop item drops. In order to collect those drops, you'll have to hover over them. Item drops are fixed so they will disappear after a certain time. If you collect shield, it too will disappear after a certain time. 
+**Directions: **
+Upon going to the menu, you can either start playing the game, look at the guide, or exit. To play, click the Start button and the game will commence immediately
+Move the player around using the arrow keys on your keyboard. Press the space bar to shoot bullets towards the monsters and hold down space for rapid fire. 
+If you get hit by a monster's bullet or the monster, you will die. If your bullet hits the monster's bullets, they cancel each other other. 
 
+**Items**
+Sometimes monsters drop items, either a Coin, Shield, or a DoubleBullet.
+Coin: (appears a yellow circle) Collecting coins boosts your score and its effect remains until the game is over.
+Shield: (appears a white circle) Temporarily provides protection against one Bullet or one encounter with a Monster
+DoubleBullet: (appears as a thin bullet) Temporarily allows the Player to shoot two Bullets at once
+
+In order to collect those items, you'll have to hover over to them. Item drops are programmed so they will disappear after a certain time. If you collect a Shield, it too will disappear after a certain time.
+The only exception to the above is coins. 
+GLHF!
 
 # Development Log
 
@@ -179,9 +190,13 @@ Sometimes monsters drop item drops. In order to collect those drops, you'll have
 
 ***Tuesday 6/4/2019*** <br />
 *Rachel*🐦: <br />
-* fill in later
+* Fixed the menu and finalized instructions. 
+* Fixed the Shield bug
+* Got Player to die
+* Updated Player's bullet interval
+* Removed unnecessary classes
 
-*Elizabeth*
+*Elizabeth*: <br />
 * Fixed bugs like player's bullet killing each other during repeated shooting and monsters not dying
 * Added bounds for player
 * Tried to fix any remaining bugs and any that popped up
