@@ -110,8 +110,10 @@ class Player extends Collider {
 
 
   void simpleMove() {  
-    ycor += yinc;
-    xcor += xinc;
+    if ((ycor + yinc < height && ycor + yinc > 0) & xcor + xinc < width && xcor + xinc > 0) {
+      ycor += yinc;
+      xcor += xinc;
+    }
   }
 
   void shoot(ArrayList<Bullet> b, ArrayList<Collider> c, int numBullets) {
@@ -145,7 +147,7 @@ class Player extends Collider {
       xcor = 0;
       ycor = height / 2;
       if (lives < 0) {
-        g.endScreen();
+        g.mode = 3;
         return true;
       }
     }
