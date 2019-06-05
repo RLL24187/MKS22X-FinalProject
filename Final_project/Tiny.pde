@@ -1,6 +1,7 @@
 class Tiny extends Monster {
   boolean neg;
   float amp, angle;
+  String type = "monster";
   Tiny(int hp, int level, int xp, int power, int size, float xcor, float ycor, float xinc, float yinc, float amp, float angle, boolean neg, PImage img) {
     super(hp, level, xp, power, size, xcor, ycor, xinc, yinc, img);
     this.neg = neg;
@@ -25,12 +26,14 @@ class Tiny extends Monster {
     }
     return false;
   }
-  void shoot(ArrayList<Bullet> b) {
+  void shoot(ArrayList<Bullet> b, ArrayList<Collider> c) {
     if (g.tankyCounter % 90 == 0) {
-      b.add(new Bullet(power, 1, 255, 124, 43, 10, xcor, ycor, -3*xinc, 0));
+      Bullet bul = new Bullet(power, 1, 255, 124, 43, 10, xcor, ycor, -3*xinc, 0, "monster");
+      b.add(bul);
+      c.add(bul);
     }
   }
-  void formation(ArrayList<Monster> mon) {
+  void formation(ArrayList<Monster> mon, ArrayList<Collider> c) {
     mon.add(this);
     for (int i = 0; i < 3; i++) {
       Tiny t;
@@ -42,6 +45,7 @@ class Tiny extends Monster {
         t = new Tiny(hp, level, xp, power, size, xcor+size*i + 20 * size, ycor, xinc, yinc, amp, angle / 6, neg, img);
       }
       mon.add(t);
+      c.add(t);
     }
   }
 }
