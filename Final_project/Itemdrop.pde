@@ -100,9 +100,11 @@ class Shield extends Itemdrop {
     if (intact) {
       bigDisplay(g);
     } else {
-     for(int i = 0; i < 5; i++) {
-      image(dropImg, xcor, ycor, size, size);
-      }
+     //for(int i = 0; i < 5; i++) {
+     // image(dropImg, xcor, ycor, size, size);
+     // }
+     fill(135,206,250);
+     ellipse(xcor, ycor, size, size);
     }
   }
 }
