@@ -47,8 +47,8 @@ class Itemdrop {
     if (inContact(g.p)) {
       collected(g);
 
-      display();
-      //g.itemdropList.remove(this);
+      //display();
+      g.itemdropList.remove(this);
       return true;
     } else if (millis() - beginTime > lifeSpan) {
 
