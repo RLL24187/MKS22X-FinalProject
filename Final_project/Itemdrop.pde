@@ -48,7 +48,7 @@ class Itemdrop {
       collected(g);
 
       display();
-      g.itemdropList.remove(this);
+      //g.itemdropList.remove(this);
       return true;
     } else if (millis() - beginTime > lifeSpan) {
 
@@ -100,11 +100,11 @@ class Shield extends Itemdrop {
       bigDisplay(g);
       g.p.shieldActivated = true;
     } else {
-     //for(int i = 0; i < 5; i++) {
-     // image(dropImg, xcor, ycor, size, size);
-     // }
-     fill(135,206,250);
-     ellipse(xcor, ycor, size, size);
+      for (int i = 0; i < 5; i++) {
+        image(dropImg, xcor, ycor, size, size);
+      }
+      fill(250, 250, 250);
+      ellipse(xcor, ycor, size, size);
     }
   }
 }

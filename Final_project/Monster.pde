@@ -25,7 +25,6 @@ abstract class Monster extends Collider {
     } else {
       drop = 2; //new doubleBullet();
     }
-    //drop = 1;
   }
 
   abstract void display();

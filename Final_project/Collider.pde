@@ -58,7 +58,7 @@ class Collider implements Killable {
       int tempNewHP = temp.changeHP(this.power);
       if (thisNewHP <= 0) {
         if (m.remove(this)) {
-          g.score += temp.scoring;
+          g.score += this.scoring;
         }
         k.add(this); //remove the monster from collider and add to killed if HP too low
         c.remove(this);

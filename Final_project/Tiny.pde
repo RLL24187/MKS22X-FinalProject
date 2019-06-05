@@ -9,9 +9,9 @@ class Tiny extends Monster {
     this.amp = amp;
     this.angle = angle; //in rads
   }
-  //float distanceTo(Collider c) {
-  //  return distance(c.xcor, this.xcor + this.size/2, c.ycor, this.ycor + this.size/2) - (c.size/2) - (this.size/2);
-  //}
+  float distanceTo(Collider c) {
+    return distance(c.xcor, this.xcor + this.size/2, c.ycor, this.ycor + this.size/2) - (c.size/2) - (this.size/2);
+  }
   void display() {
     image(img, xcor, ycor, size, size);
   }
