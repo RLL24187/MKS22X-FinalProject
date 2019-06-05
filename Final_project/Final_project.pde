@@ -112,8 +112,8 @@ class Game {
     textSize(100);
     fill(255, 0, 0);
     text("YOU DIED.", width/2, height/2);
-    textSize(70);
-    text("Press R to restart", width/2, height/2 + 100);
+    textSize(20);
+    text("Press R to restart. Press M to return to the menu.", width/2, height/2 + 100);
   }
   //buttons:
   //width/2 - rectWidth/2, 500
@@ -171,8 +171,17 @@ class Game {
 
   void instructions() {
     image(menuPaper, 0, 0, width, height);
-    textSize(100);
-    text("SHOOOOOOOOOOT", width/2, height/2);
+    textSize(40);
+    text("Instructions: ", width/2, 50);
+    textSize(30);
+    text("Objective: survive and kill as many monsters as you can!", width/2, 100);
+    text("How to play: ", width/2, height + 200);
+    text("Use the arrow keys to move the player around.", width/2, 150);
+    text("Use the space bar to shoot bullets and kill monsters.", width/2, 200);
+    text("Collect coins and powerups to help boost your score! ", width/2, 250);
+    text("Be careful not to get hit by monsters or their bullets!", width/2, 300);
+    text("Watch for each monster's movement and shooting patterns! This will help you stay alive.", width/2, 350);
+    text("Press M to return to the menu.", width/2, height-20);
   }
 
   void pause() {
@@ -270,6 +279,14 @@ void keyPressed() {
       g.p.ycor = height/2;
       g.p.xcor = 0;
       g.mode = 1;
+    }
+    if (key == 'm' || key == 'M'){
+      g.mode = 0;
+    }
+  }
+  if (g.mode == 2) {
+    if (key == 'm' || key == 'M'){
+      g.mode = 0;
     }
   }
 }
