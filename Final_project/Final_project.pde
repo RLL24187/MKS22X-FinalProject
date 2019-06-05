@@ -92,15 +92,15 @@ class Game {
       }
       */
     }
-    if (stanCounter % 3000 == 0) {
+    if (stanCounter % 300 == 0) {
       display(0);
       stanCounter = 1;
     }
-    if (tankyCounter % 4000 == 0) {
+    if (tankyCounter % 400 == 0) {
       display(1);
       tankyCounter = 1;
     }
-    if (tinyCounter % 2000 == 0) {
+    if (tinyCounter % 200 == 0) {
       display(2);
       tinyCounter = 1;
     }
