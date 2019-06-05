@@ -5,7 +5,6 @@ class Itemdrop {
   float lifeSpan; 
   float millis;
   PImage dropImg;
-  boolean intact = true;
   //lifeSpan is for how many seconds left before it can't be collected anymore
   //seconds doesn't apply to Coin, this is how long the power lasts
   Itemdrop(float x, float y, int size, float xinc, float yinc, float lifeSpan, PImage dropImg, String type) {
@@ -47,12 +46,12 @@ class Itemdrop {
   boolean die(Game g) {
     if (inContact(g.p)) {
       collected(g);
-      intact = true;
+
       display();
       g.itemdropList.remove(this);
       return true;
     } else if (millis() - beginTime > lifeSpan) {
-      intact = false;
+
       g.itemdropList.remove(this);
       return true;
     }
@@ -92,13 +91,12 @@ class Shield extends Itemdrop {
     g.shieldTime = millis;
   }
   void bigDisplay(Game g) {
-    for(int i = 0; i < 5; i++) {
       image(dropImg, g.p.xcor, g.p.ycor, g.p.size+ 20, g.p.size+20);
-    }
   }
   void display() {
-    if (intact) {
+    if (g.p.lives > 1) {
       bigDisplay(g);
+      g.p.shieldActivated = true;
     } else {
      //for(int i = 0; i < 5; i++) {
      // image(dropImg, xcor, ycor, size, size);

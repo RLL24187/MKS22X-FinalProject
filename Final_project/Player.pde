@@ -7,6 +7,7 @@ class Player extends Collider {
   float xinc = 0;
   PImage img;
   String type = "player";
+  boolean shieldActivated = false;
   //UP=0
   //DOWN=1
   //LEFT=2

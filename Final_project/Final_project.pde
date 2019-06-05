@@ -10,6 +10,7 @@ class Game {
   int tankyCounter;
   int tinyCounter;
   int mode = 0;
+  int score = 0;
   float dbTime = 0;
   float shieldTime = 0;
   float playerShootTime = 0;
