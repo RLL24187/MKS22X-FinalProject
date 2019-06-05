@@ -164,8 +164,8 @@ class Game {
     }
     text("START", width/2, 385);
     text("GUIDE", width/2, 450);
-    text("AVATARS", width/2, 515);
-    text("EXIT", width/2, 580);
+    text("EXIT", width/2, 515);
+    //text("EXIT", width/2, 580);
   }
 
   void instructions() {
