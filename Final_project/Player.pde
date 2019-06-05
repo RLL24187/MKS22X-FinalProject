@@ -150,7 +150,6 @@ class Player extends Collider {
   }
 
   void display() {
-    //temp display
-    image(img, xcor, ycor, size, size);
+    image(img, xcor+size/2, ycor-size/2, size, size);
   }
 }

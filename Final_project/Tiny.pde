@@ -11,7 +11,7 @@ class Tiny extends Monster {
     return distance(c.xcor, this.xcor + this.size/2, c.ycor, this.ycor + this.size/2) - (c.size/2) - (this.size/2);
   }
   void display() {
-    image(img, xcor, ycor, size, size);
+    image(img, xcor+size/2, ycor-size/2, size, size);
   }
   boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b, ArrayList<Itemdrop> i) {
     angle += PI/angle;
