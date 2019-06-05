@@ -1,6 +1,5 @@
 class Tanky extends Monster {
   String type = "monster";
-  int scoring = 100;
   Tanky(int hp, int level, int xp, int power, int size, float xcor, float ycor, float xinc, float yinc, PImage img, int scoring) {
     super(hp, level, xp, power, size, xcor, ycor, xinc, yinc, img, scoring);
   }

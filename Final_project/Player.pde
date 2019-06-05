@@ -14,7 +14,7 @@ class Player extends Collider {
   //RIGHT=3
   ArrayList<Integer> movement = new ArrayList<Integer>();
   Player(int power, int numLives, float startingX, float startingY, float speed, int size, PImage img) {
-    super(startingX, startingY, size, numLives, power, "player");
+    super(startingX, startingY, size, numLives, power, "player",0);
     this.power = power;
     lives = numLives;
     xcor = startingX;

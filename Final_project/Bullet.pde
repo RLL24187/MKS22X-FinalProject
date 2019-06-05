@@ -11,7 +11,7 @@ class Bullet extends Collider {
   String type; //player's bullet vs monster bullet
 
   Bullet(int dmg, int hp, int r, int g, int b, int rad, float x, float y, float xinc, float yinc, String type) {
-    super(x, y, rad, hp, dmg, type);
+    super(x, y, rad, hp, dmg, type,0);
     power = dmg;
     this.hp = hp;
     red = r;

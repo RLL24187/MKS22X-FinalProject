@@ -1,6 +1,5 @@
 class Stan extends Monster {
   String type = "monster";
-  int scoring = 200;
   Stan(int hp, int level, int xp, int power, int size, float x, float y, float xinc, float yinc, PImage img, int scoring) {
     super(hp, level, xp, power, size, x, y, xinc, yinc, img, scoring);
   }

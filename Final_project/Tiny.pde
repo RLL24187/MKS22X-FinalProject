@@ -2,7 +2,6 @@ class Tiny extends Monster {
   boolean neg;
   float amp, angle;
   String type = "monster";
-  int scoring = 500;
   Tiny(int hp, int level, int xp, int power, int size, float xcor, float ycor, float xinc, float yinc, float amp, float angle, boolean neg, PImage img, int scoring) {
     super(hp, level, xp, power, size, xcor, ycor, xinc, yinc, img, scoring);
     this.neg = neg;

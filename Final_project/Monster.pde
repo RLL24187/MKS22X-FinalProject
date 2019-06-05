@@ -3,9 +3,8 @@ abstract class Monster extends Collider {
   float xcor, ycor, xinc, yinc;
   PImage img;
   String type = "monster";
-  int scoring = 0;
   Monster(int hp, int level, int xp, int power, int size, float x, float y, float xinc, float yinc, PImage img, int scoring) {
-    super(x, y, size, hp, power, "monster");
+    super(x, y, size, hp, power, "monster", scoring);
     this.hp = hp;
     this.level = level;
     this.xp = xp;
@@ -16,7 +15,6 @@ abstract class Monster extends Collider {
     this.xcor = x;
     this.ycor = y;
     this.img = img;
-    this.scoring = scoring;
     int chooseDrop = (int)(Math.random() * 101);
     if (chooseDrop <= 75) {
       drop = 0; //new Coin();

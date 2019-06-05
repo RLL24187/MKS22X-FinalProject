@@ -3,13 +3,14 @@ class Collider implements Killable {
   int size, hp, power;
   String type; //Player or monster
   int scoring = 0;
-  Collider(float x, float y, int size, int hp, int power, String type) {
+  Collider(float x, float y, int size, int hp, int power, String type, int scoring) {
     xcor = x;
     ycor = y;
     this.size = size;
     this.hp = hp;
     this.power = power;
     this.type = type;
+    this.scoring = scoring;
   }
 
   void display() {
