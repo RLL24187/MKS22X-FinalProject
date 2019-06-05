@@ -18,7 +18,7 @@ class Collider implements Killable {
     return Math.abs(x1-x2);
   }
   float distanceTo(Collider c) {
-    return distance(c.xcor-c.size/2, this.xcor-this.size/2, c.ycor-c.size/2, this.ycor-this.size/2)- (c.size/2) - (this.size/2);
+    return distance(c.xcor-c.size/2, this.xcor-this.size/2, c.ycor, this.ycor)- (c.size/2) - (this.size/2);
   }
   //boolean distanceTo(Collider c) {
   //  if((c.xcor-c.size/2 <= this.xcor || this.xcor <= c.xcor + c.size/2 )
