@@ -120,14 +120,11 @@ class Player extends Collider {
   boolean shoot(ArrayList<Bullet> b, ArrayList<Collider> c, int numBullets) {
     if (numBullets == 1) {
       if (key == ' ' && keyPressed == true) {
-        Bullet temp = new Bullet(power, 1, 255, 123, 45, 10, xcor+4, ycor, 3, 0);
-        if (temp.inContactB(b)) {
-          return;
-        } else {
-          b.add(temp);
-          c.add(temp);
-          keyPressed = false;
-        }
+        Bullet temp = new Bullet(power, 1, 255, 123, 45, 10, xcor+4, ycor, 3, 0, "player");
+        b.add(temp);
+        c.add(temp);
+        keyPressed = false;
+        return true;
       }
     } else if (numBullets == 2) {
       if (key == ' ' && keyPressed == true) {
@@ -152,13 +149,17 @@ class Player extends Collider {
     Collider c = inContact(enemy);
     //println(c);
     if (c!= null && c.type != "player") {
-      //println("inContact player");
+      println(c+ " is inContact player");
       lives--;
-      xcor = 0;
-      ycor = height / 2;
+      println("lives: "+lives);
+      //xcor = 0;
+      //ycor = height / 2;
       if (lives <= 0) {
         g.mode = 3;
         return true;
+      }
+      else {
+       enemy.remove(c);
       }
     }
     return false;

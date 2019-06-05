@@ -23,7 +23,7 @@ abstract class Monster extends Collider {
     } else {
       drop = 2; //new doubleBullet();
     }
-    drop = 1;
+    drop = 1; //testing shield only
   }
   abstract void display();
   abstract void shoot(ArrayList<Bullet> b, ArrayList<Collider> c);
