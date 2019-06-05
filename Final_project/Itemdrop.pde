@@ -8,7 +8,7 @@ class Itemdrop {
   boolean intact = true;
   //lifeSpan is for how many seconds left before it can't be collected anymore
   //seconds doesn't apply to Coin, this is how long the power lasts
-  Itemdrop(float x, float y, int size, float xinc, float yinc, float lifeSpan, PImage dropImg) {
+  Itemdrop(float x, float y, int size, float xinc, float yinc, float lifeSpan, PImage dropImg, String type) {
     xcor = x;
     ycor = y;
     this.xinc = xinc;
@@ -71,7 +71,7 @@ class Itemdrop {
 class Coin extends Itemdrop {
   int value;
   Coin(float x, float y, int size, float xinc, float yinc, int value, float lifeSpan, PImage coinImg) {
-    super(x, y, size, xinc, yinc, lifeSpan, coinImg);
+    super(x, y, size, xinc, yinc, lifeSpan, coinImg, "player");
     this.value = value;
   }
   void collected(Game g) {
