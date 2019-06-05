@@ -128,7 +128,7 @@ class Game {
     rect(width/2 - 100, 350, 200, 45);
     rect(width/2 -100, 415, 200, 45);
     rect(width/2-100, 480, 200, 45);
-    rect(width/2-100, 545, 200, 45);
+    //rect(width/2-100, 545, 200, 45);
     if (width/2-100 <= mouseX && mouseX <= width/2 + 100) {
       if (350 <= mouseY && mouseY <= 395) {
         stroke(204, 102, 0);
@@ -150,17 +150,17 @@ class Game {
       if (480 <= mouseY && mouseY <= 525) {
         stroke(204, 102, 0);
         rect(width/2-100, 480, 200, 45);
-        //if (mousePressed) {
-        //  mode = 3;
-        //}
-      }
-      if (545 <= mouseY && mouseY <= 590) {
-        stroke(204, 102, 0);
-        rect(width/2-100, 545, 200, 45);
         if (mousePressed) {
-          exit();
+         exit();
         }
       }
+      //if (545 <= mouseY && mouseY <= 590) {
+      //  stroke(204, 102, 0);
+      //  rect(width/2-100, 545, 200, 45);
+      //  if (mousePressed) {
+      //    exit();
+      //  }
+      //}
     }
     text("START", width/2, 385);
     text("GUIDE", width/2, 450);

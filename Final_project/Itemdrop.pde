@@ -46,9 +46,8 @@ class Itemdrop {
   boolean die(Game g) {
     if (inContact(g.p)) {
       collected(g);
-
-      //display();
-      g.itemdropList.remove(this);
+      display();
+      //g.itemdropList.remove(this);
       return true;
     } else if (millis() - beginTime > lifeSpan) {
 
@@ -75,6 +74,7 @@ class Coin extends Itemdrop {
   }
   void collected(Game g) {
     g.coinCount += value;
+    g.itemdropList.remove(this);
     println("New coin count: "+g.coinCount);
   }
   void bigDisplay(Game g) {
@@ -97,13 +97,10 @@ class Shield extends Itemdrop {
   }
   void display() {
     if (g.p.lives > 1) {
-      bigDisplay(g);
       g.p.shieldActivated = true;
+      bigDisplay(g);
     } else {
-      for (int i = 0; i < 5; i++) {
-        image(dropImg, xcor, ycor, size, size);
-      }
-      fill(250, 250, 250);
+      fill(153, 255, 255);
       ellipse(xcor, ycor, size, size);
     }
   }
