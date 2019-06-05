@@ -23,6 +23,7 @@ abstract class Monster extends Collider {
     } else {
       drop = 2; //new doubleBullet();
     }
+    drop = 1;
   }
 
   abstract void display();
@@ -32,7 +33,7 @@ abstract class Monster extends Collider {
       //Coin(float x, float y, int size, float xinc, float yinc, int value, float lifeSpan)
       Coin c = new Coin(xcor, ycor, 15, -2, 0, 1, 5000, coinImg);
       i.add(c);
-    } else if (drop == 1) {
+    } else if (drop == 1 && g.p.shieldActivated == false) {
       Shield s = new Shield(xcor, ycor, 15, -2, 0, 5000, 5000, shieldImg);
       i.add(s);
     } else if (drop == 2) {

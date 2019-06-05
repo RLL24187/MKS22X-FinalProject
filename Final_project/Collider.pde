@@ -78,7 +78,7 @@ class Collider implements Killable {
         //this.display();
         //temp.display();
         this.move(k, c, m, b, this.xinc, this.yinc);
-        //return true;
+        return true;
       }//otherwise it stays alive, with HP changed
     }
     if (xcor < -1 * size) { //out of bounds

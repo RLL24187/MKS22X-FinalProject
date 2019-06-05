@@ -154,10 +154,10 @@ class Player extends Collider {
     Collider c = inContact(enemy);
     //println(c);
     if (c!= null && c.type != "player") {
-      println(c+ " is inContact player");
+     // println(c+ " is inContact player");
       lives--;
       shieldActivated = false;
-      println("lives: "+lives);
+      //println("lives: "+lives);
       if (lives <= 0) {
         g.mode = 3;
         return true;
