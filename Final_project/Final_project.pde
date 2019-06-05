@@ -241,7 +241,6 @@ void draw() {
   if (g.mode == 1) { //playing
     background(0);
     //g.p.die(g.collideList);
-    text("Score:", width/2, 2);
     g.p.simpleMove();
     g.p.display();
     g.p.die(g, g.collideList);
@@ -252,6 +251,9 @@ void draw() {
     bulletMove();
     itemdropMove();
     monsterMove();
+    textSize(20);
+    fill(255);
+    text("Score:" +  g.score, width/2, 30);
   }
   if (g.mode == 2) { //instructions
     g.instructions();
