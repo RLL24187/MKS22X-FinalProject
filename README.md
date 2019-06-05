@@ -153,7 +153,7 @@ Move the player around using the arrow keys on your keyboard. Press space to sho
 * PLAYER IS NOW SMOOTH but also kinda choppy when going in opposite directions
 * Also added monsters shooting from where they were
 
-***Sunday 6/2/2019*** <br />
+***Sunday 6/2/2019*** <br /> 
 *Rachel*🐦: <br />
 * Adjusted frequency of monster spawning and better spread out their locations
 * Cleaned up the code: update format and remove old comments
