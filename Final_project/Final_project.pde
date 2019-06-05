@@ -237,7 +237,7 @@ void draw() {
   }
   if (g.mode == 1) { //playing
     background(0);
-    g.p.die(g.collideList);
+    //g.p.die(g.collideList);
     g.p.simpleMove();
     g.p.display();
     g.p.die(g, g.collideList);

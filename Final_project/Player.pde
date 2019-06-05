@@ -120,9 +120,10 @@ class Player extends Collider {
   boolean shoot(ArrayList<Bullet> b, ArrayList<Collider> c, int numBullets) {
     if (numBullets == 1) {
       if (key == ' ' && keyPressed == true) {
-        Bullet temp = new Bullet(power, 1, 255, 123, 45, 10, xcor+4, ycor, 3, 0);
+        //int dmg, int hp, int r, int g, int b, int rad, float x, float y, float xinc, float yinc, String type
+        Bullet temp = new Bullet(power, 1, 255, 123, 45, 10, xcor+4, ycor, 3, 0, "player");
         if (temp.inContactB(b)) {
-          return;
+          return false;
         } else {
           b.add(temp);
           c.add(temp);
