@@ -118,12 +118,15 @@ class Player extends Collider {
     if (numBullets == 1) {
       if (key == ' ' && keyPressed == true) {
         Bullet temp = new Bullet(power, 1, 255, 123, 45, 10, xcor+4, ycor, 3, 0);
-        b.add(temp);
-        c.add(temp);
-        keyPressed = false;
+        if (temp.inContactB(b)) {
+          return;
+        } else {
+          b.add(temp);
+          c.add(temp);
+          keyPressed = false;
+        }
       }
-    }
-    else if (numBullets == 2) {
+    } else if (numBullets == 2) {
       if (key == ' ' && keyPressed == true) {
         Bullet temp = new Bullet(power, 1, 255, 123, 45, 10, xcor+4, ycor + size/2, 3, 0);
         Bullet temp2 = new Bullet(power, 1, 255, 123, 45, 10, xcor+4, ycor - size/2, 3, 0);
