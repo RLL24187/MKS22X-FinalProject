@@ -2,6 +2,7 @@ class Collider implements Killable {
   float xcor, ycor, xinc, yinc;
   int size, hp, power;
   String type; //Player or monster
+  int scoring = 0;
   Collider(float x, float y, int size, int hp, int power, String type) {
     xcor = x;
     ycor = y;
@@ -68,7 +69,9 @@ class Collider implements Killable {
       }
       if (tempNewHP <= 0) {
         c.remove(temp);
-        m.remove(temp);
+        if (m.remove(temp)) {
+          g.score += temp.scoring;
+        }
         b.remove(temp);
         //println(temp + " removed");
         //this.display();

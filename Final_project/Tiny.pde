@@ -2,8 +2,9 @@ class Tiny extends Monster {
   boolean neg;
   float amp, angle;
   String type = "monster";
-  Tiny(int hp, int level, int xp, int power, int size, float xcor, float ycor, float xinc, float yinc, float amp, float angle, boolean neg, PImage img) {
-    super(hp, level, xp, power, size, xcor, ycor, xinc, yinc, img);
+  int scoring = 500;
+  Tiny(int hp, int level, int xp, int power, int size, float xcor, float ycor, float xinc, float yinc, float amp, float angle, boolean neg, PImage img, int scoring) {
+    super(hp, level, xp, power, size, xcor, ycor, xinc, yinc, img, scoring);
     this.neg = neg;
     this.amp = amp;
     this.angle = angle; //in rads
@@ -35,14 +36,15 @@ class Tiny extends Monster {
   }
   void formation(ArrayList<Monster> mon, ArrayList<Collider> c) {
     mon.add(this);
+    c.add(this);
     for (int i = 0; i < 3; i++) {
       Tiny t;
       if (i % 3 == 0) {
-        t = new Tiny(hp, level, xp, power, size, xcor+size*i + 10 * size, ycor + 10 * size, xinc, yinc, amp + 5, angle + amp/ 4, true, img);
+        t = new Tiny(hp, level, xp, power, size, xcor+size*i + 10 * size, ycor + 10 * size, xinc, yinc, amp + 5, angle + amp/ 4, true, img, scoring);
       } else if (i % 3 == 1) {
-        t = new Tiny(hp, level, xp, power, size, xcor+size*i + 15 * size, ycor - 10 * size, xinc, yinc, amp + 5, angle + size/ 3, false, img);
+        t = new Tiny(hp, level, xp, power, size, xcor+size*i + 15 * size, ycor - 10 * size, xinc, yinc, amp + 5, angle + size/ 3, false, img, scoring);
       } else {
-        t = new Tiny(hp, level, xp, power, size, xcor+size*i + 20 * size, ycor, xinc, yinc, amp, angle / 6, neg, img);
+        t = new Tiny(hp, level, xp, power, size, xcor+size*i + 20 * size, ycor, xinc, yinc, amp, angle / 6, neg, img, scoring);
       }
       mon.add(t);
       c.add(t);

@@ -40,7 +40,7 @@ class Game {
   void display(int chooseMonster) {
     int chooseYcor = (int)(Math.random()* (height));
     if (chooseMonster == 0) {
-      Stan x = new Stan(10, 250, 0, 10, 30, width, chooseYcor, 2, 0., stanImg);
+      Stan x = new Stan(10, 250, 0, 10, 30, width, chooseYcor, 2, 0., stanImg, 200);
       if (chooseYcor <= 3*x.size) {
         x.ycor += 3*x.size;
       } else if (chooseYcor > height-(3*x.size)) {
@@ -48,7 +48,7 @@ class Game {
       }
       x.formation(monsterList, collideList);
     } else if (chooseMonster == 1) {
-      Tanky y = new Tanky(20, 250, 0, 10, 75, width, chooseYcor, 1, 0, tankyImg);
+      Tanky y = new Tanky(20, 250, 0, 10, 75, width, chooseYcor, 1, 0, tankyImg, 100);
       if (chooseYcor < y.size/2) {
         y.ycor += y.size/2;
       }
@@ -58,7 +58,7 @@ class Game {
       y.formation(monsterList, collideList);
     } else if (chooseMonster == 2) {
       boolean b = (int)(Math.random() * 2) % 2 == 0;
-      Tiny z = new Tiny(10, 1, 5, 1, 20, width, chooseYcor, 2, 0, 200, PI/12, b, tinyImg);
+      Tiny z = new Tiny(10, 1, 5, 1, 20, width, chooseYcor, 2, 0, 200, PI/12, b, tinyImg, 500);
       if (chooseYcor-z.amp < 0) {
         z.ycor += z.amp;
       } else if (chooseYcor+z.amp>height) {
@@ -241,6 +241,7 @@ void draw() {
   if (g.mode == 1) { //playing
     background(0);
     //g.p.die(g.collideList);
+    text("Score:", width/2, 2);
     g.p.simpleMove();
     g.p.display();
     g.p.die(g, g.collideList);
@@ -270,6 +271,9 @@ void keyPressed() {
   //growTimer--
   if (g.mode == 3) {
     if (key == 'r' || key == 'R') {
+      g=new Game();
+      g.p.ycor = height/2;
+      g.p.xcor = 0;
       g.mode = 1;
     }
   }

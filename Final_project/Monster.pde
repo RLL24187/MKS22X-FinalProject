@@ -3,8 +3,9 @@ abstract class Monster extends Collider {
   float xcor, ycor, xinc, yinc;
   PImage img;
   String type = "monster";
-  Monster(int hp, int level, int xp, int power, int size, float x, float y, float xinc, float yinc, PImage img) {
-    super(x, y, size, hp, power,"monster");
+  int scoring = 0;
+  Monster(int hp, int level, int xp, int power, int size, float x, float y, float xinc, float yinc, PImage img, int scoring) {
+    super(x, y, size, hp, power, "monster");
     this.hp = hp;
     this.level = level;
     this.xp = xp;
@@ -15,27 +16,29 @@ abstract class Monster extends Collider {
     this.xcor = x;
     this.ycor = y;
     this.img = img;
+    this.scoring = scoring;
     int chooseDrop = (int)(Math.random() * 101);
-    if (chooseDrop <= 75){
+    if (chooseDrop <= 75) {
       drop = 0; //new Coin();
-    } else if (chooseDrop <= 90 && g.p.shieldActivated == false){
+    } else if (chooseDrop <= 90 && g.p.shieldActivated == false) {
       drop = 1; //new Shield();
     } else {
       drop = 2; //new doubleBullet();
     }
     //drop = 1;
   }
+
   abstract void display();
   abstract void shoot(ArrayList<Bullet> b, ArrayList<Collider> c);
-  void dropItem(ArrayList<Itemdrop> i){
-    if (drop == 0){
+  void dropItem(ArrayList<Itemdrop> i) {
+    if (drop == 0) {
       //Coin(float x, float y, int size, float xinc, float yinc, int value, float lifeSpan)
       Coin c = new Coin(xcor, ycor, 15, -2, 0, 1, 5000, coinImg);
       i.add(c);
-    } else if (drop == 1){
+    } else if (drop == 1) {
       Shield s = new Shield(xcor, ycor, 15, -2, 0, 5000, 5000, shieldImg);
       i.add(s);
-    } else if (drop == 2){
+    } else if (drop == 2) {
       DoubleBullet db = new DoubleBullet(xcor, ycor, 15, -2, 0, 5000, 5000, bulImg);
       i.add(db);
     }
@@ -43,7 +46,7 @@ abstract class Monster extends Collider {
   boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b, ArrayList<Itemdrop> i) {//true when removed
     xcor-=xinc;
     ycor-=yinc;
-    if (super.move(k, c, m, b, -1 * xinc, -1 * yinc)){
+    if (super.move(k, c, m, b, -1 * xinc, -1 * yinc)) {
       dropItem(i);
       return true;
     }

@@ -158,6 +158,7 @@ class Player extends Collider {
       lives--;
       xcor = 0;
       ycor = height / 2;
+      shieldActivated = false;
       if (lives <= 0) {
         g.mode = 3;
         return true;
