@@ -86,13 +86,13 @@ class Game {
         //println("lives fixed");
       }
     }
-    if (playerShootTime > 0){
+    if (playerShootTime > 0) {
       playerShootTime -= millis() - time;
       /*
       if (playerShootTime <= 0) {
-        println("Ready to fire!");
-      }
-      */
+       println("Ready to fire!");
+       }
+       */
     }
     if (stanCounter % 600 == 0) {
       display(0);
@@ -118,7 +118,7 @@ class Game {
   //buttons:
   //width/2 - rectWidth/2, 500
   void menu(PImage wallpaper, PFont font, PFont buttonFont) {
-    image(wallpaper, 0, 0, width, height);
+    //image(wallpaper, 0, 0, width, height);
     strokeWeight(4);
     textFont(font, 60);
     textAlign(CENTER);
@@ -152,7 +152,7 @@ class Game {
         stroke(204, 102, 0);
         rect(width/2-100, 480, 200, 45);
         if (mousePressed) {
-         exit();
+          exit();
         }
       }
       //if (545 <= mouseY && mouseY <= 590) {
@@ -170,7 +170,7 @@ class Game {
   }
 
   void instructions() {
-    image(menuPaper, 0, 0, width, height);
+    //image(menuPaper, 0, 0, width, height);
     textSize(40);
     text("Instructions: ", width/2, 50);
     textSize(30);
@@ -238,14 +238,17 @@ void itemdropMove() {
 }
 void draw() {
   if (g.mode == 0) { //menu
-    g.menu(menuPaper, font, buttonFont);
+    //setup();
+    menuPaper.resize(width, height);
+    background(menuPaper);
+    g.menu(menuPaper, font, buttonFont);    
   }
   if (g.mode == 1) { //playing
     background(0);
     g.p.die(g, g.collideList);
     g.p.simpleMove();
     g.p.display();
-    if (g.playerShootTime <= 0 && g.p.shoot(g.bulletList, g.collideList, g.numBullets)){
+    if (g.playerShootTime <= 0 && g.p.shoot(g.bulletList, g.collideList, g.numBullets)) {
       g.playerShootTime = 100;
     }
     g.update();
@@ -258,6 +261,8 @@ void draw() {
     text("Coins:" + g.coinCount, width/2, 60);
   }
   if (g.mode == 2) { //instructions
+    menuPaper.resize(width, height);
+    background(menuPaper);
     g.instructions();
   }
   if (g.mode == 3) { //end
@@ -280,12 +285,14 @@ void keyPressed() {
       g.p.xcor = 0;
       g.mode = 1;
     }
-    if (key == 'm' || key == 'M'){
+    if (key == 'm' || key == 'M') {
+      setup();
       g.mode = 0;
     }
   }
   if (g.mode == 2) {
-    if (key == 'm' || key == 'M'){
+    if (key == 'm' || key == 'M') {
+      setup();
       g.mode = 0;
     }
   }
