@@ -184,8 +184,8 @@ void setup() {
   //String[] fontList = PFont.list();
   //printArray(fontList);
   //for testing purposes
-  Tanky y = new Tanky(20, 250, 0, 10, 75, width, height/2, 1, 0, tankyImg);
-  y.formation(g.monsterList);
+  //Tanky y = new Tanky(20, 250, 0, 10, 75, width, height/2, 1, 0, tankyImg);
+  //y.formation(g.monsterList);
   size(1200, 700);
   g.menu(menuPaper, font, buttonFont);
   g.p.ycor = height/2;
@@ -235,7 +235,7 @@ void draw() {
     g.p.simpleMove();
     g.p.display();
     g.p.shoot(g.bulletList, g.collideList, g.numBullets);
-    //g.update();
+    g.update();
     bulletMove();
     itemdropMove();
     monsterMove();

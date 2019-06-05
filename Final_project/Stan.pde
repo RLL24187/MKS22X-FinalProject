@@ -2,9 +2,9 @@ class Stan extends Monster {
   Stan(int hp, int level, int xp, int power, int size, float x, float y, float xinc, float yinc, PImage img) {
     super(hp, level, xp, power, size, x, y, xinc, yinc, img);
   }
-  float distanceTo(Collider c) {
-    return distance(c.xcor, this.xcor + this.size/2, c.ycor, this.ycor + this.size/2) - (c.size/2) - (this.size/2);
-  }
+  //float distanceTo(Collider c) {
+  //  return distance(c.xcor, this.xcor + this.size/2, c.ycor, this.ycor + this.size/2) - (c.size/2) - (this.size/2);
+  //}
   boolean move(ArrayList<Killable> k, ArrayList<Collider> c, ArrayList<Monster> m, ArrayList<Bullet> b, ArrayList<Itemdrop> i) {
     if (super.move(k, c, m, b, i)) {
       m.remove(this);
@@ -14,7 +14,7 @@ class Stan extends Monster {
   }
   void shoot(ArrayList<Bullet> b) {
     if (g.stanCounter % 60 == 0) {
-      b.add(new Bullet(power, 1, 255, 124, 43, 10, xcor, ycor+size/2, -3*xinc, yinc));
+      b.add(new Bullet(power, 1, 255, 124, 43, 10, xcor, ycor, -3*xinc, yinc));
     }
   }
   void display() {

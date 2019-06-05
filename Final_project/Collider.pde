@@ -14,9 +14,22 @@ class Collider implements Killable {
   float distance(float x1, float x2, float y1, float y2) {
     return pow((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2), .5);
   }
-  float distanceTo(Collider c) {
-    return distance(c.xcor, this.xcor, c.ycor, this.ycor) - (c.size/2) - (this.size/2);
+  float distance(float x1, float x2) {
+    return Math.abs(x1-x2);
   }
+  float distanceTo(Collider c) {
+    return distance(c.xcor-c.size/2, this.xcor-this.size/2, c.ycor-c.size/2, this.ycor-this.size/2)- (c.size/2) - (this.size/2);
+  }
+  //boolean distanceTo(Collider c) {
+  //  if((c.xcor-c.size/2 <= this.xcor || this.xcor <= c.xcor + c.size/2 )
+  //  //|| xcor-size/2 <= c.xcor || c.xcor <= xcor+size/2)
+  //  && (c.ycor - c.size/2 <= ycor || ycor <= c.ycor + c.size/2 ))//||
+  //  //ycor-size/2 <= c.ycor || c.ycor <= ycor+size/2)) 
+  //  {
+  //    return true;
+  //  }
+  //  return false;
+  //}
   boolean inRadius (Collider c) {
     if (c.equals(this)) return false;
     return (distanceTo(c) <= 0);

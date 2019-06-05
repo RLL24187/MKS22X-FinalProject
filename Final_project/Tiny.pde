@@ -7,9 +7,9 @@ class Tiny extends Monster {
     this.amp = amp;
     this.angle = angle; //in rads
   }
-  float distanceTo(Collider c) {
-    return distance(c.xcor, this.xcor + this.size/2, c.ycor, this.ycor + this.size/2) - (c.size/2) - (this.size/2);
-  }
+  //float distanceTo(Collider c) {
+  //  return distance(c.xcor, this.xcor + this.size/2, c.ycor, this.ycor + this.size/2) - (c.size/2) - (this.size/2);
+  //}
   void display() {
     image(img, xcor, ycor, size, size);
   }
@@ -27,7 +27,7 @@ class Tiny extends Monster {
   }
   void shoot(ArrayList<Bullet> b) {
     if (g.tankyCounter % 90 == 0) {
-      b.add(new Bullet(power, 1, 255, 124, 43, 10, xcor, ycor+size/2, -3*xinc, 0));
+      b.add(new Bullet(power, 1, 255, 124, 43, 10, xcor, ycor, -3*xinc, 0));
     }
   }
   void formation(ArrayList<Monster> mon) {
